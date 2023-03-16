@@ -1,4 +1,3 @@
-import { EntitySheetHelper } from "./helper.js";
 import { ATTRIBUTE_TYPES } from "./constants.js";
 
 /**
@@ -29,9 +28,8 @@ export class MouseGuardItemSheet extends ItemSheet {
     /** @inheritdoc */
     getData() {
         const context = super.getData();
-        //EntitySheetHelper.getAttributeData(context.data);
         context.systemData = context.item.system;
-        //console.log(context);
+
         return context;
     }
 

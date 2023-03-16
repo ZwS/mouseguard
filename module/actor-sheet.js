@@ -14,7 +14,7 @@ export class MouseGuardActorSheet extends ActorSheet {
         return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["mouseguard", "sheet", "actor"],
             template: "systems/mouseguard/templates/actor-sheetv2.html",
-            width: 850,
+            width: 700,
             height: 600,
             tabs: []
         });
@@ -153,7 +153,6 @@ export class MouseGuardActorSheet extends ActorSheet {
         // Remove the type from the dataset since it's in the itemData.type prop.
         delete itemData.data["type"];
         // Finally, create the item!
-        //console.log(itemData);
         return await Item.create(itemData, { parent: this.actor }).then(
             (item) => {
                 item.sheet.render(true);

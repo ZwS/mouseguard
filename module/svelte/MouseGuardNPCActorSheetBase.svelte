@@ -1,12 +1,10 @@
 <script>
     import { setContext } from "svelte";
 
-    // Component imports
-    //TODO: IMPORTS
-
-    import MouseGuardActorSheetHeader from "./MouseGuardActorSheetHeader.svelte";
-    import MouseGuardNpcActorSheetBody from "./MouseGuardNPCActorSheetBody.svelte";
-    import MouseGuardActorSheetMouseDispo from "./MouseGuardActorSheetMouseDispo.svelte";
+    import MouseGuardActorSheetDisposition from "./MouseGuardActorSheetDisposition.svelte";
+    import MouseGuardActorSheetMouseSkillAbilityTab from "./MouseGuardActorSheetMouseSkillAbilityTab.svelte";
+    import MouseGuardActorSheetName from "./MouseGuardActorSheetName.svelte";
+    import MouseGuardActorSheetMousePortrait from "./MouseGuardActorSheetPortrait.svelte";
 
     //Exports
     export let dataStore;
@@ -14,24 +12,51 @@
     //let sheetData = getContext("sheetStore");
 </script>
 
-<div class="box"><MouseGuardActorSheetHeader /></div>
-
-<div class="box">
-    <MouseGuardNpcActorSheetBody />
-</div>
-<div class="box">
-    <MouseGuardActorSheetMouseDispo />
-</div>
+<header class="flexrow">
+    <section class="left-col">
+        <div class="flexrow">
+            <MouseGuardActorSheetName/>
+            <MouseGuardActorSheetDisposition/>
+        </div>
+        <div class="npc-info flexrow">
+            <div class="npc-type">
+                {game.i18n.localize('MOUSEGUARD.CharacterType')}:
+                {game.i18n.localize('ACTOR.Type' + $dataStore.actor.type.capitalize())}
+            </div>
+            <div class="npc-size">
+                <!-- TODO add size to actor sheet -->
+            </div>
+        </div>
+    </section>
+    <section class="right-col">
+        <MouseGuardActorSheetMousePortrait/>
+    </section>
+</header>
+<section class="sheet-body flexcol">
+    <section class="flexrow">
+        <MouseGuardActorSheetMouseSkillAbilityTab/>
+    </section>
+    <section class="flexrow">
+        <!-- TODO add Disposition -->
+    </section>
+</section>
 
 <style>
-    .box {
-        border-radius: 0 0 0.5rem 0.5rem;
-        border-top: 0;
+    .sheet-body {
+        flex: 1;
+        overflow: hidden;
     }
 
-    content {
-        overflow-y: scroll;
+    .npc-info {
+        flex: 0 0 45px;
+        border-top: 1px solid #aaa;
+        border-bottom: 1px solid #aaa;
+        justify-content: center;
+        line-height: 45px;
     }
 
-    @import url("https://fonts.googleapis.com/css2?family=Germania+One&family=Khula&display=swap");
+    .right-col {
+        flex: 0 0 100px;
+        border-left: 1px solid #aaa;
+    }
 </style>

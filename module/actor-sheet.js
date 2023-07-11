@@ -32,77 +32,6 @@ export class MouseGuardActorSheet extends ActorSheet {
     /* -------------------------------------------- */
 
     /** @inheritdoc */
-    activateListeners(html) {
-        super.activateListeners(html);
-
-        // Everything below here is only needed if the sheet is editable
-        if (!this.isEditable) return;
-
-        // Item Controls
-        html.find(".item-control").click(this._onItemControl.bind(this));
-        html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
-    }
-
-    /* -------------------------------------------- */
-
-    /**
-     * Handle click events for Item control buttons within the Actor Sheet
-     * @param event
-     * @private
-     */
-    _onItemControl(event) {
-        event.preventDefault();
-
-        // Obtain event data
-        const button = event.currentTarget;
-        const li = button.closest(".item");
-        const item = this.actor.items.get(li?.dataset.itemId);
-
-        // Handle different actions
-        switch (button.dataset.action) {
-            case "create":
-                const cls = getDocumentClass("Item");
-                return cls.create(
-                    {
-                        name: game.i18n.localize("MOUSEGUARD.ItemNew"),
-                        type: "item"
-                    },
-                    { parent: this.actor }
-                );
-            case "edit":
-                return item.sheet.render(true);
-            case "delete":
-                return item.delete();
-        }
-    }
-
-    /* -------------------------------------------- */
-
-    /**
-     * Listen for roll buttons on items.
-     * @param {MouseEvent} event    The originating left click event
-     */
-    _onItemRoll(event) {
-        let button = $(event.currentTarget);
-        const li = button.parents(".item");
-        const item = this.actor.items.get(li.data("itemId"));
-        let r = new Roll(button.data("roll"), this.actor.getRollData());
-        return r.toMessage({
-            user: game.user.id,
-            speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-            flavor: `<h2>${item.name}</h2><h3>${button.text()}</h3>`
-        });
-    }
-
-    /* -------------------------------------------- */
-
-    __onSubmit(event) {
-        event = super._onSubmit(event);
-        console.log(event);
-        return event;
-    }
-
-    /** @inheritdoc */
     _getSubmitData(updateData) {
         let formData = super._getSubmitData(updateData);
         return formData;
@@ -114,21 +43,18 @@ export class MouseGuardActorSheet extends ActorSheet {
         game.mouseguard.updateDisplay(count);
     }
 
-    async _updateActorAbility(id, type, value) {
-        await this.actor.updateEmbeddedDocuments("Item", [
-            { _id: id, data: { [type]: value } }
-        ]);
-    }
-
     async _updateEmbededItem(id, _data) {
         await this.actor.updateEmbeddedDocuments("Item", [
             { _id: id, data: _data }
         ]);
-        //console.log(this.actor)
+    }
+
+    async _onItemUpdate(itemId) {
+        const item = this.actor.items.get(itemId);
+        return item.sheet.render(true);
     }
 
     async _onItemDelete(itemId) {
-        console.log(itemId);
         const item = this.actor.items.get(itemId);
         item.delete();
         this.render();

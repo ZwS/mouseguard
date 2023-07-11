@@ -1327,79 +1327,79 @@ var MouseGuardActorSheetMouseDetails_default = MouseGuardActorSheetMouseDetails;
 
 // module/svelte/MouseGuardActorSheetMouseRewards.svelte
 function create_fragment3(ctx) {
-  let fatebox;
+  let div0;
   let label0;
   let t1;
   let input0;
   let input0_value_value;
   let t2;
-  let personabox;
+  let div1;
   let label1;
   let t4;
   let input1;
   let input1_value_value;
   let t5;
-  let checksbox;
+  let div2;
   let label2;
   let t7;
   let input2;
   let input2_value_value;
   return {
     c() {
-      fatebox = element("fatebox");
+      div0 = element("div");
       label0 = element("label");
       label0.textContent = `${game.i18n.localize("MOUSEGUARD.Fate")}`;
       t1 = space();
       input0 = element("input");
       t2 = space();
-      personabox = element("personabox");
+      div1 = element("div");
       label1 = element("label");
       label1.textContent = `${game.i18n.localize("MOUSEGUARD.Persona")}`;
       t4 = space();
       input1 = element("input");
       t5 = space();
-      checksbox = element("checksbox");
+      div2 = element("div");
       label2 = element("label");
       label2.textContent = `${game.i18n.localize("MOUSEGUARD.Checks")}`;
       t7 = space();
       input2 = element("input");
-      attr(label0, "class", "header svelte-mmm4wc");
+      attr(label0, "class", "header svelte-1ebpjqs");
+      attr(input0, "class", "fatebox svelte-1ebpjqs");
       attr(input0, "name", "system.rewards.fate");
       attr(input0, "type", "number");
       input0.value = input0_value_value = ctx[0].system.rewards.fate;
       attr(input0, "placeholder", "0");
-      attr(input0, "class", "svelte-mmm4wc");
-      attr(fatebox, "class", "svelte-mmm4wc");
-      attr(label1, "class", "header svelte-mmm4wc");
+      attr(div0, "class", "form-group svelte-1ebpjqs");
+      attr(label1, "class", "header svelte-1ebpjqs");
+      attr(input1, "class", "personabox svelte-1ebpjqs");
       attr(input1, "name", "system.rewards.persona");
       attr(input1, "type", "number");
       input1.value = input1_value_value = ctx[0].system.rewards.persona;
       attr(input1, "placeholder", "0");
-      attr(input1, "class", "svelte-mmm4wc");
-      attr(personabox, "class", "svelte-mmm4wc");
-      attr(label2, "class", "header svelte-mmm4wc");
+      attr(div1, "class", "form-group svelte-1ebpjqs");
+      attr(label2, "class", "header svelte-1ebpjqs");
+      attr(input2, "class", "checksbox svelte-1ebpjqs");
       attr(input2, "name", "system.rewards.check");
       attr(input2, "type", "number");
       input2.value = input2_value_value = ctx[0].system.rewards.check;
       attr(input2, "placeholder", "0");
-      attr(input2, "class", "svelte-mmm4wc");
-      attr(checksbox, "class", "svelte-mmm4wc");
+      attr(div2, "class", "form-group svelte-1ebpjqs");
     },
     m(target, anchor) {
-      insert(target, fatebox, anchor);
-      append(fatebox, label0);
-      append(fatebox, t1);
-      append(fatebox, input0);
+      insert(target, div0, anchor);
+      append(div0, label0);
+      append(div0, t1);
+      append(div0, input0);
       insert(target, t2, anchor);
-      insert(target, personabox, anchor);
-      append(personabox, label1);
-      append(personabox, t4);
-      append(personabox, input1);
+      insert(target, div1, anchor);
+      append(div1, label1);
+      append(div1, t4);
+      append(div1, input1);
       insert(target, t5, anchor);
-      insert(target, checksbox, anchor);
-      append(checksbox, label2);
-      append(checksbox, t7);
-      append(checksbox, input2);
+      insert(target, div2, anchor);
+      append(div2, label2);
+      append(div2, t7);
+      append(div2, input2);
     },
     p(ctx2, [dirty]) {
       if (dirty & 1 && input0_value_value !== (input0_value_value = ctx2[0].system.rewards.fate) && input0.value !== input0_value_value) {
@@ -1416,15 +1416,15 @@ function create_fragment3(ctx) {
     o: noop,
     d(detaching) {
       if (detaching)
-        detach(fatebox);
+        detach(div0);
       if (detaching)
         detach(t2);
       if (detaching)
-        detach(personabox);
+        detach(div1);
       if (detaching)
         detach(t5);
       if (detaching)
-        detach(checksbox);
+        detach(div2);
     }
   };
 }
@@ -2398,7 +2398,13 @@ function instance4($$self, $$props, $$invalidate) {
   let itemTypeConfigs = {
     wise: {
       header: game.i18n.localize("MOUSEGUARD.Wises"),
-      add: () => () => sheet?._onItemCreate.bind(sheet),
+      add: () => () => {
+        let cls = getDocumentClass("Item");
+        return cls.create({
+          name: game.i18n.localize("MOUSEGUARD.ItemNew"),
+          type: "wise"
+        }, { parent: sheet.actor });
+      },
       showRating: true,
       ratingPropertyName: game.i18n.localize("MOUSEGUARD.Rank"),
       showAdvance: true,
@@ -3706,47 +3712,6 @@ var MouseGuardActorSheet = class extends ActorSheet {
     context.sheet = this;
     return context;
   }
-  activateListeners(html) {
-    super.activateListeners(html);
-    if (!this.isEditable)
-      return;
-    html.find(".item-control").click(this._onItemControl.bind(this));
-    html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
-  }
-  _onItemControl(event) {
-    event.preventDefault();
-    const button = event.currentTarget;
-    const li = button.closest(".item");
-    const item2 = this.actor.items.get(li?.dataset.itemId);
-    switch (button.dataset.action) {
-      case "create":
-        const cls = getDocumentClass("Item");
-        return cls.create({
-          name: game.i18n.localize("MOUSEGUARD.ItemNew"),
-          type: "item"
-        }, { parent: this.actor });
-      case "edit":
-        return item2.sheet.render(true);
-      case "delete":
-        return item2.delete();
-    }
-  }
-  _onItemRoll(event) {
-    let button = $(event.currentTarget);
-    const li = button.parents(".item");
-    const item2 = this.actor.items.get(li.data("itemId"));
-    let r = new Roll(button.data("roll"), this.actor.getRollData());
-    return r.toMessage({
-      user: game.user.id,
-      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flavor: `<h2>${item2.name}</h2><h3>${button.text()}</h3>`
-    });
-  }
-  __onSubmit(event) {
-    event = super._onSubmit(event);
-    console.log(event);
-    return event;
-  }
   _getSubmitData(updateData) {
     let formData = super._getSubmitData(updateData);
     return formData;
@@ -3756,18 +3721,16 @@ var MouseGuardActorSheet = class extends ActorSheet {
     game.mouseguard.RollMessage = message;
     game.mouseguard.updateDisplay(count);
   }
-  async _updateActorAbility(id, type, value) {
-    await this.actor.updateEmbeddedDocuments("Item", [
-      { _id: id, data: { [type]: value } }
-    ]);
-  }
   async _updateEmbededItem(id, _data) {
     await this.actor.updateEmbeddedDocuments("Item", [
       { _id: id, data: _data }
     ]);
   }
+  async _onItemUpdate(itemId) {
+    const item2 = this.actor.items.get(itemId);
+    return item2.sheet.render(true);
+  }
   async _onItemDelete(itemId) {
-    console.log(itemId);
     const item2 = this.actor.items.get(itemId);
     item2.delete();
     this.render();

@@ -6,30 +6,33 @@
     $: data = $sheetData.data;
 </script>
 
-<fatebox>
+<div class="form-group">
     <label class="header">{game.i18n.localize("MOUSEGUARD.Fate")}</label>
     <input
+            class="fatebox"
             name="system.rewards.fate"
             type="number"
             value={data.system.rewards.fate}
             placeholder="0"/>
-</fatebox>
-<personabox>
+</div>
+<div class="form-group">
     <label class="header">{game.i18n.localize("MOUSEGUARD.Persona")}</label>
     <input
+            class="personabox"
             name="system.rewards.persona"
             type="number"
             value={data.system.rewards.persona}
             placeholder="0"/>
-</personabox>
-<checksbox>
+</div>
+<div class="form-group">
     <label class="header">{game.i18n.localize("MOUSEGUARD.Checks")}</label>
     <input
+            class="checksbox"
             name="system.rewards.check"
             type="number"
             value={data.system.rewards.check}
             placeholder="0"/>
-</checksbox>
+</div>
 
 <style>
     label {
@@ -47,11 +50,11 @@
         display: block;
     }
 
-    fatebox, personabox, checksbox {
+    .form-group {
         display: block;
     }
 
-    fatebox input, personabox input, checksbox input {
+    .form-group input {
         width: 70px;
         height: 70px;
         margin-left: 15px;
@@ -59,15 +62,15 @@
         font-size: large;
     }
 
-    fatebox input {
+    .fatebox {
         background: rgba(0, 0, 0, 0) url("../assets/actor/Fate.svg") center no-repeat;
     }
 
-    personabox input {
+    .personabox {
         background: rgba(0, 0, 0, 0) url("../assets/actor/Persona.svg") center no-repeat;
     }
 
-    checksbox input {
+    .checksbox {
         background: rgba(0, 0, 0, 0) url("../assets/actor/Checks.svg") center no-repeat;
     }
 </style>

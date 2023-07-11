@@ -1,4 +1,4 @@
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardEditor.esbuild-svelte-fake-css */
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardEditor.esbuild-svelte-fake-css */
 .editor.svelte-1ccthvk {
   display: grid;
   grid-template-rows: 1px 1fr;
@@ -7,7 +7,7 @@
   min-height: 100px;
 }
 
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetMouseDetails.esbuild-svelte-fake-css */
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetMouseDetails.esbuild-svelte-fake-css */
 .characteristics.svelte-6c3beh {
   flex: 0 0 200px;
   height: 100%;
@@ -25,44 +25,40 @@ label.svelte-6c3beh {
   font-size: small;
 }
 
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetMouseRewards.esbuild-svelte-fake-css */
-label.svelte-mmm4wc.svelte-mmm4wc {
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetMouseRewards.esbuild-svelte-fake-css */
+label.svelte-1ebpjqs.svelte-1ebpjqs {
   margin-top: 3px;
 }
-input.svelte-mmm4wc.svelte-mmm4wc {
+input.svelte-1ebpjqs.svelte-1ebpjqs {
   border: none;
 }
-.header.svelte-mmm4wc.svelte-mmm4wc {
+.header.svelte-1ebpjqs.svelte-1ebpjqs {
   font-size: large;
   width: 100%;
   text-align: center;
   display: block;
 }
-fatebox.svelte-mmm4wc.svelte-mmm4wc,
-personabox.svelte-mmm4wc.svelte-mmm4wc,
-checksbox.svelte-mmm4wc.svelte-mmm4wc {
+.form-group.svelte-1ebpjqs.svelte-1ebpjqs {
   display: block;
 }
-fatebox.svelte-mmm4wc input.svelte-mmm4wc,
-personabox.svelte-mmm4wc input.svelte-mmm4wc,
-checksbox.svelte-mmm4wc input.svelte-mmm4wc {
+.form-group.svelte-1ebpjqs input.svelte-1ebpjqs {
   width: 70px;
   height: 70px;
   margin-left: 15px;
   text-align: center;
   font-size: large;
 }
-fatebox.svelte-mmm4wc input.svelte-mmm4wc {
+.fatebox.svelte-1ebpjqs.svelte-1ebpjqs {
   background: rgba(0, 0, 0, 0) url(../assets/actor/Fate.svg) center no-repeat;
 }
-personabox.svelte-mmm4wc input.svelte-mmm4wc {
+.personabox.svelte-1ebpjqs.svelte-1ebpjqs {
   background: rgba(0, 0, 0, 0) url(../assets/actor/Persona.svg) center no-repeat;
 }
-checksbox.svelte-mmm4wc input.svelte-mmm4wc {
+.checksbox.svelte-1ebpjqs.svelte-1ebpjqs {
   background: rgba(0, 0, 0, 0) url(../assets/actor/Checks.svg) center no-repeat;
 }
 
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetItemList.esbuild-svelte-fake-css */
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetItemList.esbuild-svelte-fake-css */
 .items-header.svelte-1qs2i53 > .svelte-1qs2i53 {
   font-size: 12px;
   text-align: center;
@@ -202,7 +198,7 @@ against.svelte-1qs2i53.svelte-1qs2i53 {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetAbilityList.esbuild-svelte-fake-css */
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetAbilityList.esbuild-svelte-fake-css */
 .items-header.svelte-1u2nsh4 > .svelte-1u2nsh4 {
   font-size: 12px;
   text-align: center;
@@ -323,7 +319,7 @@ pass.svelte-1u2nsh4.svelte-1u2nsh4 {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetMouseSkillAbilityTab.esbuild-svelte-fake-css */
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetMouseSkillAbilityTab.esbuild-svelte-fake-css */
 .abilities.svelte-6ol27s {
   flex: 0 0 200px;
 }
@@ -336,7 +332,7 @@ pass.svelte-1u2nsh4.svelte-1u2nsh4 {
   scrollbar-width: thin;
 }
 
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetDisposition.esbuild-svelte-fake-css */
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetDisposition.esbuild-svelte-fake-css */
 .disposition-container.svelte-5lwv33 {
   flex: 0;
   margin-left: auto;
@@ -367,7 +363,7 @@ input.svelte-5lwv33:focus {
   line-height: 35px;
 }
 
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetPortrait.esbuild-svelte-fake-css */
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetPortrait.esbuild-svelte-fake-css */
 .profile-img.svelte-140opxm {
   display: block;
   object-fit: contain;
@@ -376,7 +372,7 @@ input.svelte-5lwv33:focus {
   border-bottom: 1px solid #aaa;
 }
 
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetName.esbuild-svelte-fake-css */
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetName.esbuild-svelte-fake-css */
 .namebox.svelte-158n7o2.svelte-158n7o2 {
   flex: 0 0 60px;
 }
@@ -392,7 +388,7 @@ input.svelte-5lwv33:focus {
   box-shadow: none;
 }
 
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetBase.esbuild-svelte-fake-css */
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetBase.esbuild-svelte-fake-css */
 .tabs.svelte-1jl5wux.svelte-1jl5wux {
   flex: 0 0 40px;
   border-top: 1px solid #aaa;
@@ -418,7 +414,7 @@ input.svelte-5lwv33:focus {
   height: 100%;
 }
 
-/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardNPCActorSheetBase.esbuild-svelte-fake-css */
+/* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardNPCActorSheetBase.esbuild-svelte-fake-css */
 .sheet-body.svelte-hib3dj {
   flex: 1;
   overflow: hidden;

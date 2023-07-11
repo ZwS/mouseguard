@@ -2,7 +2,6 @@
     import {setContext} from "svelte";
 
     // Component imports
-    //TODO: IMPORTS
     import MouseGuardActorSheetMouseDetails from "./MouseGuardActorSheetMouseDetails.svelte";
     import MouseGuardActorSheetMouseRewards from "./MouseGuardActorSheetMouseRewards.svelte";
     import MouseGuardActorSheetMouseSkillAbilityTab from "./MouseGuardActorSheetMouseSkillAbilityTab.svelte";

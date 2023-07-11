@@ -13,10 +13,19 @@
     $: displayDescription = {};
 
     let itemTypeConfigs = {
-        // abilities do not supported here, they utilize their own temlplate
+        // abilities do not supported here, they utilize their own template
         wise: {
             header: game.i18n.localize("MOUSEGUARD.Wises"),
-            add: () => () => sheet?._onItemCreate.bind(sheet), //FIXME does not work
+            add: () => () => {
+                let cls = getDocumentClass("Item");
+                return cls.create(
+                    {
+                        name: game.i18n.localize("MOUSEGUARD.ItemNew"),
+                        type: "wise"
+                    },
+                    { parent: sheet.actor }
+                );
+            }, //FIXME does not work
             showRating: true,
             ratingPropertyName: game.i18n.localize("MOUSEGUARD.Rank"),
             showAdvance: true,

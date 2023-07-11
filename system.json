@@ -1,8 +1,8 @@
 {
-    "id": "mouseguard-reloaded",
+    "id": "mouseguard",
     "title": "Mouse Guard (reloaded)",
     "description": "A system for playing the Mouse Guard RPG in Foundry VTT.",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "compatibility": {
         "minimum": 10,
         "verified": 11,

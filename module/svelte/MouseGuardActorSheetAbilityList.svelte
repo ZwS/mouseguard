@@ -20,7 +20,7 @@
     <ol class="item-list" name="{item.id}">
         <li class="item flexrow">
             <div class="item-name rollable">
-                <h4 on:click={(e) => setMouseDice(sheet, item.system.rating, game.i18n.localize(item.name))}>
+                <h4 class="box-title" on:click={(e) => setMouseDice(sheet, item.system.rating, game.i18n.localize(item.name))}>
                     {game.i18n.localize(item.name)}
                 </h4>
             </div>
@@ -43,22 +43,23 @@
                     <pass>
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Passes')}">
                             {game.i18n.localize("MOUSEGUARD.PassesAbbr")}:
+                            {#each {length: parseInt(item.system.rating) + 1} as _, i}
+                                <i class="far {advancementStep(item.system.pass, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
+                                   on:click={(e) => updateRating(sheet, item.id, "pass",
+                                        parseInt(item.system.pass) + advancementStep(item.system.pass, i))}></i>
+                            {/each}
                         </span>
-                        {#each {length: parseInt(item.system.rating) + 1} as _, i}
-                            <div class="{advancementStep(item.system.pass, i) < 0 ? 'checkmark' : 'no-checkmark'}"
-                                 on:click={(e) => updateRating(sheet, item.id, "pass",
-                                    parseInt(item.system.pass) + advancementStep(item.system.pass, i))}></div>
-                        {/each}
+
                     </pass>
                     <fail>
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Fails')}">
                             {game.i18n.localize("MOUSEGUARD.FailsAbbr")}:
+                            {#each {length: parseInt(item.system.rating)} as _, i}
+                                <i class="far {advancementStep(item.system.fail, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
+                                   on:click={(e) => updateRating(sheet, item.id, "fail",
+                                        parseInt(item.system.fail) + advancementStep(item.system.fail, i))}></i>
+                            {/each}
                         </span>
-                        {#each {length: parseInt(item.system.rating)} as _, i}
-                            <div class="{advancementStep(item.system.fail, i) < 0 ? 'checkmark' : 'no-checkmark'}"
-                                 on:click={(e) => updateRating(sheet, item.id, "fail",
-                                    parseInt(item.system.fail) + advancementStep(item.system.fail, i))}></div>
-                        {/each}
                     </fail>
                 </div>
             {/if}
@@ -94,6 +95,8 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        height: 100%;
+        overflow: auto;
     }
 
     .item {
@@ -127,6 +130,14 @@
 
     .item-name h4 {
         margin-bottom: 0;
+    }
+
+    .box-title {
+        font-family: var(--font-fancy);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        color: #4b4a44;
+        border-bottom: 1px solid #c9c7b8;
     }
 
     .item-detail {
@@ -165,7 +176,7 @@
     }
 
     .item-advancement {
-        flex: 0 0 130px;
+        flex: 0 0 112px;
     }
 
     .item .item-advancement {
@@ -180,31 +191,5 @@
     fail, pass {
         display: flex;
         width: 100%;
-    }
-
-    .checkmark:after {
-        content: "✔";
-        display: block;
-        width: 12px;
-        height: 12px;
-        text-align: center;
-        font-size: 10px;
-        border: 1px solid #aaa;
-        background: #f8f8f8;
-        border-radius: 50%;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
-    .no-checkmark:after {
-        content: " ";
-        display: block;
-        width: 12px;
-        height: 12px;
-        text-align: center;
-        font-size: 10px;
-        border: 1px solid #aaa;
-        background: #f8f8f8;
-        border-radius: 50%;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 </style>

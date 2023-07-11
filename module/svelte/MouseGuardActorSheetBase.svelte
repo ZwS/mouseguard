@@ -80,6 +80,7 @@
     .sheet-body {
         flex: 1;
         overflow: hidden;
+        height: calc(100% - 105px);
     }
 
     .right-col {

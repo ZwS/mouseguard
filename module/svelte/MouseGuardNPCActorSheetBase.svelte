@@ -5,11 +5,11 @@
     import MouseGuardActorSheetMouseSkillAbilityTab from "./MouseGuardActorSheetMouseSkillAbilityTab.svelte";
     import MouseGuardActorSheetName from "./MouseGuardActorSheetName.svelte";
     import MouseGuardActorSheetMousePortrait from "./MouseGuardActorSheetPortrait.svelte";
+    import MouseGuardEditor from "./MouseGuardEditor.svelte";
 
     //Exports
     export let dataStore;
     setContext("sheetStore", dataStore);
-    //let sheetData = getContext("sheetStore");
 </script>
 
 <header class="flexrow">
@@ -37,14 +37,15 @@
         <MouseGuardActorSheetMouseSkillAbilityTab/>
     </section>
     <section class="flexrow">
-        <!-- TODO add Disposition -->
+        <MouseGuardEditor target="system.description"/>
     </section>
 </section>
 
 <style>
     .sheet-body {
         flex: 1;
-        overflow: hidden;
+        overflow: auto;
+        height: calc(100% - 105px);
     }
 
     .npc-info {

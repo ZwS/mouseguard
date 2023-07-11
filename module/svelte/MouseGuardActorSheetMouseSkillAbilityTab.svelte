@@ -23,7 +23,12 @@
 
 <style>
     .abilities {
-        flex: 0 0 200px;
+        flex: 0 0 180px;
+    }
+
+    .items {
+        height: 100%;
+        overflow: auto;
     }
 
     .items-list {

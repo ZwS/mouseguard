@@ -6,7 +6,7 @@
     $: data = $sheetData.data;
 </script>
 
-<div class="disposition-container flexcol">
+<div class="disposition-container form-group flexcol">
     <label class="header">{game.i18n.localize("MOUSEGUARD.Disposition")}</label>
     <div class="disposition flexrow">
         <input name="system.disposition.starting" type="number" min="0"

@@ -59,11 +59,11 @@ input.svelte-1ebpjqs.svelte-1ebpjqs {
 }
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetItemList.esbuild-svelte-fake-css */
-.items-header.svelte-1qs2i53 > .svelte-1qs2i53 {
+.items-header.svelte-1u8k5nf > .svelte-1u8k5nf {
   font-size: 12px;
   text-align: center;
 }
-.items-header.svelte-1qs2i53.svelte-1qs2i53 {
+.items-header.svelte-1u8k5nf.svelte-1u8k5nf {
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -72,7 +72,7 @@ input.svelte-1ebpjqs.svelte-1ebpjqs {
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-.items-header.svelte-1qs2i53 h3.svelte-1qs2i53 {
+.items-header.svelte-1u8k5nf h3.svelte-1u8k5nf {
   padding-left: 5px;
   font-weight: 700;
   text-align: left;
@@ -80,23 +80,23 @@ input.svelte-1ebpjqs.svelte-1ebpjqs {
   border: none;
   margin-bottom: 0;
 }
-.item-list.svelte-1qs2i53.svelte-1qs2i53 {
+.item-list.svelte-1u8k5nf.svelte-1u8k5nf {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.item.svelte-1qs2i53.svelte-1qs2i53 {
+.item.svelte-1u8k5nf.svelte-1u8k5nf {
   align-items: center;
   padding: 0 2px;
   border-bottom: 1px solid #c9c7b8;
 }
-.rollable.svelte-1qs2i53.svelte-1qs2i53:hover {
+.rollable.svelte-1u8k5nf.svelte-1u8k5nf:hover {
   text-shadow: 0 0 10px var(--color-shadow-primary);
 }
-.rollable.svelte-1qs2i53:hover .item-image.svelte-1qs2i53 {
+.rollable.svelte-1u8k5nf:hover .item-image.svelte-1u8k5nf {
   background-image: url(../assets/dice/dicesword.webp) !important;
 }
-.item-image.svelte-1qs2i53.svelte-1qs2i53 {
+.item-image.svelte-1u8k5nf.svelte-1u8k5nf {
   flex: 0 0 35px;
   height: 40px;
   background-size: cover;
@@ -104,7 +104,7 @@ input.svelte-1ebpjqs.svelte-1ebpjqs {
   border: none;
   margin-right: 5px;
 }
-.item-name.svelte-1qs2i53.svelte-1qs2i53 {
+.item-name.svelte-1u8k5nf.svelte-1u8k5nf {
   flex: 2;
   margin: 0;
   overflow: hidden;
@@ -112,13 +112,13 @@ input.svelte-1ebpjqs.svelte-1ebpjqs {
   text-align: left;
   align-items: center;
 }
-.item.svelte-1qs2i53 .item-name.svelte-1qs2i53 {
+.item.svelte-1u8k5nf .item-name.svelte-1u8k5nf {
   line-height: 40px;
 }
-.item-name.svelte-1qs2i53 h4.svelte-1qs2i53 {
+.item-name.svelte-1u8k5nf h4.svelte-1u8k5nf {
   margin-bottom: 0;
 }
-.item-detail.svelte-1qs2i53.svelte-1qs2i53 {
+.item-detail.svelte-1u8k5nf.svelte-1u8k5nf {
   flex: 0 0 70px;
   font-size: 12px;
   text-align: center;
@@ -127,38 +127,38 @@ input.svelte-1ebpjqs.svelte-1ebpjqs {
   white-space: nowrap;
   overflow: hidden;
 }
-.item-rank.svelte-1qs2i53.svelte-1qs2i53 {
+.item-rank.svelte-1u8k5nf.svelte-1u8k5nf {
   flex: 0 0 60px;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
 }
-.item-rank.svelte-1qs2i53 input.svelte-1qs2i53 {
+.item-rank.svelte-1u8k5nf input.svelte-1u8k5nf {
   border: none;
   text-align: center;
   background-color: white;
   height: 35px;
   font-size: large;
 }
-.item-rank.svelte-1qs2i53 input.svelte-1qs2i53:hover {
+.item-rank.svelte-1u8k5nf input.svelte-1u8k5nf:hover {
   box-shadow: none;
 }
-.item-advancement.svelte-1qs2i53.svelte-1qs2i53,
-.item-uses.svelte-1qs2i53.svelte-1qs2i53 {
-  flex: 0 0 130px;
+.item-advancement.svelte-1u8k5nf.svelte-1u8k5nf,
+.item-uses.svelte-1u8k5nf.svelte-1u8k5nf {
+  flex: 0 0 112px;
 }
-.item.svelte-1qs2i53 .item-advancement.svelte-1qs2i53,
-.item.svelte-1qs2i53 .item-uses.svelte-1qs2i53 {
+.item.svelte-1u8k5nf .item-advancement.svelte-1u8k5nf,
+.item.svelte-1u8k5nf .item-uses.svelte-1u8k5nf {
   text-align: left;
 }
-.item-controls.svelte-1qs2i53.svelte-1qs2i53 {
+.item-controls.svelte-1u8k5nf.svelte-1u8k5nf {
   flex: 0 0 50px;
   justify-content: space-between;
 }
-.item-controls.svelte-1qs2i53 a.svelte-1qs2i53 {
+.item-controls.svelte-1u8k5nf a.svelte-1u8k5nf {
   font-size: 12px;
   text-align: center;
 }
-.item-summary.svelte-1qs2i53.svelte-1qs2i53 {
+.item-summary.svelte-1u8k5nf.svelte-1u8k5nf {
   flex: 0 0 100%;
   font-size: 12px;
   line-height: 16px;
@@ -166,44 +166,20 @@ input.svelte-1ebpjqs.svelte-1ebpjqs {
   color: #191813;
   border-top: 1px solid #c9c7b8;
 }
-fail.svelte-1qs2i53.svelte-1qs2i53,
-pass.svelte-1qs2i53.svelte-1qs2i53,
-for.svelte-1qs2i53.svelte-1qs2i53,
-against.svelte-1qs2i53.svelte-1qs2i53 {
+fail.svelte-1u8k5nf.svelte-1u8k5nf,
+pass.svelte-1u8k5nf.svelte-1u8k5nf,
+for.svelte-1u8k5nf.svelte-1u8k5nf,
+against.svelte-1u8k5nf.svelte-1u8k5nf {
   display: flex;
   width: 100%;
 }
-.checkmark.svelte-1qs2i53.svelte-1qs2i53:after {
-  content: "\2714";
-  display: block;
-  width: 12px;
-  height: 12px;
-  text-align: center;
-  font-size: 10px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
-  border-radius: 50%;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-.no-checkmark.svelte-1qs2i53.svelte-1qs2i53:after {
-  content: " ";
-  display: block;
-  width: 12px;
-  height: 12px;
-  text-align: center;
-  font-size: 10px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
-  border-radius: 50%;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-}
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetAbilityList.esbuild-svelte-fake-css */
-.items-header.svelte-1u2nsh4 > .svelte-1u2nsh4 {
+.items-header.svelte-18ydmmm > .svelte-18ydmmm {
   font-size: 12px;
   text-align: center;
 }
-.items-header.svelte-1u2nsh4.svelte-1u2nsh4 {
+.items-header.svelte-18ydmmm.svelte-18ydmmm {
   height: 28px;
   margin: 2px 0;
   padding: 0;
@@ -212,7 +188,7 @@ against.svelte-1qs2i53.svelte-1qs2i53 {
   border: 2px groove #eeede0;
   font-weight: bold;
 }
-.items-header.svelte-1u2nsh4 h3.svelte-1u2nsh4 {
+.items-header.svelte-18ydmmm h3.svelte-18ydmmm {
   padding-left: 5px;
   font-weight: 700;
   text-align: left;
@@ -220,22 +196,24 @@ against.svelte-1qs2i53.svelte-1qs2i53 {
   border: none;
   margin-bottom: 0;
 }
-.item-list.svelte-1u2nsh4.svelte-1u2nsh4 {
+.item-list.svelte-18ydmmm.svelte-18ydmmm {
   list-style: none;
   margin: 0;
   padding: 0;
+  height: 100%;
+  overflow: auto;
 }
-.item.svelte-1u2nsh4.svelte-1u2nsh4 {
+.item.svelte-18ydmmm.svelte-18ydmmm {
   align-items: center;
   padding: 0 2px;
   border-top: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
   justify-content: center;
 }
-.rollable.svelte-1u2nsh4.svelte-1u2nsh4:hover {
+.rollable.svelte-18ydmmm.svelte-18ydmmm:hover {
   text-shadow: 0 0 10px var(--color-shadow-primary);
 }
-.item-name.svelte-1u2nsh4.svelte-1u2nsh4 {
+.item-name.svelte-18ydmmm.svelte-18ydmmm {
   flex: 2;
   margin: 0;
   overflow: hidden;
@@ -243,17 +221,24 @@ against.svelte-1qs2i53.svelte-1qs2i53 {
   text-align: center;
   align-items: center;
 }
-.item.svelte-1u2nsh4 .item-name.svelte-1u2nsh4 {
+.item.svelte-18ydmmm .item-name.svelte-18ydmmm {
   flex: 0 0 100%;
   font-size: 16px;
   line-height: 16px;
   padding: 0.25em 0.5em;
   border-top: 1px solid #c9c7b8;
 }
-.item-name.svelte-1u2nsh4 h4.svelte-1u2nsh4 {
+.item-name.svelte-18ydmmm h4.svelte-18ydmmm {
   margin-bottom: 0;
 }
-.item-detail.svelte-1u2nsh4.svelte-1u2nsh4 {
+.box-title.svelte-18ydmmm.svelte-18ydmmm {
+  font-family: var(--font-fancy);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: #4b4a44;
+  border-bottom: 1px solid #c9c7b8;
+}
+.item-detail.svelte-18ydmmm.svelte-18ydmmm {
   flex: 0 0 70px;
   font-size: 12px;
   text-align: center;
@@ -261,69 +246,49 @@ against.svelte-1qs2i53.svelte-1qs2i53 {
   white-space: nowrap;
   overflow: hidden;
 }
-.item-rank.svelte-1u2nsh4.svelte-1u2nsh4 {
+.item-rank.svelte-18ydmmm.svelte-18ydmmm {
   flex: 0 0 60px;
   border-left: 1px solid #c9c7b8;
   border-right: 1px solid #c9c7b8;
 }
-.item-rank.svelte-1u2nsh4 input.svelte-1u2nsh4 {
+.item-rank.svelte-18ydmmm input.svelte-18ydmmm {
   border: none;
   text-align: center;
   background-color: white;
   height: 35px;
   font-size: large;
 }
-.item-rank.svelte-1u2nsh4 input.svelte-1u2nsh4:hover {
+.item-rank.svelte-18ydmmm input.svelte-18ydmmm:hover {
   box-shadow: none;
 }
-.item-rank.svelte-1u2nsh4 .divider.svelte-1u2nsh4 {
+.item-rank.svelte-18ydmmm .divider.svelte-18ydmmm {
   text-align: center;
   background-color: white;
   height: 35px;
   font-size: large;
   line-height: 35px;
 }
-.item-advancement.svelte-1u2nsh4.svelte-1u2nsh4 {
-  flex: 0 0 130px;
+.item-advancement.svelte-18ydmmm.svelte-18ydmmm {
+  flex: 0 0 112px;
 }
-.item.svelte-1u2nsh4 .item-advancement.svelte-1u2nsh4 {
+.item.svelte-18ydmmm .item-advancement.svelte-18ydmmm {
   text-align: left;
 }
-fail.svelte-1u2nsh4.svelte-1u2nsh4,
-pass.svelte-1u2nsh4.svelte-1u2nsh4 {
+fail.svelte-18ydmmm.svelte-18ydmmm,
+pass.svelte-18ydmmm.svelte-18ydmmm {
   display: flex;
   width: 100%;
 }
-.checkmark.svelte-1u2nsh4.svelte-1u2nsh4:after {
-  content: "\2714";
-  display: block;
-  width: 12px;
-  height: 12px;
-  text-align: center;
-  font-size: 10px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
-  border-radius: 50%;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-.no-checkmark.svelte-1u2nsh4.svelte-1u2nsh4:after {
-  content: " ";
-  display: block;
-  width: 12px;
-  height: 12px;
-  text-align: center;
-  font-size: 10px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
-  border-radius: 50%;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-}
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetMouseSkillAbilityTab.esbuild-svelte-fake-css */
-.abilities.svelte-6ol27s {
-  flex: 0 0 200px;
+.abilities.svelte-1s356y1 {
+  flex: 0 0 180px;
 }
-.items-list.svelte-6ol27s {
+.items.svelte-1s356y1 {
+  height: 100%;
+  overflow: auto;
+}
+.items-list.svelte-1s356y1 {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -389,44 +354,46 @@ input.svelte-5lwv33:focus {
 }
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardActorSheetBase.esbuild-svelte-fake-css */
-.tabs.svelte-1jl5wux.svelte-1jl5wux {
+.tabs.svelte-1j7ey7e.svelte-1j7ey7e {
   flex: 0 0 40px;
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
 }
-.tabs.svelte-1jl5wux .item.svelte-1jl5wux {
+.tabs.svelte-1j7ey7e .item.svelte-1j7ey7e {
   line-height: 40px;
   font-weight: bold;
 }
-.tabs.svelte-1jl5wux .item.active.svelte-1jl5wux {
+.tabs.svelte-1j7ey7e .item.active.svelte-1j7ey7e {
   text-shadow: 0 0 10px var(--color-shadow-primary);
   border-bottom: 3px solid #58180d;
 }
-.sheet-body.svelte-1jl5wux.svelte-1jl5wux {
+.sheet-body.svelte-1j7ey7e.svelte-1j7ey7e {
   flex: 1;
   overflow: hidden;
+  height: calc(100% - 105px);
 }
-.right-col.svelte-1jl5wux.svelte-1jl5wux {
+.right-col.svelte-1j7ey7e.svelte-1j7ey7e {
   flex: 0 0 100px;
   border-left: 1px solid #aaa;
 }
-.tab.svelte-1jl5wux.svelte-1jl5wux {
+.tab.svelte-1j7ey7e.svelte-1j7ey7e {
   height: 100%;
 }
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard-reloaded/module/svelte/MouseGuardNPCActorSheetBase.esbuild-svelte-fake-css */
-.sheet-body.svelte-hib3dj {
+.sheet-body.svelte-1769479 {
   flex: 1;
-  overflow: hidden;
+  overflow: auto;
+  height: calc(100% - 105px);
 }
-.npc-info.svelte-hib3dj {
+.npc-info.svelte-1769479 {
   flex: 0 0 45px;
   border-top: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
   justify-content: center;
   line-height: 45px;
 }
-.right-col.svelte-hib3dj {
+.right-col.svelte-1769479 {
   flex: 0 0 100px;
   border-left: 1px solid #aaa;
 }

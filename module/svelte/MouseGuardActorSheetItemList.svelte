@@ -96,22 +96,23 @@
                     <pass>
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Passes')}">
                             {game.i18n.localize("MOUSEGUARD.PassesAbbr")}:
+                            {#each {length: parseInt(item.system[itemTypeConfig.ratingProperty]) + 1} as _, i}
+                                <i class="far {advancementStep(item.system.pass, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
+                                   on:click={(e) => updateRating(sheet, item.id, "pass",
+                                        parseInt(item.system.pass) + advancementStep(item.system.pass, i))}></i>
+                            {/each}
                         </span>
-                        {#each {length: parseInt(item.system[itemTypeConfig.ratingProperty]) + 1} as _, i}
-                            <div class="{advancementStep(item.system.pass, i) < 0 ? 'checkmark' : 'no-checkmark'}"
-                                 on:click={(e) => updateRating(sheet, item.id, "pass",
-                                    parseInt(item.system.pass) + advancementStep(item.system.pass, i))}></div>
-                        {/each}
                     </pass>
                     <fail>
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Fails')}">
                             {game.i18n.localize("MOUSEGUARD.FailsAbbr")}:
+
+                            {#each {length: parseInt(item.system[itemTypeConfig.ratingProperty])} as _, i}
+                                <i class="far {advancementStep(item.system.fail, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
+                                   on:click={(e) => updateRating(sheet, item.id, "fail",
+                                        parseInt(item.system.fail) + advancementStep(item.system.fail, i))}></i>
+                            {/each}
                         </span>
-                        {#each {length: parseInt(item.system[itemTypeConfig.ratingProperty])} as _, i}
-                            <div class="{advancementStep(item.system.fail, i) < 0 ? 'checkmark' : 'no-checkmark'}"
-                                 on:click={(e) => updateRating(sheet, item.id, "fail",
-                                    parseInt(item.system.fail) + advancementStep(item.system.fail, i))}></div>
-                        {/each}
                     </fail>
                 </div>
             {/if}
@@ -120,26 +121,26 @@
                     <for>
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.UsedFor')}">
                             {game.i18n.localize("MOUSEGUARD.UsedForAbbr")}:
+                            {#if item.system.level < 3}
+                                {#each {length: parseInt(item.system.level)} as _, i}
+                                    <i class="far {advancementStep(item.system.usedfor, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
+                                       on:click={(e) => updateRating(sheet, item.id, "usedfor",
+                                        parseInt(item.system.usedfor) + advancementStep(item.system.usedfor, i))}></i>
+                                {/each}
+                            {:else}
+                                <strong>&infin;</strong>
+                            {/if}
                         </span>
-                        {#if item.system.level < 3}
-                            {#each {length: parseInt(item.system.level)} as _, i}
-                                <div class="{advancementStep(item.system.usedfor, i) < 0 ? 'checkmark' : 'no-checkmark'}"
-                                     on:click={(e) => updateRating(sheet, item.id, "usedfor",
-                                    parseInt(item.system.usedfor) + advancementStep(item.system.usedfor, i))}></div>
-                            {/each}
-                        {:else}
-                            <strong>&infin;</strong>
-                        {/if}
                     </for>
                     <against>
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.UsedAgainst')}">
                             {game.i18n.localize("MOUSEGUARD.UsedAgainstAbbr")}:
+                            {#each {length: 6} as _, i}
+                                <i class="far {advancementStep(item.system.usedagainst, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
+                                   on:click={(e) => updateRating(sheet, item.id, "usedagainst",
+                                        parseInt(item.system.usedagainst) + advancementStep(item.system.usedagainst, i))}></i>
+                            {/each}
                         </span>
-                        {#each {length: 6} as _, i}
-                            <div class="{advancementStep(item.system.usedagainst, i) < 0 ? 'checkmark' : 'no-checkmark'}"
-                                 on:click={(e) => updateRating(sheet, item.id, "usedagainst",
-                                    parseInt(item.system.usedagainst) + advancementStep(item.system.usedagainst, i))}></div>
-                        {/each}
                     </against>
                 </div>
             {/if}
@@ -259,7 +260,7 @@
     }
 
     .item-advancement, .item-uses {
-        flex: 0 0 130px;
+        flex: 0 0 112px;
     }
 
     .item .item-advancement, .item .item-uses {
@@ -288,31 +289,5 @@
     fail, pass, for, against {
         display: flex;
         width: 100%;
-    }
-
-    .checkmark:after {
-        content: "✔";
-        display: block;
-        width: 12px;
-        height: 12px;
-        text-align: center;
-        font-size: 10px;
-        border: 1px solid #aaa;
-        background: #f8f8f8;
-        border-radius: 50%;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-    }
-
-    .no-checkmark:after {
-        content: " ";
-        display: block;
-        width: 12px;
-        height: 12px;
-        text-align: center;
-        font-size: 10px;
-        border: 1px solid #aaa;
-        background: #f8f8f8;
-        border-radius: 50%;
-        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
     }
 </style>

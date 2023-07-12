@@ -2,7 +2,7 @@
     "id": "mouseguard",
     "title": "Mouse Guard (reloaded)",
     "description": "A system for playing the Mouse Guard RPG in Foundry VTT.",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "compatibility": {
         "minimum": 10,
         "verified": 11,
@@ -17,27 +17,22 @@
     "esmodules": ["dist/mouseguard.js"],
     "socket": true,
     "styles": ["styles/mouseguard.css", "dist/mouseguard.css"],
-    "packFolders": [
+    "packs": [
         {
-            "name": "Mouse Guard",
-            "packs": [
-                {
-                    "name": "skills",
-                    "label": "Skills",
-                    "path": "packs/skills.db",
-                    "entity": "Item",
-                    "type": "Item",
-                    "system": "mouseguard"
-                },
-                {
-                    "name": "traits",
-                    "label": "Traits",
-                    "path": "packs/traits.db",
-                    "entity": "Item",
-                    "type": "Item",
-                    "system": "mouseguard"
-                }
-            ]
+            "name": "skills",
+            "label": "Skills",
+            "path": "packs/skills.db",
+            "entity": "Item",
+            "type": "Item",
+            "system": "mouseguard"
+        },
+        {
+            "name": "traits",
+            "label": "Traits",
+            "path": "packs/traits.db",
+            "entity": "Item",
+            "type": "Item",
+            "system": "mouseguard"
         }
     ],
     "languages": [

@@ -4508,15 +4508,6 @@ var MouseCombatTracker = class extends CombatTracker {
         callback: this._onConfigureCombatant.bind(this)
       },
       {
-        name: "Console.Log",
-        icon: '<i class="fas fa-edit"></i>',
-        callback: (li) => {
-          const combatant = this.viewed.combatants.get(li.data("combatant-id"));
-          if (combatant)
-            console.log(combatant);
-        }
-      },
-      {
         name: "COMBAT.CombatantRemove",
         icon: '<i class="fas fa-trash"></i>',
         callback: (li) => {

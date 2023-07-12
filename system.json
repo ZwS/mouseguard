@@ -17,22 +17,27 @@
     "esmodules": ["dist/mouseguard.js"],
     "socket": true,
     "styles": ["styles/mouseguard.css", "dist/mouseguard.css"],
-    "packs": [
+    "packFolders": [
         {
-            "name": "skills",
-            "label": "Skills",
-            "path": "packs/skills.db",
-            "entity": "Item",
-            "type": "Item",
-            "system": "mouseguard"
-        },
-        {
-            "name": "traits",
-            "label": "Traits",
-            "path": "packs/traits.db",
-            "entity": "Item",
-            "type": "Item",
-            "system": "mouseguard"
+            "name": "Mouse Guard",
+            "packs": [
+                {
+                    "name": "skills",
+                    "label": "Skills",
+                    "path": "packs/skills.db",
+                    "entity": "Item",
+                    "type": "Item",
+                    "system": "mouseguard"
+                },
+                {
+                    "name": "traits",
+                    "label": "Traits",
+                    "path": "packs/traits.db",
+                    "entity": "Item",
+                    "type": "Item",
+                    "system": "mouseguard"
+                }
+            ]
         }
     ],
     "languages": [

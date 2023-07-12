@@ -7,8 +7,6 @@
  *
  */
 
-//import { compute_rest_props } from "svelte/internal";
-
 export default class MouseCombatTracker extends CombatTracker {
     constructor(options) {
         super(options);
@@ -82,16 +80,6 @@ export default class MouseCombatTracker extends CombatTracker {
                 name: "COMBAT.CombatantUpdate",
                 icon: '<i class="fas fa-edit"></i>',
                 callback: this._onConfigureCombatant.bind(this)
-            },
-            {
-                name: "Console.Log",
-                icon: '<i class="fas fa-edit"></i>',
-                callback: (li) => {
-                    const combatant = this.viewed.combatants.get(
-                        li.data("combatant-id")
-                    );
-                    if (combatant) console.log(combatant);
-                }
             },
             {
                 name: "COMBAT.CombatantRemove",

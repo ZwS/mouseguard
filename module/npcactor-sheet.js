@@ -109,9 +109,15 @@ export class MouseGuardNPCActorSheet extends ActorSheet {
         game.mouseguard.updateDisplay(count);
     }
 
+    async _updateActorAbility(id, type, value) {
+        await this.actor.updateEmbeddedDocuments("Item", [
+            { _id: id, data: { [type]: value } }
+        ]);
+    }
+
     async _updateEmbededItem(id, _data) {
         await this.actor.updateEmbeddedDocuments("Item", [
-            { _id: id, system: _data }
+            { _id: id, data: _data }
         ]);
         //console.log(this.actor)
     }

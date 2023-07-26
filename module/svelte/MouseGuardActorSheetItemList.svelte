@@ -69,7 +69,7 @@
     {/if}
     <div class="item-controls flexrow">
         <a class="item-control item-create" on:click={itemTypeConfig.add()}>
-            <i class="fas fa-plus"></i> {game.i18n.localize("MOUSEGUARD.AddItem")}
+            <i class="fas fa-plus"></i> {game.i18n.localize("MOUSEGUARD.Add")}
         </a>
     </div>
 </li>

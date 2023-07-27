@@ -119,3 +119,11 @@ section.mouseguard-effects .effect-item:hover .effect-icon {
 section.mouseguard-effects .effect-item .effect-icon.disabled {
     filter: brightness(0.25) grayscale(1);
 }
+
+.sheet-body {
+    height: 100%;
+}
+
+.sheet-body .tab {
+    height: 100%;
+}

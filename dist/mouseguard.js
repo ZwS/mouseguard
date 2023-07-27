@@ -3945,26 +3945,11 @@ var MouseGuardNPCActorSheet = class extends ActorSheet {
     super.activateListeners(html);
     if (!this.isEditable)
       return;
-    html.find(".item-control").click(this._onItemControl.bind(this));
     html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
   }
-  _onItemControl(event) {
-    event.preventDefault();
-    const button = event.currentTarget;
-    const li = button.closest(".item");
-    const item2 = this.actor.items.get(li?.dataset.itemId);
-    switch (button.dataset.action) {
-      case "create":
-        const cls = getDocumentClass("Item");
-        return cls.create({
-          name: game.i18n.localize("MOUSEGUARD.ItemNew"),
-          type: "item"
-        }, { parent: this.actor });
-      case "edit":
-        return item2.sheet.render(true);
-      case "delete":
-        return item2.delete();
-    }
+  async _onItemUpdate(itemId) {
+    const item2 = this.actor.items.get(itemId);
+    return item2.sheet.render(true);
   }
   _onItemRoll(event) {
     let button = $(event.currentTarget);

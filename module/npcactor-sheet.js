@@ -41,41 +41,14 @@ export class MouseGuardNPCActorSheet extends ActorSheet {
         if (!this.isEditable) return;
 
         // Item Controls
-        html.find(".item-control").click(this._onItemControl.bind(this));
         html.find(".items .rollable").on("click", this._onItemRoll.bind(this));
     }
 
     /* -------------------------------------------- */
 
-    /**
-     * Handle click events for Item control buttons within the Actor Sheet
-     * @param event
-     * @private
-     */
-    _onItemControl(event) {
-        event.preventDefault();
-
-        // Obtain event data
-        const button = event.currentTarget;
-        const li = button.closest(".item");
-        const item = this.actor.items.get(li?.dataset.itemId);
-
-        // Handle different actions
-        switch (button.dataset.action) {
-            case "create":
-                const cls = getDocumentClass("Item");
-                return cls.create(
-                    {
-                        name: game.i18n.localize("MOUSEGUARD.ItemNew"),
-                        type: "item"
-                    },
-                    { parent: this.actor }
-                );
-            case "edit":
-                return item.sheet.render(true);
-            case "delete":
-                return item.delete();
-        }
+    async _onItemUpdate(itemId) {
+        const item = this.actor.items.get(itemId);
+        return item.sheet.render(true);
     }
 
     /* -------------------------------------------- */

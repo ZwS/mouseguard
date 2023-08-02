@@ -3576,8 +3576,8 @@ function create_fragment9(ctx) {
       attr(input, "type", "text");
       input.value = input_value_value = ctx[1].name;
       attr(input, "placeholder", input_placeholder_value = game.i18n.localize("MOUSEGUARD.Name"));
-      attr(input, "class", "svelte-158n7o2");
-      attr(div, "class", "namebox svelte-158n7o2");
+      attr(input, "class", "svelte-ruzuq");
+      attr(div, "class", "namebox svelte-ruzuq");
     },
     m(target, anchor) {
       insert(target, div, anchor);

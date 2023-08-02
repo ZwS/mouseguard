@@ -361,16 +361,17 @@ input.svelte-5lwv33:focus {
 }
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetName.esbuild-svelte-fake-css */
-.namebox.svelte-158n7o2.svelte-158n7o2 {
+.namebox.svelte-ruzuq.svelte-ruzuq {
   flex: 0 0 60px;
 }
-.namebox.svelte-158n7o2 input.svelte-158n7o2 {
+.namebox.svelte-ruzuq input.svelte-ruzuq {
   background: rgba(0, 0, 0, 0) url(../assets/actor/NameBanner.svg) no-repeat;
   height: 60px;
   width: 300px;
   font-size: 24px;
-  padding-left: 20px;
+  padding-left: 13px;
   padding-bottom: 14px;
+  padding-right: 36px;
   pointer-events: auto;
   border: none;
   box-shadow: none;

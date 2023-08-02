@@ -23,8 +23,9 @@
         height: 60px;
         width: 300px;
         font-size: 24px;
-        padding-left: 20px;
+        padding-left: 13px;
         padding-bottom: 14px;
+        padding-right: 36px;
         pointer-events: auto;
         border: none;
         box-shadow: none;

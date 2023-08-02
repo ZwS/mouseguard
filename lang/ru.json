@@ -103,7 +103,9 @@
     "MOUSEGUARD.Characteristics": "Характеристики",
 
     "MOUSEGUARD.Rating": "Рейтинг",
+    "MOUSEGUARD.Tax": "Текущий рейтинг",
     "MOUSEGUARD.Advancement": "Развитие",
+    "MOUSEGUARD.Speciality": "Специализация",
 
     "MOUSEGUARD.Traits": "Черты",
     "MOUSEGUARD.Trait": "Черта",
@@ -125,6 +127,8 @@
     "MOUSEGUARD.UsedForAbbr": "Д",
     "MOUSEGUARD.UsedAgainst": "Использовано против",
     "MOUSEGUARD.UsedAgainstAbbr": "П",
+    "MOUSEGUARD.FateAbbr": "С",
+    "MOUSEGUARD.PersonaAbbr": "Л",
     "MOUSEGUARD.Add": "Доб",
     "MOUSEGUARD.Rank": "Рейтинг",
     "MOUSEGUARD.Level": "Уровень",

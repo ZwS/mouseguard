@@ -3,12 +3,5 @@
  * @extends {Item}
  */
 export class MouseGuardItem extends Item {
-    /** @inheritdoc */
-    prepareDerivedData() {
-        super.prepareDerivedData();
-        this.system.groups = this.system.groups || {};
-        this.system.attributes = this.system.attributes || {};
-    }
 
-    /* -------------------------------------------- */
 }

@@ -1,14 +1,24 @@
 <script context="module">
     export function updateRating(sheet, item, type, value) {
-        //sheet?._updateActorAbility(item, type, value);
-        //console.log ("updateRating")
-
         const ob = { [type]: value };
         if (type == "rank" || type == "rating" || type == "level") {
             if (value < 1) ob[type] = 1;
             ob.fail = 0;
             ob.pass = 0;
         }
+
+        if (type == "fate" || type == "persona") {
+            if (value < 1) ob[type] = 1;
+        }
+
+        sheet?._updateEmbededItem(item, ob);
+    }
+
+    export function toggleSpeciality(sheet, item, value) {
+        const ob = {
+            speciality: value
+        };
+
         sheet?._updateEmbededItem(item, ob);
     }
 

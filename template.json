@@ -77,7 +77,8 @@
             "description": "",
             "pass": 0,
             "fail": 0,
-            "rank": 1
+            "fate": 0,
+            "persona": 0
         },
         "contact": {
             "description": ""

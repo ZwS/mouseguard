@@ -1,5 +1,3 @@
-import { ATTRIBUTE_TYPES } from "./constants.js";
-
 /**
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheet}
@@ -26,18 +24,15 @@ export class MouseGuardItemSheet extends ItemSheet {
     /* -------------------------------------------- */
 
     /** @inheritdoc */
-    getData() {
-        const context = super.getData();
-        context.systemData = context.item.system;
+    async getData(options) {
+        const context = await super.getData(options);
+        const item = context.item;
+
+        foundry.utils.mergeObject(context, {
+            system: item.system
+        });
 
         return context;
-    }
-
-    /* -------------------------------------------- */
-
-    /** @inheritdoc */
-    async activateListeners(html) {
-        super.activateListeners(html);
     }
 
     /* -------------------------------------------- */

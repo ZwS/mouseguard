@@ -1,6 +1,6 @@
 <script>
     import {getContext} from "svelte";
-    import {updateRating, setMouseDice} from "./MouseGuardCommon.svelte";
+    import {updateRating, setMouseDice, toggleSpeciality} from "./MouseGuardCommon.svelte";
 
     export let itemType;
     export let isNpc;
@@ -23,14 +23,11 @@
                         name: game.i18n.localize("MOUSEGUARD.ItemNew"),
                         type: "wise"
                     },
-                    { parent: sheet.actor }
+                    {parent: sheet.actor}
                 );
-            }, //FIXME does not work
-            showRating: true,
-            ratingPropertyName: game.i18n.localize("MOUSEGUARD.Rank"),
+            },
+            showRating: false,
             showAdvance: true,
-            ratingProperty: "rank",
-            maxRating: 7
         },
         skill: {
             header: game.i18n.localize("MOUSEGUARD.Skills"),
@@ -91,7 +88,7 @@
                            on:change={(e) => updateRating(sheet, e.target.name, itemTypeConfig.ratingProperty, parseInt(e.target.value))}>
                 </div>
             {/if}
-            {#if itemTypeConfig.showAdvance && !isNpc}
+            {#if itemTypeConfig.showAdvance && !isNpc && itemType !== 'wise'}
                 <div class="item-detail item-advancement">
                     <pass>
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Passes')}">
@@ -114,6 +111,42 @@
                             {/each}
                         </span>
                     </fail>
+                </div>
+            {/if}
+            {#if itemType === 'wise' && !isNpc}
+                <div class="wise item-detail item-advancement">
+                    <pass>
+                        <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Passes')}">
+                        {game.i18n.localize("MOUSEGUARD.PassesAbbr")}:
+                        <i class="far {advancementStep(item.system.pass, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"
+                           on:click={(e) => updateRating(sheet, item.id, "pass",
+                                        parseInt(item.system.pass) + advancementStep(item.system.pass, 1))}></i>
+                        </span>
+                    </pass>
+                    <fail>
+                        <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Fails')}">
+                        {game.i18n.localize("MOUSEGUARD.FailsAbbr")}:
+                        <i class="far {advancementStep(item.system.fail, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"
+                           on:click={(e) => updateRating(sheet, item.id, "fail",
+                                        parseInt(item.system.fail) + advancementStep(item.system.fail, 1))}></i>
+                        </span>
+                    </fail>
+                    <fate>
+                        <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Fate')}">
+                        {game.i18n.localize("MOUSEGUARD.FateAbbr")}:
+                        <i class="far {advancementStep(item.system.fate, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"
+                           on:click={(e) => updateRating(sheet, item.id, "fate",
+                                        parseInt(item.system.fate) + advancementStep(item.system.fate, 1))}></i>
+                        </span>
+                    </fate>
+                    <persona>
+                        <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Persona')}">
+                        {game.i18n.localize("MOUSEGUARD.PersonaAbbr")}:
+                        <i class="far {advancementStep(item.system.persona, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"
+                           on:click={(e) => updateRating(sheet, item.id, "persona",
+                                        parseInt(item.system.persona) + advancementStep(item.system.persona, 1))}></i>
+                        </span>
+                    </persona>
                 </div>
             {/if}
             {#if itemType === 'trait' && !isNpc}
@@ -145,6 +178,13 @@
                 </div>
             {/if}
             <div class="item-controls flexrow">
+                {#if itemType === 'skill'}
+                    <a class="item-control item-toggle {item.system.speciality ? 'active' : ''}"
+                       data-tooltip="{game.i18n.localize('MOUSEGUARD.Speciality')}"
+                       on:click={toggleSpeciality(sheet, item.id, !item.system.speciality)}>
+                        <i class="fas fa-sun"></i>
+                    </a>
+                {/if}
                 <a class="item-control item-edit" on:click={sheet?._onItemUpdate(item.id)}>
                     <i class="fas fa-edit"></i>
                 </a>
@@ -286,8 +326,25 @@
         border-top: 1px solid #c9c7b8;
     }
 
+    .item-toggle {
+        color: #b5b3a4;
+    }
+
+    .item-toggle.active {
+        color: #4b4a44;
+    }
+
     fail, pass, for, against {
         display: flex;
         width: 100%;
+    }
+
+    .wise {
+        column-count: 2;
+    }
+
+    .wise fail, .wise pass, .wise fate, .wise persona {
+        display: flex;
+        width: 50%;
     }
 </style>

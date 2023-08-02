@@ -89,7 +89,9 @@
     "MOUSEGUARD.Characteristics": "Characteristics",
 
     "MOUSEGUARD.Rating": "Rating",
+    "MOUSEGUARD.Tax": "Tax",
     "MOUSEGUARD.Advancement": "Advancement",
+    "MOUSEGUARD.Speciality": "Speciality",
 
     "MOUSEGUARD.Traits": "Traits",
     "MOUSEGUARD.Trait": "Trait",
@@ -111,6 +113,8 @@
     "MOUSEGUARD.UsedForAbbr": "F",
     "MOUSEGUARD.UsedAgainst": "Used Against",
     "MOUSEGUARD.UsedAgainstAbbr": "A",
+    "MOUSEGUARD.FateAbbr": "F",
+    "MOUSEGUARD.PersonaAbbr": "P",
     "MOUSEGUARD.Add": "Add",
     "MOUSEGUARD.Rank": "Rank",
     "MOUSEGUARD.Level": "Level",

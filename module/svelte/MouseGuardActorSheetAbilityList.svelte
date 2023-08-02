@@ -20,7 +20,8 @@
     <ol class="item-list" name="{item.id}">
         <li class="item flexrow">
             <div class="item-name rollable">
-                <h4 class="box-title" on:click={(e) => setMouseDice(sheet, item.system.rating, game.i18n.localize(item.name))}>
+                <h4 class="box-title" on:click={(e) => setMouseDice(sheet, item.name === "MOUSEGUARD.MNature" ?
+                        item.system.tax : item.system.rating, game.i18n.localize(item.name))}>
                     {game.i18n.localize(item.name)}
                 </h4>
             </div>

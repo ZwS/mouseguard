@@ -1500,7 +1500,7 @@ function create_if_block_9(ctx) {
     c() {
       div = element("div");
       div.textContent = `${ctx[6].ratingPropertyName}`;
-      attr(div, "class", "item-detail item-rank svelte-1jg6tl2");
+      attr(div, "class", "item-detail item-rank svelte-fo1e54");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1514,16 +1514,24 @@ function create_if_block_9(ctx) {
 }
 function create_if_block_8(ctx) {
   let div;
+  let t_value = game.i18n.localize("MOUSEGUARD.Advancement") + "";
+  let t;
+  let div_class_value;
   return {
     c() {
       div = element("div");
-      div.textContent = `${game.i18n.localize("MOUSEGUARD.Advancement")}`;
-      attr(div, "class", "item-detail item-advancement svelte-1jg6tl2");
+      t = text(t_value);
+      attr(div, "class", div_class_value = "" + (ctx[0] + " item-detail item-advancement svelte-fo1e54"));
     },
     m(target, anchor) {
       insert(target, div, anchor);
+      append(div, t);
     },
-    p: noop,
+    p(ctx2, dirty) {
+      if (dirty & 1 && div_class_value !== (div_class_value = "" + (ctx2[0] + " item-detail item-advancement svelte-fo1e54"))) {
+        attr(div, "class", div_class_value);
+      }
+    },
     d(detaching) {
       if (detaching)
         detach(div);
@@ -1536,7 +1544,7 @@ function create_if_block_7(ctx) {
     c() {
       div = element("div");
       div.textContent = `${game.i18n.localize("MOUSEGUARD.Uses")}`;
-      attr(div, "class", "item-detail item-uses svelte-1jg6tl2");
+      attr(div, "class", "item-detail item-uses svelte-fo1e54");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1565,8 +1573,8 @@ function create_if_block_6(ctx) {
       attr(input, "min", "1");
       attr(input, "max", input_max_value = ctx[6].maxRating);
       input.value = input_value_value = ctx[22].system[ctx[6].ratingProperty];
-      attr(input, "class", "svelte-1jg6tl2");
-      attr(div, "class", "item-detail item-rank flexrow svelte-1jg6tl2");
+      attr(input, "class", "svelte-fo1e54");
+      attr(div, "class", "item-detail item-rank flexrow svelte-fo1e54");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1607,6 +1615,7 @@ function create_if_block_5(ctx) {
   let t3;
   let t4;
   let span1_data_tooltip_value;
+  let div_class_value;
   let each_value_4 = {
     length: parseInt(ctx[22].system[ctx[6].ratingProperty]) + 1
   };
@@ -1640,10 +1649,10 @@ function create_if_block_5(ctx) {
         each_blocks[i].c();
       }
       attr(span0, "data-tooltip", span0_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Passes"));
-      attr(pass, "class", "svelte-1jg6tl2");
+      attr(pass, "class", "svelte-fo1e54");
       attr(span1, "data-tooltip", span1_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Fails"));
-      attr(fail, "class", "svelte-1jg6tl2");
-      attr(div, "class", "item-detail item-advancement svelte-1jg6tl2");
+      attr(fail, "class", "svelte-fo1e54");
+      attr(div, "class", div_class_value = "" + (ctx[0] + " item-detail item-advancement svelte-fo1e54"));
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1704,6 +1713,9 @@ function create_if_block_5(ctx) {
         }
         each_blocks.length = each_value_3.length;
       }
+      if (dirty & 1 && div_class_value !== (div_class_value = "" + (ctx2[0] + " item-detail item-advancement svelte-fo1e54"))) {
+        attr(div, "class", div_class_value);
+      }
     },
     d(detaching) {
       if (detaching)
@@ -1714,6 +1726,7 @@ function create_if_block_5(ctx) {
   };
 }
 function create_each_block_4(ctx) {
+  let a;
   let i_1;
   let i_1_class_value;
   let mounted;
@@ -1723,13 +1736,16 @@ function create_each_block_4(ctx) {
   }
   return {
     c() {
+      a = element("a");
       i_1 = element("i");
       attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[22].system.pass, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"));
+      attr(a, "class", "svelte-fo1e54");
     },
     m(target, anchor) {
-      insert(target, i_1, anchor);
+      insert(target, a, anchor);
+      append(a, i_1);
       if (!mounted) {
-        dispose = listen(i_1, "click", click_handler_2);
+        dispose = listen(a, "click", click_handler_2);
         mounted = true;
       }
     },
@@ -1741,13 +1757,14 @@ function create_each_block_4(ctx) {
     },
     d(detaching) {
       if (detaching)
-        detach(i_1);
+        detach(a);
       mounted = false;
       dispose();
     }
   };
 }
 function create_each_block_3(ctx) {
+  let a;
   let i_1;
   let i_1_class_value;
   let mounted;
@@ -1757,13 +1774,16 @@ function create_each_block_3(ctx) {
   }
   return {
     c() {
+      a = element("a");
       i_1 = element("i");
       attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[22].system.fail, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"));
+      attr(a, "class", "svelte-fo1e54");
     },
     m(target, anchor) {
-      insert(target, i_1, anchor);
+      insert(target, a, anchor);
+      append(a, i_1);
       if (!mounted) {
-        dispose = listen(i_1, "click", click_handler_3);
+        dispose = listen(a, "click", click_handler_3);
         mounted = true;
       }
     },
@@ -1775,7 +1795,7 @@ function create_each_block_3(ctx) {
     },
     d(detaching) {
       if (detaching)
-        detach(i_1);
+        detach(a);
       mounted = false;
       dispose();
     }
@@ -1784,40 +1804,37 @@ function create_each_block_3(ctx) {
 function create_if_block_4(ctx) {
   let div;
   let pass;
-  let span0;
-  let t0_value = game.i18n.localize("MOUSEGUARD.PassesAbbr") + "";
-  let t0;
-  let t1;
+  let a0;
   let i0;
   let i0_class_value;
-  let span0_data_tooltip_value;
+  let t0;
+  let t1_value = game.i18n.localize("MOUSEGUARD.WisePass") + "";
+  let t1;
   let t2;
   let fail;
-  let span1;
-  let t3_value = game.i18n.localize("MOUSEGUARD.FailsAbbr") + "";
-  let t3;
-  let t4;
+  let a1;
   let i1;
   let i1_class_value;
-  let span1_data_tooltip_value;
+  let t3;
+  let t4_value = game.i18n.localize("MOUSEGUARD.WiseFail") + "";
+  let t4;
   let t5;
   let fate;
-  let span2;
-  let t6_value = game.i18n.localize("MOUSEGUARD.FateAbbr") + "";
-  let t6;
-  let t7;
+  let a2;
   let i2;
   let i2_class_value;
-  let span2_data_tooltip_value;
+  let t6;
+  let t7_value = game.i18n.localize("MOUSEGUARD.WiseFate") + "";
+  let t7;
   let t8;
   let persona;
-  let span3;
-  let t9_value = game.i18n.localize("MOUSEGUARD.PersonaAbbr") + "";
-  let t9;
-  let t10;
+  let a3;
   let i3;
   let i3_class_value;
-  let span3_data_tooltip_value;
+  let t9;
+  let t10_value = game.i18n.localize("MOUSEGUARD.WisePersona") + "";
+  let t10;
+  let div_class_value;
   let mounted;
   let dispose;
   function click_handler_4(...args) {
@@ -1836,73 +1853,73 @@ function create_if_block_4(ctx) {
     c() {
       div = element("div");
       pass = element("pass");
-      span0 = element("span");
-      t0 = text(t0_value);
-      t1 = text(":\n                        ");
+      a0 = element("a");
       i0 = element("i");
+      t0 = space();
+      t1 = text(t1_value);
       t2 = space();
       fail = element("fail");
-      span1 = element("span");
-      t3 = text(t3_value);
-      t4 = text(":\n                        ");
+      a1 = element("a");
       i1 = element("i");
+      t3 = space();
+      t4 = text(t4_value);
       t5 = space();
       fate = element("fate");
-      span2 = element("span");
-      t6 = text(t6_value);
-      t7 = text(":\n                        ");
+      a2 = element("a");
       i2 = element("i");
+      t6 = space();
+      t7 = text(t7_value);
       t8 = space();
       persona = element("persona");
-      span3 = element("span");
-      t9 = text(t9_value);
-      t10 = text(":\n                        ");
+      a3 = element("a");
       i3 = element("i");
+      t9 = space();
+      t10 = text(t10_value);
       attr(i0, "class", i0_class_value = "far " + (ctx[7](ctx[22].system.pass, 1) < 0 ? "fa-circle-check" : "fa-circle"));
-      attr(span0, "data-tooltip", span0_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Passes"));
-      attr(pass, "class", "svelte-1jg6tl2");
+      attr(a0, "class", "svelte-fo1e54");
+      attr(pass, "class", "svelte-fo1e54");
       attr(i1, "class", i1_class_value = "far " + (ctx[7](ctx[22].system.fail, 1) < 0 ? "fa-circle-check" : "fa-circle"));
-      attr(span1, "data-tooltip", span1_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Fails"));
-      attr(fail, "class", "svelte-1jg6tl2");
+      attr(a1, "class", "svelte-fo1e54");
+      attr(fail, "class", "svelte-fo1e54");
       attr(i2, "class", i2_class_value = "far " + (ctx[7](ctx[22].system.fate, 1) < 0 ? "fa-circle-check" : "fa-circle"));
-      attr(span2, "data-tooltip", span2_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Fate"));
-      attr(fate, "class", "svelte-1jg6tl2");
+      attr(a2, "class", "svelte-fo1e54");
+      attr(fate, "class", "svelte-fo1e54");
       attr(i3, "class", i3_class_value = "far " + (ctx[7](ctx[22].system.persona, 1) < 0 ? "fa-circle-check" : "fa-circle"));
-      attr(span3, "data-tooltip", span3_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Persona"));
-      attr(persona, "class", "svelte-1jg6tl2");
-      attr(div, "class", "wise item-detail item-advancement svelte-1jg6tl2");
+      attr(a3, "class", "svelte-fo1e54");
+      attr(persona, "class", "svelte-fo1e54");
+      attr(div, "class", div_class_value = "" + (ctx[0] + " item-detail item-advancement svelte-fo1e54"));
     },
     m(target, anchor) {
       insert(target, div, anchor);
       append(div, pass);
-      append(pass, span0);
-      append(span0, t0);
-      append(span0, t1);
-      append(span0, i0);
+      append(pass, a0);
+      append(a0, i0);
+      append(a0, t0);
+      append(a0, t1);
       append(div, t2);
       append(div, fail);
-      append(fail, span1);
-      append(span1, t3);
-      append(span1, t4);
-      append(span1, i1);
+      append(fail, a1);
+      append(a1, i1);
+      append(a1, t3);
+      append(a1, t4);
       append(div, t5);
       append(div, fate);
-      append(fate, span2);
-      append(span2, t6);
-      append(span2, t7);
-      append(span2, i2);
+      append(fate, a2);
+      append(a2, i2);
+      append(a2, t6);
+      append(a2, t7);
       append(div, t8);
       append(div, persona);
-      append(persona, span3);
-      append(span3, t9);
-      append(span3, t10);
-      append(span3, i3);
+      append(persona, a3);
+      append(a3, i3);
+      append(a3, t9);
+      append(a3, t10);
       if (!mounted) {
         dispose = [
-          listen(i0, "click", click_handler_4),
-          listen(i1, "click", click_handler_5),
-          listen(i2, "click", click_handler_6),
-          listen(i3, "click", click_handler_7)
+          listen(a0, "click", click_handler_4),
+          listen(a1, "click", click_handler_5),
+          listen(a2, "click", click_handler_6),
+          listen(a3, "click", click_handler_7)
         ];
         mounted = true;
       }
@@ -1920,6 +1937,9 @@ function create_if_block_4(ctx) {
       }
       if (dirty & 8 && i3_class_value !== (i3_class_value = "far " + (ctx[7](ctx[22].system.persona, 1) < 0 ? "fa-circle-check" : "fa-circle"))) {
         attr(i3, "class", i3_class_value);
+      }
+      if (dirty & 1 && div_class_value !== (div_class_value = "" + (ctx[0] + " item-detail item-advancement svelte-fo1e54"))) {
+        attr(div, "class", div_class_value);
       }
     },
     d(detaching) {
@@ -1974,10 +1994,10 @@ function create_if_block_2(ctx) {
         each_blocks[i].c();
       }
       attr(span0, "data-tooltip", span0_data_tooltip_value = game.i18n.localize("MOUSEGUARD.UsedFor"));
-      attr(for_1, "class", "svelte-1jg6tl2");
+      attr(for_1, "class", "svelte-fo1e54");
       attr(span1, "data-tooltip", span1_data_tooltip_value = game.i18n.localize("MOUSEGUARD.UsedAgainst"));
-      attr(against, "class", "svelte-1jg6tl2");
-      attr(div, "class", "item-detail item-uses svelte-1jg6tl2");
+      attr(against, "class", "svelte-fo1e54");
+      attr(div, "class", "item-detail item-uses svelte-fo1e54");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -2102,6 +2122,7 @@ function create_if_block_3(ctx) {
   };
 }
 function create_each_block_2(ctx) {
+  let a;
   let i_1;
   let i_1_class_value;
   let mounted;
@@ -2111,13 +2132,15 @@ function create_each_block_2(ctx) {
   }
   return {
     c() {
+      a = element("a");
       i_1 = element("i");
       attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[22].system.usedfor, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"));
     },
     m(target, anchor) {
-      insert(target, i_1, anchor);
+      insert(target, a, anchor);
+      append(a, i_1);
       if (!mounted) {
-        dispose = listen(i_1, "click", click_handler_8);
+        dispose = listen(a, "click", click_handler_8);
         mounted = true;
       }
     },
@@ -2129,13 +2152,14 @@ function create_each_block_2(ctx) {
     },
     d(detaching) {
       if (detaching)
-        detach(i_1);
+        detach(a);
       mounted = false;
       dispose();
     }
   };
 }
 function create_each_block_1(ctx) {
+  let a;
   let i_1;
   let i_1_class_value;
   let mounted;
@@ -2145,13 +2169,15 @@ function create_each_block_1(ctx) {
   }
   return {
     c() {
+      a = element("a");
       i_1 = element("i");
       attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[22].system.usedagainst, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"));
     },
     m(target, anchor) {
-      insert(target, i_1, anchor);
+      insert(target, a, anchor);
+      append(a, i_1);
       if (!mounted) {
-        dispose = listen(i_1, "click", click_handler_9);
+        dispose = listen(a, "click", click_handler_9);
         mounted = true;
       }
     },
@@ -2163,7 +2189,7 @@ function create_each_block_1(ctx) {
     },
     d(detaching) {
       if (detaching)
-        detach(i_1);
+        detach(a);
       mounted = false;
       dispose();
     }
@@ -2181,7 +2207,7 @@ function create_if_block_1(ctx) {
       a = element("a");
       i = element("i");
       attr(i, "class", "fas fa-sun");
-      attr(a, "class", a_class_value = "item-control item-toggle " + (ctx[22].system.speciality ? "active" : "") + " svelte-1jg6tl2");
+      attr(a, "class", a_class_value = "item-control item-toggle " + (ctx[22].system.speciality ? "active" : "") + " svelte-fo1e54");
       attr(a, "data-tooltip", a_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Speciality"));
     },
     m(target, anchor) {
@@ -2197,7 +2223,7 @@ function create_if_block_1(ctx) {
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 8 && a_class_value !== (a_class_value = "item-control item-toggle " + (ctx[22].system.speciality ? "active" : "") + " svelte-1jg6tl2")) {
+      if (dirty & 8 && a_class_value !== (a_class_value = "item-control item-toggle " + (ctx[22].system.speciality ? "active" : "") + " svelte-fo1e54")) {
         attr(a, "class", a_class_value);
       }
     },
@@ -2215,7 +2241,7 @@ function create_if_block3(ctx) {
   return {
     c() {
       div = element("div");
-      attr(div, "class", "item-summary svelte-1jg6tl2");
+      attr(div, "class", "item-summary svelte-fo1e54");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -2303,15 +2329,15 @@ function create_each_block(ctx) {
       if (if_block5)
         if_block5.c();
       t10 = space();
-      attr(div0, "class", "item-image svelte-1jg6tl2");
+      attr(div0, "class", "item-image svelte-fo1e54");
       set_style(div0, "background-image", "url(" + ctx[22].img + ")");
-      attr(h4, "class", "svelte-1jg6tl2");
-      attr(div1, "class", "item-name flexrow rollable svelte-1jg6tl2");
-      attr(a0, "class", "item-control item-edit svelte-1jg6tl2");
-      attr(a1, "class", "item-control item-delete svelte-1jg6tl2");
-      attr(div2, "class", "item-controls flexrow svelte-1jg6tl2");
-      attr(li, "class", "item flexrow svelte-1jg6tl2");
-      attr(ol, "class", "item-list svelte-1jg6tl2");
+      attr(h4, "class", "svelte-fo1e54");
+      attr(div1, "class", "item-name flexrow rollable svelte-fo1e54");
+      attr(a0, "class", "item-control item-edit svelte-fo1e54");
+      attr(a1, "class", "item-control item-delete svelte-fo1e54");
+      attr(div2, "class", "item-controls flexrow svelte-fo1e54");
+      attr(li, "class", "item flexrow svelte-fo1e54");
+      attr(ol, "class", "item-list svelte-fo1e54");
       attr(ol, "name", ol_name_value = ctx[22].id);
     },
     m(target, anchor) {
@@ -2459,16 +2485,23 @@ function create_fragment4(ctx) {
   let li;
   let h3;
   let t1;
+  let div0;
+  let t2_value = ctx[3].length + "";
   let t2;
   let t3;
+  let t4_value = ctx[6].limit + "";
   let t4;
-  let div;
-  let a;
-  let i;
   let t5;
-  let t6_value = game.i18n.localize("MOUSEGUARD.Add") + "";
   let t6;
   let t7;
+  let t8;
+  let div1;
+  let a;
+  let i;
+  let t9;
+  let t10_value = game.i18n.localize("MOUSEGUARD.Add") + "";
+  let t10;
+  let t11;
   let each_1_anchor;
   let mounted;
   let dispose;
@@ -2486,50 +2519,61 @@ function create_fragment4(ctx) {
       h3 = element("h3");
       h3.textContent = `${ctx[6].header}`;
       t1 = space();
+      div0 = element("div");
+      t2 = text(t2_value);
+      t3 = text(" / ");
+      t4 = text(t4_value);
+      t5 = space();
       if (if_block0)
         if_block0.c();
-      t2 = space();
+      t6 = space();
       if (if_block1)
         if_block1.c();
-      t3 = space();
+      t7 = space();
       if (if_block2)
         if_block2.c();
-      t4 = space();
-      div = element("div");
+      t8 = space();
+      div1 = element("div");
       a = element("a");
       i = element("i");
-      t5 = space();
-      t6 = text(t6_value);
-      t7 = space();
+      t9 = space();
+      t10 = text(t10_value);
+      t11 = space();
       for (let i2 = 0; i2 < each_blocks.length; i2 += 1) {
         each_blocks[i2].c();
       }
       each_1_anchor = empty();
-      attr(h3, "class", "item-name flexrow svelte-1jg6tl2");
+      attr(h3, "class", "item-name flexrow svelte-fo1e54");
+      attr(div0, "class", "item-slots svelte-fo1e54");
       attr(i, "class", "fas fa-plus");
-      attr(a, "class", "item-control item-create svelte-1jg6tl2");
-      attr(div, "class", "item-controls flexrow svelte-1jg6tl2");
-      attr(li, "class", "items-header flexrow svelte-1jg6tl2");
+      attr(a, "class", "item-control item-create svelte-fo1e54");
+      attr(div1, "class", "item-controls flexrow svelte-fo1e54");
+      attr(li, "class", "items-header flexrow svelte-fo1e54");
     },
     m(target, anchor) {
       insert(target, li, anchor);
       append(li, h3);
       append(li, t1);
+      append(li, div0);
+      append(div0, t2);
+      append(div0, t3);
+      append(div0, t4);
+      append(li, t5);
       if (if_block0)
         if_block0.m(li, null);
-      append(li, t2);
+      append(li, t6);
       if (if_block1)
         if_block1.m(li, null);
-      append(li, t3);
+      append(li, t7);
       if (if_block2)
         if_block2.m(li, null);
-      append(li, t4);
-      append(li, div);
-      append(div, a);
+      append(li, t8);
+      append(li, div1);
+      append(div1, a);
       append(a, i);
-      append(a, t5);
-      append(a, t6);
-      insert(target, t7, anchor);
+      append(a, t9);
+      append(a, t10);
+      insert(target, t11, anchor);
       for (let i2 = 0; i2 < each_blocks.length; i2 += 1) {
         each_blocks[i2].m(target, anchor);
       }
@@ -2540,6 +2584,8 @@ function create_fragment4(ctx) {
       }
     },
     p(ctx2, [dirty]) {
+      if (dirty & 8 && t2_value !== (t2_value = ctx2[3].length + ""))
+        set_data(t2, t2_value);
       if (ctx2[6].showRating)
         if_block0.p(ctx2, dirty);
       if (ctx2[6].showAdvance && !ctx2[1]) {
@@ -2548,7 +2594,7 @@ function create_fragment4(ctx) {
         } else {
           if_block1 = create_if_block_8(ctx2);
           if_block1.c();
-          if_block1.m(li, t3);
+          if_block1.m(li, t7);
         }
       } else if (if_block1) {
         if_block1.d(1);
@@ -2560,7 +2606,7 @@ function create_fragment4(ctx) {
         } else {
           if_block2 = create_if_block_7(ctx2);
           if_block2.c();
-          if_block2.m(li, t4);
+          if_block2.m(li, t8);
         }
       } else if (if_block2) {
         if_block2.d(1);
@@ -2597,7 +2643,7 @@ function create_fragment4(ctx) {
       if (if_block2)
         if_block2.d();
       if (detaching)
-        detach(t7);
+        detach(t11);
       destroy_each(each_blocks, detaching);
       if (detaching)
         detach(each_1_anchor);
@@ -2627,7 +2673,8 @@ function instance4($$self, $$props, $$invalidate) {
         }, { parent: sheet.actor });
       },
       showRating: false,
-      showAdvance: true
+      showAdvance: true,
+      limit: 4
     },
     skill: {
       header: game.i18n.localize("MOUSEGUARD.Skills"),
@@ -2636,7 +2683,8 @@ function instance4($$self, $$props, $$invalidate) {
       ratingPropertyName: game.i18n.localize("MOUSEGUARD.Rank"),
       showAdvance: true,
       ratingProperty: "rank",
-      maxRating: 7
+      maxRating: 6,
+      limit: 24
     },
     trait: {
       header: game.i18n.localize("MOUSEGUARD.Traits"),
@@ -2644,7 +2692,8 @@ function instance4($$self, $$props, $$invalidate) {
       showRating: true,
       ratingPropertyName: game.i18n.localize("MOUSEGUARD.Level"),
       ratingProperty: "level",
-      maxRating: 3
+      maxRating: 3,
+      limit: 5
     }
   };
   let itemTypeConfig = itemTypeConfigs[itemType];
@@ -2743,14 +2792,14 @@ function create_if_block_12(ctx) {
       div.textContent = "/";
       t1 = space();
       input = element("input");
-      attr(div, "class", "divider svelte-18ydmmm");
+      attr(div, "class", "divider svelte-1lgnveu");
       attr(input, "name", input_name_value = ctx[12].id);
       attr(input, "type", "number");
       attr(input, "min", "0");
       attr(input, "max", input_max_value = ctx[12].system.rating);
       input.value = input_value_value = ctx[12].system.tax;
       attr(input, "data-tooltip", input_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Tax"));
-      attr(input, "class", "svelte-18ydmmm");
+      attr(input, "class", "svelte-1lgnveu");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -2832,10 +2881,10 @@ function create_if_block4(ctx) {
         each_blocks[i].c();
       }
       attr(span0, "data-tooltip", span0_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Passes"));
-      attr(pass, "class", "svelte-18ydmmm");
+      attr(pass, "class", "svelte-1lgnveu");
       attr(span1, "data-tooltip", span1_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Fails"));
-      attr(fail, "class", "svelte-18ydmmm");
-      attr(div, "class", "item-detail item-advancement svelte-18ydmmm");
+      attr(fail, "class", "svelte-1lgnveu");
+      attr(div, "class", "item-detail item-advancement svelte-1lgnveu");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -2906,6 +2955,7 @@ function create_if_block4(ctx) {
   };
 }
 function create_each_block_22(ctx) {
+  let a;
   let i_1;
   let i_1_class_value;
   let mounted;
@@ -2915,13 +2965,15 @@ function create_each_block_22(ctx) {
   }
   return {
     c() {
+      a = element("a");
       i_1 = element("i");
       attr(i_1, "class", i_1_class_value = "far " + (ctx[4](ctx[12].system.pass, ctx[17]) < 0 ? "fa-circle-check" : "fa-circle"));
     },
     m(target, anchor) {
-      insert(target, i_1, anchor);
+      insert(target, a, anchor);
+      append(a, i_1);
       if (!mounted) {
-        dispose = listen(i_1, "click", click_handler_1);
+        dispose = listen(a, "click", click_handler_1);
         mounted = true;
       }
     },
@@ -2933,13 +2985,14 @@ function create_each_block_22(ctx) {
     },
     d(detaching) {
       if (detaching)
-        detach(i_1);
+        detach(a);
       mounted = false;
       dispose();
     }
   };
 }
 function create_each_block_12(ctx) {
+  let a;
   let i_1;
   let i_1_class_value;
   let mounted;
@@ -2949,13 +3002,15 @@ function create_each_block_12(ctx) {
   }
   return {
     c() {
+      a = element("a");
       i_1 = element("i");
       attr(i_1, "class", i_1_class_value = "far " + (ctx[4](ctx[12].system.fail, ctx[17]) < 0 ? "fa-circle-check" : "fa-circle"));
     },
     m(target, anchor) {
-      insert(target, i_1, anchor);
+      insert(target, a, anchor);
+      append(a, i_1);
       if (!mounted) {
-        dispose = listen(i_1, "click", click_handler_2);
+        dispose = listen(a, "click", click_handler_2);
         mounted = true;
       }
     },
@@ -2967,7 +3022,7 @@ function create_each_block_12(ctx) {
     },
     d(detaching) {
       if (detaching)
-        detach(i_1);
+        detach(a);
       mounted = false;
       dispose();
     }
@@ -3014,18 +3069,18 @@ function create_each_block2(ctx) {
       if (if_block1)
         if_block1.c();
       t4 = space();
-      attr(h4, "class", "box-title svelte-18ydmmm");
-      attr(div0, "class", "item-name rollable svelte-18ydmmm");
+      attr(h4, "class", "box-title svelte-1lgnveu");
+      attr(div0, "class", "item-name rollable svelte-1lgnveu");
       attr(input, "name", input_name_value = ctx[12].id);
       attr(input, "type", "number");
       attr(input, "min", "1");
       attr(input, "max", "7");
       input.value = input_value_value = ctx[12].system.rating;
       attr(input, "data-tooltip", input_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Rating"));
-      attr(input, "class", "svelte-18ydmmm");
-      attr(div1, "class", "item-detail item-rank flexrow svelte-18ydmmm");
-      attr(li, "class", "item flexrow svelte-18ydmmm");
-      attr(ol, "class", "item-list svelte-18ydmmm");
+      attr(input, "class", "svelte-1lgnveu");
+      attr(div1, "class", "item-detail item-rank flexrow svelte-1lgnveu");
+      attr(li, "class", "item flexrow svelte-1lgnveu");
+      attr(ol, "class", "item-list svelte-1lgnveu");
       attr(ol, "name", ol_name_value = ctx[12].id);
     },
     m(target, anchor) {
@@ -3122,8 +3177,8 @@ function create_fragment5(ctx) {
         each_blocks[i].c();
       }
       each_1_anchor = empty();
-      attr(h3, "class", "item-name flexrow svelte-18ydmmm");
-      attr(li, "class", "items-header flexrow svelte-18ydmmm");
+      attr(h3, "class", "item-name flexrow svelte-1lgnveu");
+      attr(li, "class", "items-header flexrow svelte-1lgnveu");
     },
     m(target, anchor) {
       insert(target, li, anchor);

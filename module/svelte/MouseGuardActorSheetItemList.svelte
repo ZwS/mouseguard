@@ -28,6 +28,7 @@
             },
             showRating: false,
             showAdvance: true,
+            limit: 4
         },
         skill: {
             header: game.i18n.localize("MOUSEGUARD.Skills"),
@@ -36,7 +37,8 @@
             ratingPropertyName: game.i18n.localize("MOUSEGUARD.Rank"),
             showAdvance: true,
             ratingProperty: "rank",
-            maxRating: 7
+            maxRating: 6,
+            limit: 24
         },
         trait: {
             header: game.i18n.localize("MOUSEGUARD.Traits"),
@@ -44,7 +46,8 @@
             showRating: true,
             ratingPropertyName: game.i18n.localize("MOUSEGUARD.Level"),
             ratingProperty: "level",
-            maxRating: 3
+            maxRating: 3,
+            limit: 5
         }
         // TODO add support for items and connections
     };
@@ -55,11 +58,14 @@
 
 <li class="items-header flexrow">
     <h3 class="item-name flexrow">{itemTypeConfig.header}</h3>
+    <div class="item-slots">
+        {items.length} / {itemTypeConfig.limit}
+    </div>
     {#if itemTypeConfig.showRating}
         <div class="item-detail item-rank">{itemTypeConfig.ratingPropertyName}</div>
     {/if}
     {#if itemTypeConfig.showAdvance && !isNpc}
-        <div class="item-detail item-advancement">{game.i18n.localize("MOUSEGUARD.Advancement")}</div>
+        <div class="{itemType} item-detail item-advancement">{game.i18n.localize("MOUSEGUARD.Advancement")}</div>
     {/if}
     {#if itemType === 'trait' && !isNpc}
         <div class="item-detail item-uses">{game.i18n.localize("MOUSEGUARD.Uses")}</div>
@@ -89,14 +95,13 @@
                 </div>
             {/if}
             {#if itemTypeConfig.showAdvance && !isNpc && itemType !== 'wise'}
-                <div class="item-detail item-advancement">
+                <div class="{itemType} item-detail item-advancement">
                     <pass>
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Passes')}">
                             {game.i18n.localize("MOUSEGUARD.PassesAbbr")}:
                             {#each {length: parseInt(item.system[itemTypeConfig.ratingProperty]) + 1} as _, i}
-                                <i class="far {advancementStep(item.system.pass, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
-                                   on:click={(e) => updateRating(sheet, item.id, "pass",
-                                        parseInt(item.system.pass) + advancementStep(item.system.pass, i))}></i>
+                                <a on:click={(e) => updateRating(sheet, item.id, "pass", parseInt(item.system.pass) + advancementStep(item.system.pass, i))}
+                                    ><i class="far {advancementStep(item.system.pass, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"></i></a>
                             {/each}
                         </span>
                     </pass>
@@ -105,47 +110,38 @@
                             {game.i18n.localize("MOUSEGUARD.FailsAbbr")}:
 
                             {#each {length: parseInt(item.system[itemTypeConfig.ratingProperty])} as _, i}
-                                <i class="far {advancementStep(item.system.fail, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
-                                   on:click={(e) => updateRating(sheet, item.id, "fail",
-                                        parseInt(item.system.fail) + advancementStep(item.system.fail, i))}></i>
+                                <a on:click={(e) => updateRating(sheet, item.id, "fail", parseInt(item.system.fail) + advancementStep(item.system.fail, i))}
+                                    ><i class="far {advancementStep(item.system.fail, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"></i></a>
                             {/each}
                         </span>
                     </fail>
                 </div>
             {/if}
             {#if itemType === 'wise' && !isNpc}
-                <div class="wise item-detail item-advancement">
+                <div class="{itemType} item-detail item-advancement">
                     <pass>
-                        <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Passes')}">
-                        {game.i18n.localize("MOUSEGUARD.PassesAbbr")}:
-                        <i class="far {advancementStep(item.system.pass, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"
-                           on:click={(e) => updateRating(sheet, item.id, "pass",
-                                        parseInt(item.system.pass) + advancementStep(item.system.pass, 1))}></i>
-                        </span>
+                        <a on:click={(e) => updateRating(sheet, item.id, "pass", parseInt(item.system.pass) + advancementStep(item.system.pass, 1))}>
+                            <i class="far {advancementStep(item.system.pass, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"></i>
+                            {game.i18n.localize("MOUSEGUARD.WisePass")}
+                        </a>
                     </pass>
                     <fail>
-                        <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Fails')}">
-                        {game.i18n.localize("MOUSEGUARD.FailsAbbr")}:
-                        <i class="far {advancementStep(item.system.fail, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"
-                           on:click={(e) => updateRating(sheet, item.id, "fail",
-                                        parseInt(item.system.fail) + advancementStep(item.system.fail, 1))}></i>
-                        </span>
+                        <a on:click={(e) => updateRating(sheet, item.id, "fail", parseInt(item.system.fail) + advancementStep(item.system.fail, 1))}>
+                            <i class="far {advancementStep(item.system.fail, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"></i>
+                            {game.i18n.localize("MOUSEGUARD.WiseFail")}
+                        </a>
                     </fail>
                     <fate>
-                        <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Fate')}">
-                        {game.i18n.localize("MOUSEGUARD.FateAbbr")}:
-                        <i class="far {advancementStep(item.system.fate, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"
-                           on:click={(e) => updateRating(sheet, item.id, "fate",
-                                        parseInt(item.system.fate) + advancementStep(item.system.fate, 1))}></i>
-                        </span>
+                        <a on:click={(e) => updateRating(sheet, item.id, "fate", parseInt(item.system.fate) + advancementStep(item.system.fate, 1))}>
+                            <i class="far {advancementStep(item.system.fate, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"></i>
+                            {game.i18n.localize("MOUSEGUARD.WiseFate")}
+                        </a>
                     </fate>
                     <persona>
-                        <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Persona')}">
-                        {game.i18n.localize("MOUSEGUARD.PersonaAbbr")}:
-                        <i class="far {advancementStep(item.system.persona, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"
-                           on:click={(e) => updateRating(sheet, item.id, "persona",
-                                        parseInt(item.system.persona) + advancementStep(item.system.persona, 1))}></i>
-                        </span>
+                        <a on:click={(e) => updateRating(sheet, item.id, "persona", parseInt(item.system.persona) + advancementStep(item.system.persona, 1))}>
+                            <i class="far {advancementStep(item.system.persona, 1) < 0 ? 'fa-circle-check' : 'fa-circle'}"></i>
+                            {game.i18n.localize("MOUSEGUARD.WisePersona")}
+                        </a>
                     </persona>
                 </div>
             {/if}
@@ -156,9 +152,8 @@
                             {game.i18n.localize("MOUSEGUARD.UsedForAbbr")}:
                             {#if item.system.level < 3}
                                 {#each {length: parseInt(item.system.level)} as _, i}
-                                    <i class="far {advancementStep(item.system.usedfor, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
-                                       on:click={(e) => updateRating(sheet, item.id, "usedfor",
-                                        parseInt(item.system.usedfor) + advancementStep(item.system.usedfor, i))}></i>
+                                    <a on:click={(e) => updateRating(sheet, item.id, "usedfor",  parseInt(item.system.usedfor) + advancementStep(item.system.usedfor, i))}
+                                        ><i class="far {advancementStep(item.system.usedfor, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"></i></a>
                                 {/each}
                             {:else}
                                 <strong>&infin;</strong>
@@ -169,9 +164,8 @@
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.UsedAgainst')}">
                             {game.i18n.localize("MOUSEGUARD.UsedAgainstAbbr")}:
                             {#each {length: 6} as _, i}
-                                <i class="far {advancementStep(item.system.usedagainst, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
-                                   on:click={(e) => updateRating(sheet, item.id, "usedagainst",
-                                        parseInt(item.system.usedagainst) + advancementStep(item.system.usedagainst, i))}></i>
+                                <a on:click={(e) => updateRating(sheet, item.id, "usedagainst", parseInt(item.system.usedagainst) + advancementStep(item.system.usedagainst, i))}
+                                    ><i class="far {advancementStep(item.system.usedagainst, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"></i></a>
                             {/each}
                         </span>
                     </against>
@@ -207,6 +201,7 @@
     }
 
     .items-header {
+        font-family: var(--font-sans-condensed);
         height: 28px;
         margin: 2px 0;
         padding: 0;
@@ -272,6 +267,7 @@
     }
 
     .item-detail {
+        font-family: var(--font-sans-condensed);
         flex: 0 0 70px;
         font-size: 12px;
         text-align: center;
@@ -300,7 +296,7 @@
     }
 
     .item-advancement, .item-uses {
-        flex: 0 0 112px;
+        flex: 0 0 102px;
     }
 
     .item .item-advancement, .item .item-uses {
@@ -339,8 +335,12 @@
         width: 100%;
     }
 
-    .wise {
+    .item-list .wise.item-advancement {
         column-count: 2;
+    }
+
+    .wise.item-advancement {
+        flex: 0 0 162px;
     }
 
     .wise fail, .wise pass, .wise fate, .wise persona {

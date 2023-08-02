@@ -45,9 +45,8 @@
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Passes')}">
                             {game.i18n.localize("MOUSEGUARD.PassesAbbr")}:
                             {#each {length: parseInt(item.system.rating) + 1} as _, i}
-                                <i class="far {advancementStep(item.system.pass, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
-                                   on:click={(e) => updateRating(sheet, item.id, "pass",
-                                        parseInt(item.system.pass) + advancementStep(item.system.pass, i))}></i>
+                                <a on:click={(e) => updateRating(sheet, item.id, "pass", parseInt(item.system.pass) + advancementStep(item.system.pass, i))}
+                                    ><i class="far {advancementStep(item.system.pass, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"></i></a>
                             {/each}
                         </span>
 
@@ -56,9 +55,8 @@
                         <span data-tooltip="{game.i18n.localize('MOUSEGUARD.Fails')}">
                             {game.i18n.localize("MOUSEGUARD.FailsAbbr")}:
                             {#each {length: parseInt(item.system.rating)} as _, i}
-                                <i class="far {advancementStep(item.system.fail, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"
-                                   on:click={(e) => updateRating(sheet, item.id, "fail",
-                                        parseInt(item.system.fail) + advancementStep(item.system.fail, i))}></i>
+                                <a on:click={(e) => updateRating(sheet, item.id, "fail", parseInt(item.system.fail) + advancementStep(item.system.fail, i))}
+                                   ><i class="far {advancementStep(item.system.fail, i) < 0 ? 'fa-circle-check' : 'fa-circle'}"></i></a>
                             {/each}
                         </span>
                     </fail>
@@ -74,6 +72,7 @@
     }
 
     .items-header {
+        font-family: var(--font-sans-condensed);
         height: 28px;
         margin: 2px 0;
         padding: 0;
@@ -142,6 +141,7 @@
     }
 
     .item-detail {
+        font-family: var(--font-sans-condensed);
         flex: 0 0 70px;
         font-size: 12px;
         text-align: center;

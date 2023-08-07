@@ -62,10 +62,7 @@
         ],
         "item": {
             "description": "",
-            "quantity": 1,
-            "weight": 0,
-            "attributes": {},
-            "groups": {}
+            "itemType": "item"
         },
         "skill": {
             "description": "",
@@ -82,7 +79,8 @@
             "persona": 0
         },
         "contact": {
-            "description": ""
+            "description": "",
+            "itemType": "friend"
         },
         "ability": {
             "description": "",

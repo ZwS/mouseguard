@@ -8,20 +8,20 @@
 }
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetMouseDetails.esbuild-svelte-fake-css */
-.characteristics.svelte-6c3beh {
+.characteristics.svelte-1evzdp4 {
   flex: 0 0 200px;
   height: 100%;
   padding: 0 3px 3px;
 }
-input.svelte-6c3beh,
-textarea.svelte-6c3beh {
-  border: 1px solid #c9c7b8;
+.biography.svelte-1evzdp4 {
+  height: 100%;
+  overflow-y: auto;
 }
-label.svelte-6c3beh {
+label.svelte-1evzdp4 {
   width: 100%;
   display: block;
 }
-.sub.svelte-6c3beh {
+.sub.svelte-1evzdp4 {
   font-size: small;
 }
 
@@ -59,303 +59,93 @@ input.svelte-1ebpjqs.svelte-1ebpjqs {
 }
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetItemList.esbuild-svelte-fake-css */
-.items-header.svelte-fo1e54 > .svelte-fo1e54 {
-  font-size: 12px;
-  text-align: center;
-}
-.items-header.svelte-fo1e54.svelte-fo1e54 {
-  font-family: var(--font-sans-condensed);
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
-}
-.items-header.svelte-fo1e54 h3.svelte-fo1e54 {
-  padding-left: 5px;
-  font-weight: 700;
-  text-align: left;
-  font-size: 16px;
-  border: none;
-  margin-bottom: 0;
-}
-.item-list.svelte-fo1e54.svelte-fo1e54 {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.item.svelte-fo1e54.svelte-fo1e54 {
-  align-items: center;
-  padding: 0 2px;
-  border-bottom: 1px solid #c9c7b8;
-}
-.rollable.svelte-fo1e54.svelte-fo1e54:hover {
-  text-shadow: 0 0 10px var(--color-shadow-primary);
-}
-.rollable.svelte-fo1e54:hover .item-image.svelte-fo1e54 {
-  background-image: url(../assets/dice/dicesword.webp) !important;
-}
-.item-image.svelte-fo1e54.svelte-fo1e54 {
-  flex: 0 0 35px;
-  height: 40px;
-  background-size: cover;
-  background-position: 50% 0;
-  border: none;
-  margin-right: 5px;
-}
-.item-name.svelte-fo1e54.svelte-fo1e54 {
-  flex: 2;
-  margin: 0;
-  overflow: hidden;
-  font-size: 14px;
-  text-align: left;
-  align-items: center;
-}
-.item.svelte-fo1e54 .item-name.svelte-fo1e54 {
-  line-height: 40px;
-}
-.item-name.svelte-fo1e54 h4.svelte-fo1e54 {
-  margin-bottom: 0;
-}
-.item-detail.svelte-fo1e54.svelte-fo1e54 {
-  font-family: var(--font-sans-condensed);
-  flex: 0 0 70px;
-  font-size: 12px;
-  text-align: center;
-  border-right: 1px solid #c9c7b8;
-  word-break: break-word;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.item-rank.svelte-fo1e54.svelte-fo1e54 {
-  flex: 0 0 60px;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-}
-.item-rank.svelte-fo1e54 input.svelte-fo1e54 {
-  border: none;
-  text-align: center;
-  background-color: white;
-  height: 35px;
-  font-size: large;
-}
-.item-rank.svelte-fo1e54 input.svelte-fo1e54:hover {
-  box-shadow: none;
-}
-.item-advancement.svelte-fo1e54.svelte-fo1e54,
-.item-uses.svelte-fo1e54.svelte-fo1e54 {
-  flex: 0 0 102px;
-}
-.item.svelte-fo1e54 .item-advancement.svelte-fo1e54,
-.item.svelte-fo1e54 .item-uses.svelte-fo1e54 {
-  text-align: left;
-}
-.item-controls.svelte-fo1e54.svelte-fo1e54 {
-  flex: 0 0 50px;
-  justify-content: space-between;
-}
-.item-controls.svelte-fo1e54 a.svelte-fo1e54 {
-  font-size: 12px;
-  text-align: center;
-}
-.item-summary.svelte-fo1e54.svelte-fo1e54 {
-  flex: 0 0 100%;
-  font-size: 12px;
-  line-height: 16px;
-  padding: 0.25em 0.5em;
-  color: #191813;
-  border-top: 1px solid #c9c7b8;
-}
-.item-toggle.svelte-fo1e54.svelte-fo1e54 {
-  color: #b5b3a4;
-}
-.item-toggle.active.svelte-fo1e54.svelte-fo1e54 {
-  color: #4b4a44;
-}
-fail.svelte-fo1e54.svelte-fo1e54,
-pass.svelte-fo1e54.svelte-fo1e54,
-for.svelte-fo1e54.svelte-fo1e54,
-against.svelte-fo1e54.svelte-fo1e54 {
+fail.svelte-1vk9y0l.svelte-1vk9y0l,
+pass.svelte-1vk9y0l.svelte-1vk9y0l,
+for.svelte-1vk9y0l.svelte-1vk9y0l,
+against.svelte-1vk9y0l.svelte-1vk9y0l {
   display: flex;
   width: 100%;
 }
-.item-list.svelte-fo1e54 .wise.item-advancement.svelte-fo1e54 {
+.item-list.wise.svelte-1vk9y0l .item-advancement.svelte-1vk9y0l {
   column-count: 2;
 }
-.wise.item-advancement.svelte-fo1e54.svelte-fo1e54 {
+.item-list.wise.svelte-1vk9y0l .item-advancement.svelte-1vk9y0l,
+.items-header.wise.svelte-1vk9y0l .item-advancement.svelte-1vk9y0l {
   flex: 0 0 162px;
 }
-.wise.svelte-fo1e54 fail.svelte-fo1e54,
-.wise.svelte-fo1e54 pass.svelte-fo1e54,
-.wise.svelte-fo1e54 fate.svelte-fo1e54,
-.wise.svelte-fo1e54 persona.svelte-fo1e54 {
+.wise.svelte-1vk9y0l fail.svelte-1vk9y0l,
+.wise.svelte-1vk9y0l pass.svelte-1vk9y0l,
+.wise.svelte-1vk9y0l fate.svelte-1vk9y0l,
+.wise.svelte-1vk9y0l persona.svelte-1vk9y0l {
   display: flex;
   width: 50%;
 }
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetAbilityList.esbuild-svelte-fake-css */
-.items-header.svelte-1lgnveu > .svelte-1lgnveu {
-  font-size: 12px;
-  text-align: center;
-}
-.items-header.svelte-1lgnveu.svelte-1lgnveu {
-  font-family: var(--font-sans-condensed);
-  height: 28px;
-  margin: 2px 0;
-  padding: 0;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
-}
-.items-header.svelte-1lgnveu h3.svelte-1lgnveu {
-  padding-left: 5px;
-  font-weight: 700;
-  text-align: left;
-  font-size: 16px;
-  border: none;
-  margin-bottom: 0;
-}
-.item-list.svelte-1lgnveu.svelte-1lgnveu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: auto;
-}
-.item.svelte-1lgnveu.svelte-1lgnveu {
-  align-items: center;
-  padding: 0 2px;
-  border-top: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  justify-content: center;
-}
-.rollable.svelte-1lgnveu.svelte-1lgnveu:hover {
-  text-shadow: 0 0 10px var(--color-shadow-primary);
-}
-.item-name.svelte-1lgnveu.svelte-1lgnveu {
-  flex: 2;
-  margin: 0;
-  overflow: hidden;
-  font-size: 13px;
+.item-name.svelte-10zqj2h.svelte-10zqj2h {
   text-align: center;
   align-items: center;
 }
-.item.svelte-1lgnveu .item-name.svelte-1lgnveu {
+.item.svelte-10zqj2h .item-name.svelte-10zqj2h {
   flex: 0 0 100%;
   font-size: 16px;
   line-height: 16px;
   padding: 0.25em 0.5em;
-  border-top: 1px solid #c9c7b8;
 }
-.item-name.svelte-1lgnveu h4.svelte-1lgnveu {
-  margin-bottom: 0;
+.item.svelte-10zqj2h .item-detail.svelte-10zqj2h {
+  border-left: 0;
 }
-.box-title.svelte-1lgnveu.svelte-1lgnveu {
+.item-rank.svelte-10zqj2h input.svelte-10zqj2h {
+  text-align: center;
+  height: 35px;
+  font-size: large;
+}
+.box-title.svelte-10zqj2h.svelte-10zqj2h {
   font-family: var(--font-fancy);
   font-size: var(--text-sm);
   font-weight: 700;
-  color: #4b4a44;
-  border-bottom: 1px solid #c9c7b8;
+  color: var(--color-text-dark-secondary);
+  border-bottom: 1px solid var(--color-border-light-secondary);
 }
-.item-detail.svelte-1lgnveu.svelte-1lgnveu {
-  font-family: var(--font-sans-condensed);
-  flex: 0 0 70px;
-  font-size: 12px;
-  text-align: center;
-  word-break: break-word;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.item-rank.svelte-1lgnveu.svelte-1lgnveu {
-  flex: 0 0 60px;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-}
-.item-rank.svelte-1lgnveu input.svelte-1lgnveu {
-  border: none;
-  text-align: center;
-  background-color: white;
-  height: 35px;
-  font-size: large;
-}
-.item-rank.svelte-1lgnveu input.svelte-1lgnveu:hover {
-  box-shadow: none;
-}
-.item-rank.svelte-1lgnveu .divider.svelte-1lgnveu {
-  text-align: center;
-  background-color: white;
-  height: 35px;
-  font-size: large;
-  line-height: 35px;
-}
-.item-advancement.svelte-1lgnveu.svelte-1lgnveu {
+.item-advancement.svelte-10zqj2h.svelte-10zqj2h {
   flex: 0 0 112px;
 }
-.item.svelte-1lgnveu .item-advancement.svelte-1lgnveu {
-  text-align: left;
-}
-fail.svelte-1lgnveu.svelte-1lgnveu,
-pass.svelte-1lgnveu.svelte-1lgnveu {
+fail.svelte-10zqj2h.svelte-10zqj2h,
+pass.svelte-10zqj2h.svelte-10zqj2h {
   display: flex;
   width: 100%;
 }
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetMouseSkillAbilityTab.esbuild-svelte-fake-css */
-.abilities.svelte-1s356y1 {
+.abilities.svelte-apzgwe {
   flex: 0 0 180px;
-}
-.items.svelte-1s356y1 {
-  height: 100%;
-  overflow: auto;
-}
-.items-list.svelte-1s356y1 {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  color: #7a7971;
-  overflow-y: auto;
-  scrollbar-width: thin;
 }
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetDisposition.esbuild-svelte-fake-css */
-.disposition-container.svelte-5lwv33 {
+.disposition-container.svelte-14ct40f {
   flex: 0;
   margin-left: auto;
   border-left: 1px solid #c9c7b8;
   padding-left: 5px;
   padding-right: 5px;
 }
-.header.svelte-5lwv33 {
+.header.svelte-14ct40f {
   font-size: large;
   width: 100%;
   text-align: center;
 }
-input.svelte-5lwv33 {
-  border: none;
+input.svelte-14ct40f {
   text-align: center;
-  background-color: white;
   height: 35px;
   font-size: large;
-}
-input.svelte-5lwv33:focus {
-  box-shadow: none;
-}
-.divider.svelte-5lwv33 {
-  text-align: center;
-  background-color: white;
-  height: 35px;
-  font-size: large;
-  line-height: 35px;
 }
 
 /* fakecss:/home/anton/.local/share/FoundryVTT/Data/systems/mouseguard/module/svelte/MouseGuardActorSheetPortrait.esbuild-svelte-fake-css */
-.profile-img.svelte-140opxm {
+.profile-img.svelte-61ive2 {
   display: block;
   object-fit: contain;
-  height: 100%;
+  height: 108px;
+  width: 100%;
   border: none;
   border-bottom: 1px solid #aaa;
 }

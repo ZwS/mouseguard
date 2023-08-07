@@ -36,7 +36,8 @@
     .profile-img {
         display: block;
         object-fit: contain;
-        height: 100%;
+        height: 108px;
+        width: 100%;
         border: none;
         border-bottom: 1px solid #aaa;
     }

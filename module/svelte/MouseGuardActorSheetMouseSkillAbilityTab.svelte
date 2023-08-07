@@ -25,18 +25,4 @@
     .abilities {
         flex: 0 0 180px;
     }
-
-    .items {
-        height: 100%;
-        overflow: auto;
-    }
-
-    .items-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        color: #7a7971;
-        overflow-y: auto;
-        scrollbar-width: thin;
-    }
 </style>

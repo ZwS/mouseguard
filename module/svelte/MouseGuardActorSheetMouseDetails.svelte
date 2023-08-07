@@ -36,7 +36,7 @@
     <label>{game.i18n.localize("MOUSEGUARD.Enemy")}: </label>
     <input name="system.details.enemy" disabled={limited} type="text" value={data.system.details.enemy}>
 </div>
-<div class="biography flexcol">
+<div class="biography">
     {#if !limited}
         <div class="reward">
             <label>{game.i18n.localize("MOUSEGUARD.Belief")}</label>
@@ -66,8 +66,9 @@
         padding: 0 3px 3px;
     }
 
-    input, textarea {
-        border: 1px solid #c9c7b8;
+    .biography {
+        height: 100%;
+        overflow-y: auto;
     }
 
     label {

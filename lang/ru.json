@@ -50,6 +50,10 @@
     "MOUSEGUARD.GearTag": "Снаряжение и личные вещи",
     "MOUSEGUARD.GearTagSub": "Gear is limited to what you can carry. Possessions are kept in Lockhaven aor another location",
     "MOUSEGUARD.Contacts": "Знакомства",
+    "MOUSEGUARD.Items": "Предметы",
+    "MOUSEGUARD.Type": "Тип",
+    "MOUSEGUARD.Weapon": "Оружие",
+    "MOUSEGUARD.Item": "Предмет",
 
     "MOUSEGUARD.Disposition": "Диспозиция",
     "MOUSEGUARD.ConflictGoal": "Цель конфликта",

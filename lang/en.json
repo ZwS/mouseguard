@@ -34,6 +34,10 @@
     "MOUSEGUARD.GearTag": "Gear and Possessions",
     "MOUSEGUARD.GearTagSub": "Gear is limited to what you can carry. Possessions are kept in Lockhaven aor another location",
     "MOUSEGUARD.Contacts": "Contacts",
+    "MOUSEGUARD.Items": "Items",
+    "MOUSEGUARD.Type": "Type",
+    "MOUSEGUARD.Weapon": "Weapon",
+    "MOUSEGUARD.Item": "Item",
 
     "MOUSEGUARD.Disposition": "Disposition",
     "MOUSEGUARD.CurrentDisposition": "Current Disposition",

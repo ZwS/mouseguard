@@ -199,6 +199,20 @@ function set_style(node, key, value, important) {
     node.style.setProperty(key, value, important ? "important" : "");
   }
 }
+function select_option(select, value) {
+  for (let i = 0; i < select.options.length; i += 1) {
+    const option = select.options[i];
+    if (option.__value === value) {
+      option.selected = true;
+      return;
+    }
+  }
+  select.selectedIndex = -1;
+}
+function select_value(select) {
+  const selected_option = select.querySelector(":checked") || select.options[0];
+  return selected_option && selected_option.__value;
+}
 var crossorigin;
 function is_crossorigin() {
   if (crossorigin === void 0) {
@@ -477,7 +491,7 @@ function make_dirty(component, i) {
   }
   component.$$.dirty[i / 31 | 0] |= 1 << i % 31;
 }
-function init(component, options, instance12, create_fragment12, not_equal, props, append_styles, dirty = [-1]) {
+function init(component, options, instance13, create_fragment13, not_equal, props, append_styles, dirty = [-1]) {
   const parent_component = current_component;
   set_current_component(component);
   const $$ = component.$$ = {
@@ -500,7 +514,7 @@ function init(component, options, instance12, create_fragment12, not_equal, prop
   };
   append_styles && append_styles($$.root);
   let ready = false;
-  $$.ctx = instance12 ? instance12(component, options.props || {}, (i, ret, ...rest) => {
+  $$.ctx = instance13 ? instance13(component, options.props || {}, (i, ret, ...rest) => {
     const value = rest.length ? rest[0] : ret;
     if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
       if (!$$.skip_bound && $$.bound[i])
@@ -513,7 +527,7 @@ function init(component, options, instance12, create_fragment12, not_equal, prop
   $$.update();
   ready = true;
   run_all($$.before_update);
-  $$.fragment = create_fragment12 ? create_fragment12($$.ctx) : false;
+  $$.fragment = create_fragment13 ? create_fragment13($$.ctx) : false;
   if (options.target) {
     if (options.hydrate) {
       start_hydrating();
@@ -874,23 +888,20 @@ function create_if_block2(ctx) {
       textarea2 = element("textarea");
       t11 = space();
       create_component(mouseguardeditor.$$.fragment);
-      attr(label0, "class", "svelte-6c3beh");
-      attr(label1, "class", "sub svelte-6c3beh");
+      attr(label0, "class", "svelte-1evzdp4");
+      attr(label1, "class", "sub svelte-1evzdp4");
       attr(textarea0, "name", "system.rewards.belief");
       textarea0.value = textarea0_value_value = ctx[1].system.rewards.belief;
-      attr(textarea0, "class", "svelte-6c3beh");
       attr(div0, "class", "reward");
-      attr(label2, "class", "svelte-6c3beh");
-      attr(label3, "class", "sub svelte-6c3beh");
+      attr(label2, "class", "svelte-1evzdp4");
+      attr(label3, "class", "sub svelte-1evzdp4");
       attr(textarea1, "name", "system.rewards.instinct");
       textarea1.value = textarea1_value_value = ctx[1].system.rewards.instinct;
-      attr(textarea1, "class", "svelte-6c3beh");
       attr(div1, "class", "reward");
-      attr(label4, "class", "svelte-6c3beh");
-      attr(label5, "class", "sub svelte-6c3beh");
+      attr(label4, "class", "svelte-1evzdp4");
+      attr(label5, "class", "sub svelte-1evzdp4");
       attr(textarea2, "name", "system.rewards.goal");
       textarea2.value = textarea2_value_value = ctx[1].system.rewards.goal;
-      attr(textarea2, "class", "svelte-6c3beh");
       attr(div2, "class", "reward");
     },
     m(target, anchor) {
@@ -1079,68 +1090,58 @@ function create_fragment2(ctx) {
       t39 = space();
       div1 = element("div");
       if_block.c();
-      attr(label0, "class", "svelte-6c3beh");
+      attr(label0, "class", "svelte-1evzdp4");
       attr(input0, "name", "system.details.age");
       input0.disabled = ctx[0];
       attr(input0, "type", "text");
       input0.value = input0_value_value = ctx[1].system.details.age;
-      attr(input0, "class", "svelte-6c3beh");
-      attr(label1, "class", "svelte-6c3beh");
+      attr(label1, "class", "svelte-1evzdp4");
       attr(input1, "name", "system.details.home");
       input1.disabled = ctx[0];
       attr(input1, "type", "text");
       input1.value = input1_value_value = ctx[1].system.details.home;
-      attr(input1, "class", "svelte-6c3beh");
-      attr(label2, "class", "svelte-6c3beh");
+      attr(label2, "class", "svelte-1evzdp4");
       attr(input2, "name", "system.details.fur_color");
       input2.disabled = ctx[0];
       attr(input2, "type", "text");
       input2.value = input2_value_value = ctx[1].system.details.fur_color;
-      attr(input2, "class", "svelte-6c3beh");
-      attr(label3, "class", "svelte-6c3beh");
+      attr(label3, "class", "svelte-1evzdp4");
       attr(input3, "name", "system.details.cloak_color");
       input3.disabled = ctx[0];
       attr(input3, "type", "text");
       input3.value = input3_value_value = ctx[1].system.details.cloak_color;
-      attr(input3, "class", "svelte-6c3beh");
-      attr(label4, "class", "svelte-6c3beh");
+      attr(label4, "class", "svelte-1evzdp4");
       attr(input4, "name", "system.details.guard_rank");
       input4.disabled = ctx[0];
       attr(input4, "type", "text");
       input4.value = input4_value_value = ctx[1].system.details.guard_rank;
-      attr(input4, "class", "svelte-6c3beh");
-      attr(label5, "class", "svelte-6c3beh");
+      attr(label5, "class", "svelte-1evzdp4");
       attr(input5, "name", "system.details.parents");
       input5.disabled = ctx[0];
       attr(input5, "type", "text");
       input5.value = input5_value_value = ctx[1].system.details.parents;
-      attr(input5, "class", "svelte-6c3beh");
-      attr(label6, "class", "svelte-6c3beh");
+      attr(label6, "class", "svelte-1evzdp4");
       attr(input6, "name", "system.details.senior_artisan");
       input6.disabled = ctx[0];
       attr(input6, "type", "text");
       input6.value = input6_value_value = ctx[1].system.details.senior_artisan;
-      attr(input6, "class", "svelte-6c3beh");
-      attr(label7, "class", "svelte-6c3beh");
+      attr(label7, "class", "svelte-1evzdp4");
       attr(input7, "name", "system.details.mentor");
       input7.disabled = ctx[0];
       attr(input7, "type", "text");
       input7.value = input7_value_value = ctx[1].system.details.mentor;
-      attr(input7, "class", "svelte-6c3beh");
-      attr(label8, "class", "svelte-6c3beh");
+      attr(label8, "class", "svelte-1evzdp4");
       attr(input8, "name", "system.details.friend");
       input8.disabled = ctx[0];
       attr(input8, "type", "text");
       input8.value = input8_value_value = ctx[1].system.details.friend;
-      attr(input8, "class", "svelte-6c3beh");
-      attr(label9, "class", "svelte-6c3beh");
+      attr(label9, "class", "svelte-1evzdp4");
       attr(input9, "name", "system.details.enemy");
       input9.disabled = ctx[0];
       attr(input9, "type", "text");
       input9.value = input9_value_value = ctx[1].system.details.enemy;
-      attr(input9, "class", "svelte-6c3beh");
-      attr(div0, "class", "characteristics flexcol svelte-6c3beh");
-      attr(div1, "class", "biography flexcol");
+      attr(div0, "class", "characteristics flexcol svelte-1evzdp4");
+      attr(div1, "class", "biography svelte-1evzdp4");
     },
     m(target, anchor) {
       insert(target, div0, anchor);
@@ -1467,40 +1468,73 @@ function setMouseDice(sheet, count, message = "") {
 // module/svelte/MouseGuardActorSheetItemList.svelte
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[22] = list[i];
+  child_ctx[26] = list[i];
+  child_ctx[27] = list;
+  child_ctx[28] = i;
   return child_ctx;
 }
 function get_each_context_1(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[25] = list[i];
-  child_ctx[27] = i;
+  child_ctx[29] = list[i];
+  child_ctx[31] = i;
   return child_ctx;
 }
 function get_each_context_2(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[25] = list[i];
-  child_ctx[27] = i;
+  child_ctx[29] = list[i];
+  child_ctx[31] = i;
   return child_ctx;
 }
 function get_each_context_3(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[25] = list[i];
-  child_ctx[27] = i;
+  child_ctx[29] = list[i];
+  child_ctx[31] = i;
   return child_ctx;
 }
 function get_each_context_4(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[25] = list[i];
-  child_ctx[27] = i;
+  child_ctx[29] = list[i];
+  child_ctx[31] = i;
   return child_ctx;
 }
-function create_if_block_9(ctx) {
+function create_if_block_15(ctx) {
+  let div;
+  let t0_value = ctx[3].length + "";
+  let t0;
+  let t1;
+  let t2_value = ctx[6].limit + "";
+  let t2;
+  return {
+    c() {
+      div = element("div");
+      t0 = text(t0_value);
+      t1 = text(" / ");
+      t2 = text(t2_value);
+      attr(div, "class", "item-slots");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      append(div, t0);
+      append(div, t1);
+      append(div, t2);
+    },
+    p(ctx2, dirty) {
+      if (dirty[0] & 8 && t0_value !== (t0_value = ctx2[3].length + ""))
+        set_data(t0, t0_value);
+    },
+    d(detaching) {
+      if (detaching)
+        detach(div);
+    }
+  };
+}
+function create_if_block_14(ctx) {
   let div;
   return {
     c() {
       div = element("div");
       div.textContent = `${ctx[6].ratingPropertyName}`;
-      attr(div, "class", "item-detail item-rank svelte-fo1e54");
+      attr(div, "class", "item-detail item-rank");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1512,39 +1546,88 @@ function create_if_block_9(ctx) {
     }
   };
 }
-function create_if_block_8(ctx) {
+function create_if_block_11(ctx) {
+  let if_block_anchor;
+  function select_block_type(ctx2, dirty) {
+    if (ctx2[0] === "trait")
+      return create_if_block_12;
+    if (ctx2[0] !== "item" && ctx2[0] !== "contact")
+      return create_if_block_13;
+    return create_else_block_2;
+  }
+  let current_block_type = select_block_type(ctx, [-1, -1]);
+  let if_block = current_block_type(ctx);
+  return {
+    c() {
+      if_block.c();
+      if_block_anchor = empty();
+    },
+    m(target, anchor) {
+      if_block.m(target, anchor);
+      insert(target, if_block_anchor, anchor);
+    },
+    p(ctx2, dirty) {
+      if (current_block_type === (current_block_type = select_block_type(ctx2, dirty)) && if_block) {
+        if_block.p(ctx2, dirty);
+      } else {
+        if_block.d(1);
+        if_block = current_block_type(ctx2);
+        if (if_block) {
+          if_block.c();
+          if_block.m(if_block_anchor.parentNode, if_block_anchor);
+        }
+      }
+    },
+    d(detaching) {
+      if_block.d(detaching);
+      if (detaching)
+        detach(if_block_anchor);
+    }
+  };
+}
+function create_else_block_2(ctx) {
   let div;
-  let t_value = game.i18n.localize("MOUSEGUARD.Advancement") + "";
-  let t;
-  let div_class_value;
   return {
     c() {
       div = element("div");
-      t = text(t_value);
-      attr(div, "class", div_class_value = "" + (ctx[0] + " item-detail item-advancement svelte-fo1e54"));
+      div.textContent = `${game.i18n.localize("MOUSEGUARD.Type")}`;
+      attr(div, "class", "item-detail item-type");
     },
     m(target, anchor) {
       insert(target, div, anchor);
-      append(div, t);
     },
-    p(ctx2, dirty) {
-      if (dirty & 1 && div_class_value !== (div_class_value = "" + (ctx2[0] + " item-detail item-advancement svelte-fo1e54"))) {
-        attr(div, "class", div_class_value);
-      }
-    },
+    p: noop,
     d(detaching) {
       if (detaching)
         detach(div);
     }
   };
 }
-function create_if_block_7(ctx) {
+function create_if_block_13(ctx) {
+  let div;
+  return {
+    c() {
+      div = element("div");
+      div.textContent = `${game.i18n.localize("MOUSEGUARD.Advancement")}`;
+      attr(div, "class", "item-detail item-advancement svelte-1vk9y0l");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching)
+        detach(div);
+    }
+  };
+}
+function create_if_block_12(ctx) {
   let div;
   return {
     c() {
       div = element("div");
       div.textContent = `${game.i18n.localize("MOUSEGUARD.Uses")}`;
-      attr(div, "class", "item-detail item-uses svelte-fo1e54");
+      attr(div, "class", "item-detail item-uses");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1556,7 +1639,113 @@ function create_if_block_7(ctx) {
     }
   };
 }
-function create_if_block_6(ctx) {
+function create_else_block_1(ctx) {
+  let div1;
+  let div0;
+  let t0;
+  let h4;
+  let t1_value = ctx[26].name + "";
+  let t1;
+  let mounted;
+  let dispose;
+  function click_handler_2(...args) {
+    return ctx[11](ctx[26], ...args);
+  }
+  return {
+    c() {
+      div1 = element("div");
+      div0 = element("div");
+      t0 = space();
+      h4 = element("h4");
+      t1 = text(t1_value);
+      attr(div0, "class", "item-image");
+      set_style(div0, "background-image", "url(" + ctx[26].img + ")");
+      attr(div1, "class", "item-name flexrow");
+    },
+    m(target, anchor) {
+      insert(target, div1, anchor);
+      append(div1, div0);
+      append(div1, t0);
+      append(div1, h4);
+      append(h4, t1);
+      if (!mounted) {
+        dispose = listen(h4, "click", click_handler_2);
+        mounted = true;
+      }
+    },
+    p(new_ctx, dirty) {
+      ctx = new_ctx;
+      if (dirty[0] & 8) {
+        set_style(div0, "background-image", "url(" + ctx[26].img + ")");
+      }
+      if (dirty[0] & 8 && t1_value !== (t1_value = ctx[26].name + ""))
+        set_data(t1, t1_value);
+    },
+    d(detaching) {
+      if (detaching)
+        detach(div1);
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_if_block_10(ctx) {
+  let div1;
+  let div0;
+  let t0;
+  let h4;
+  let t1_value = ctx[26].name + "";
+  let t1;
+  let mounted;
+  let dispose;
+  function click_handler(...args) {
+    return ctx[9](ctx[26], ...args);
+  }
+  function click_handler_1(...args) {
+    return ctx[10](ctx[26], ...args);
+  }
+  return {
+    c() {
+      div1 = element("div");
+      div0 = element("div");
+      t0 = space();
+      h4 = element("h4");
+      t1 = text(t1_value);
+      attr(div0, "class", "item-image");
+      set_style(div0, "background-image", "url(" + ctx[26].img + ")");
+      attr(div1, "class", "item-name flexrow rollable");
+    },
+    m(target, anchor) {
+      insert(target, div1, anchor);
+      append(div1, div0);
+      append(div1, t0);
+      append(div1, h4);
+      append(h4, t1);
+      if (!mounted) {
+        dispose = [
+          listen(div0, "click", click_handler),
+          listen(h4, "click", click_handler_1)
+        ];
+        mounted = true;
+      }
+    },
+    p(new_ctx, dirty) {
+      ctx = new_ctx;
+      if (dirty[0] & 8) {
+        set_style(div0, "background-image", "url(" + ctx[26].img + ")");
+      }
+      if (dirty[0] & 8 && t1_value !== (t1_value = ctx[26].name + ""))
+        set_data(t1, t1_value);
+    },
+    d(detaching) {
+      if (detaching)
+        detach(div1);
+      mounted = false;
+      run_all(dispose);
+    }
+  };
+}
+function create_if_block_9(ctx) {
   let div;
   let input;
   let input_name_value;
@@ -1568,27 +1757,26 @@ function create_if_block_6(ctx) {
     c() {
       div = element("div");
       input = element("input");
-      attr(input, "name", input_name_value = ctx[22].id);
+      attr(input, "name", input_name_value = ctx[26].id);
       attr(input, "type", "number");
       attr(input, "min", "1");
       attr(input, "max", input_max_value = ctx[6].maxRating);
-      input.value = input_value_value = ctx[22].system[ctx[6].ratingProperty];
-      attr(input, "class", "svelte-fo1e54");
-      attr(div, "class", "item-detail item-rank flexrow svelte-fo1e54");
+      input.value = input_value_value = ctx[26].system[ctx[6].ratingProperty];
+      attr(div, "class", "item-detail item-rank flexrow");
     },
     m(target, anchor) {
       insert(target, div, anchor);
       append(div, input);
       if (!mounted) {
-        dispose = listen(input, "change", ctx[11]);
+        dispose = listen(input, "change", ctx[12]);
         mounted = true;
       }
     },
     p(ctx2, dirty) {
-      if (dirty & 8 && input_name_value !== (input_name_value = ctx2[22].id)) {
+      if (dirty[0] & 8 && input_name_value !== (input_name_value = ctx2[26].id)) {
         attr(input, "name", input_name_value);
       }
-      if (dirty & 8 && input_value_value !== (input_value_value = ctx2[22].system[ctx2[6].ratingProperty]) && input.value !== input_value_value) {
+      if (dirty[0] & 8 && input_value_value !== (input_value_value = ctx2[26].system[ctx2[6].ratingProperty]) && input.value !== input_value_value) {
         input.value = input_value_value;
       }
     },
@@ -1600,7 +1788,139 @@ function create_if_block_6(ctx) {
     }
   };
 }
-function create_if_block_5(ctx) {
+function create_if_block_2(ctx) {
+  let t0;
+  let t1;
+  let t2;
+  let t3;
+  let if_block4_anchor;
+  let if_block0 = ctx[0] === "skill" && create_if_block_8(ctx);
+  let if_block1 = ctx[0] === "item" && create_if_block_7(ctx);
+  let if_block2 = ctx[0] === "contact" && create_if_block_6(ctx);
+  let if_block3 = ctx[0] === "wise" && create_if_block_5(ctx);
+  let if_block4 = ctx[0] === "trait" && create_if_block_3(ctx);
+  return {
+    c() {
+      if (if_block0)
+        if_block0.c();
+      t0 = space();
+      if (if_block1)
+        if_block1.c();
+      t1 = space();
+      if (if_block2)
+        if_block2.c();
+      t2 = space();
+      if (if_block3)
+        if_block3.c();
+      t3 = space();
+      if (if_block4)
+        if_block4.c();
+      if_block4_anchor = empty();
+    },
+    m(target, anchor) {
+      if (if_block0)
+        if_block0.m(target, anchor);
+      insert(target, t0, anchor);
+      if (if_block1)
+        if_block1.m(target, anchor);
+      insert(target, t1, anchor);
+      if (if_block2)
+        if_block2.m(target, anchor);
+      insert(target, t2, anchor);
+      if (if_block3)
+        if_block3.m(target, anchor);
+      insert(target, t3, anchor);
+      if (if_block4)
+        if_block4.m(target, anchor);
+      insert(target, if_block4_anchor, anchor);
+    },
+    p(ctx2, dirty) {
+      if (ctx2[0] === "skill") {
+        if (if_block0) {
+          if_block0.p(ctx2, dirty);
+        } else {
+          if_block0 = create_if_block_8(ctx2);
+          if_block0.c();
+          if_block0.m(t0.parentNode, t0);
+        }
+      } else if (if_block0) {
+        if_block0.d(1);
+        if_block0 = null;
+      }
+      if (ctx2[0] === "item") {
+        if (if_block1) {
+          if_block1.p(ctx2, dirty);
+        } else {
+          if_block1 = create_if_block_7(ctx2);
+          if_block1.c();
+          if_block1.m(t1.parentNode, t1);
+        }
+      } else if (if_block1) {
+        if_block1.d(1);
+        if_block1 = null;
+      }
+      if (ctx2[0] === "contact") {
+        if (if_block2) {
+          if_block2.p(ctx2, dirty);
+        } else {
+          if_block2 = create_if_block_6(ctx2);
+          if_block2.c();
+          if_block2.m(t2.parentNode, t2);
+        }
+      } else if (if_block2) {
+        if_block2.d(1);
+        if_block2 = null;
+      }
+      if (ctx2[0] === "wise") {
+        if (if_block3) {
+          if_block3.p(ctx2, dirty);
+        } else {
+          if_block3 = create_if_block_5(ctx2);
+          if_block3.c();
+          if_block3.m(t3.parentNode, t3);
+        }
+      } else if (if_block3) {
+        if_block3.d(1);
+        if_block3 = null;
+      }
+      if (ctx2[0] === "trait") {
+        if (if_block4) {
+          if_block4.p(ctx2, dirty);
+        } else {
+          if_block4 = create_if_block_3(ctx2);
+          if_block4.c();
+          if_block4.m(if_block4_anchor.parentNode, if_block4_anchor);
+        }
+      } else if (if_block4) {
+        if_block4.d(1);
+        if_block4 = null;
+      }
+    },
+    d(detaching) {
+      if (if_block0)
+        if_block0.d(detaching);
+      if (detaching)
+        detach(t0);
+      if (if_block1)
+        if_block1.d(detaching);
+      if (detaching)
+        detach(t1);
+      if (if_block2)
+        if_block2.d(detaching);
+      if (detaching)
+        detach(t2);
+      if (if_block3)
+        if_block3.d(detaching);
+      if (detaching)
+        detach(t3);
+      if (if_block4)
+        if_block4.d(detaching);
+      if (detaching)
+        detach(if_block4_anchor);
+    }
+  };
+}
+function create_if_block_8(ctx) {
   let div;
   let pass;
   let span0;
@@ -1615,16 +1935,15 @@ function create_if_block_5(ctx) {
   let t3;
   let t4;
   let span1_data_tooltip_value;
-  let div_class_value;
   let each_value_4 = {
-    length: parseInt(ctx[22].system[ctx[6].ratingProperty]) + 1
+    length: parseInt(ctx[26].system[ctx[6].ratingProperty]) + 1
   };
   let each_blocks_1 = [];
   for (let i = 0; i < each_value_4.length; i += 1) {
     each_blocks_1[i] = create_each_block_4(get_each_context_4(ctx, each_value_4, i));
   }
   let each_value_3 = {
-    length: parseInt(ctx[22].system[ctx[6].ratingProperty])
+    length: parseInt(ctx[26].system[ctx[6].ratingProperty])
   };
   let each_blocks = [];
   for (let i = 0; i < each_value_3.length; i += 1) {
@@ -1636,7 +1955,7 @@ function create_if_block_5(ctx) {
       pass = element("pass");
       span0 = element("span");
       t0 = text(t0_value);
-      t1 = text(":\n                            ");
+      t1 = text(":\n                                ");
       for (let i = 0; i < each_blocks_1.length; i += 1) {
         each_blocks_1[i].c();
       }
@@ -1644,15 +1963,15 @@ function create_if_block_5(ctx) {
       fail = element("fail");
       span1 = element("span");
       t3 = text(t3_value);
-      t4 = text(":\n\n                            ");
+      t4 = text(":\n                                ");
       for (let i = 0; i < each_blocks.length; i += 1) {
         each_blocks[i].c();
       }
       attr(span0, "data-tooltip", span0_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Passes"));
-      attr(pass, "class", "svelte-fo1e54");
+      attr(pass, "class", "svelte-1vk9y0l");
       attr(span1, "data-tooltip", span1_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Fails"));
-      attr(fail, "class", "svelte-fo1e54");
-      attr(div, "class", div_class_value = "" + (ctx[0] + " item-detail item-advancement svelte-fo1e54"));
+      attr(fail, "class", "svelte-1vk9y0l");
+      attr(div, "class", "item-detail item-advancement svelte-1vk9y0l");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1673,9 +1992,9 @@ function create_if_block_5(ctx) {
       }
     },
     p(ctx2, dirty) {
-      if (dirty & 168) {
+      if (dirty[0] & 168) {
         each_value_4 = {
-          length: parseInt(ctx2[22].system[ctx2[6].ratingProperty]) + 1
+          length: parseInt(ctx2[26].system[ctx2[6].ratingProperty]) + 1
         };
         let i;
         for (i = 0; i < each_value_4.length; i += 1) {
@@ -1693,9 +2012,9 @@ function create_if_block_5(ctx) {
         }
         each_blocks_1.length = each_value_4.length;
       }
-      if (dirty & 168) {
+      if (dirty[0] & 168) {
         each_value_3 = {
-          length: parseInt(ctx2[22].system[ctx2[6].ratingProperty])
+          length: parseInt(ctx2[26].system[ctx2[6].ratingProperty])
         };
         let i;
         for (i = 0; i < each_value_3.length; i += 1) {
@@ -1713,9 +2032,6 @@ function create_if_block_5(ctx) {
         }
         each_blocks.length = each_value_3.length;
       }
-      if (dirty & 1 && div_class_value !== (div_class_value = "" + (ctx2[0] + " item-detail item-advancement svelte-fo1e54"))) {
-        attr(div, "class", div_class_value);
-      }
     },
     d(detaching) {
       if (detaching)
@@ -1731,27 +2047,26 @@ function create_each_block_4(ctx) {
   let i_1_class_value;
   let mounted;
   let dispose;
-  function click_handler_2(...args) {
-    return ctx[12](ctx[22], ctx[27], ...args);
+  function click_handler_3(...args) {
+    return ctx[13](ctx[26], ctx[31], ...args);
   }
   return {
     c() {
       a = element("a");
       i_1 = element("i");
-      attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[22].system.pass, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"));
-      attr(a, "class", "svelte-fo1e54");
+      attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[26].system.pass, ctx[31]) < 0 ? "fa-circle-check" : "fa-circle"));
     },
     m(target, anchor) {
       insert(target, a, anchor);
       append(a, i_1);
       if (!mounted) {
-        dispose = listen(a, "click", click_handler_2);
+        dispose = listen(a, "click", click_handler_3);
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 8 && i_1_class_value !== (i_1_class_value = "far " + (ctx[7](ctx[22].system.pass, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"))) {
+      if (dirty[0] & 8 && i_1_class_value !== (i_1_class_value = "far " + (ctx[7](ctx[26].system.pass, ctx[31]) < 0 ? "fa-circle-check" : "fa-circle"))) {
         attr(i_1, "class", i_1_class_value);
       }
     },
@@ -1769,27 +2084,26 @@ function create_each_block_3(ctx) {
   let i_1_class_value;
   let mounted;
   let dispose;
-  function click_handler_3(...args) {
-    return ctx[13](ctx[22], ctx[27], ...args);
+  function click_handler_4(...args) {
+    return ctx[14](ctx[26], ctx[31], ...args);
   }
   return {
     c() {
       a = element("a");
       i_1 = element("i");
-      attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[22].system.fail, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"));
-      attr(a, "class", "svelte-fo1e54");
+      attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[26].system.fail, ctx[31]) < 0 ? "fa-circle-check" : "fa-circle"));
     },
     m(target, anchor) {
       insert(target, a, anchor);
       append(a, i_1);
       if (!mounted) {
-        dispose = listen(a, "click", click_handler_3);
+        dispose = listen(a, "click", click_handler_4);
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 8 && i_1_class_value !== (i_1_class_value = "far " + (ctx[7](ctx[22].system.fail, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"))) {
+      if (dirty[0] & 8 && i_1_class_value !== (i_1_class_value = "far " + (ctx[7](ctx[26].system.fail, ctx[31]) < 0 ? "fa-circle-check" : "fa-circle"))) {
         attr(i_1, "class", i_1_class_value);
       }
     },
@@ -1801,7 +2115,139 @@ function create_each_block_3(ctx) {
     }
   };
 }
-function create_if_block_4(ctx) {
+function create_if_block_7(ctx) {
+  let div;
+  let select;
+  let option0;
+  let option1;
+  let mounted;
+  let dispose;
+  function select_change_handler() {
+    ctx[15].call(select, ctx[27], ctx[28]);
+  }
+  return {
+    c() {
+      div = element("div");
+      select = element("select");
+      option0 = element("option");
+      option0.textContent = `${game.i18n.localize("MOUSEGUARD.Weapon")}`;
+      option1 = element("option");
+      option1.textContent = `${game.i18n.localize("MOUSEGUARD.Item")}`;
+      option0.__value = "weapon";
+      option0.value = option0.__value;
+      option1.__value = "item";
+      option1.value = option1.__value;
+      if (ctx[26].itemType === void 0)
+        add_render_callback(select_change_handler);
+      attr(div, "class", "item-detail item-type");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      append(div, select);
+      append(select, option0);
+      append(select, option1);
+      select_option(select, ctx[26].itemType);
+      if (!mounted) {
+        dispose = [
+          listen(select, "change", select_change_handler),
+          listen(select, "change", function() {
+            if (is_function(updateRating(ctx[5], ctx[26].id, "itemType", ctx[26].itemType)))
+              updateRating(ctx[5], ctx[26].id, "itemType", ctx[26].itemType).apply(this, arguments);
+          })
+        ];
+        mounted = true;
+      }
+    },
+    p(new_ctx, dirty) {
+      ctx = new_ctx;
+      if (dirty[0] & 8) {
+        select_option(select, ctx[26].itemType);
+      }
+    },
+    d(detaching) {
+      if (detaching)
+        detach(div);
+      mounted = false;
+      run_all(dispose);
+    }
+  };
+}
+function create_if_block_6(ctx) {
+  let div;
+  let select;
+  let option0;
+  let option1;
+  let option2;
+  let option3;
+  let option4;
+  let mounted;
+  let dispose;
+  function select_change_handler_1() {
+    ctx[16].call(select, ctx[27], ctx[28]);
+  }
+  return {
+    c() {
+      div = element("div");
+      select = element("select");
+      option0 = element("option");
+      option0.textContent = `${game.i18n.localize("MOUSEGUARD.Parents")}`;
+      option1 = element("option");
+      option1.textContent = `${game.i18n.localize("MOUSEGUARD.Friend")}`;
+      option2 = element("option");
+      option2.textContent = `${game.i18n.localize("MOUSEGUARD.Enemy")}`;
+      option3 = element("option");
+      option3.textContent = `${game.i18n.localize("MOUSEGUARD.Senior")}`;
+      option4 = element("option");
+      option4.textContent = `${game.i18n.localize("MOUSEGUARD.Mentor")}`;
+      option0.__value = "parent";
+      option0.value = option0.__value;
+      option1.__value = "friend";
+      option1.value = option1.__value;
+      option2.__value = "enemy";
+      option2.value = option2.__value;
+      option3.__value = "senior";
+      option3.value = option3.__value;
+      option4.__value = "mentor";
+      option4.value = option4.__value;
+      if (ctx[26].itemType === void 0)
+        add_render_callback(select_change_handler_1);
+      attr(div, "class", "item-detail item-type");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      append(div, select);
+      append(select, option0);
+      append(select, option1);
+      append(select, option2);
+      append(select, option3);
+      append(select, option4);
+      select_option(select, ctx[26].itemType);
+      if (!mounted) {
+        dispose = [
+          listen(select, "change", select_change_handler_1),
+          listen(select, "change", function() {
+            if (is_function(updateRating(ctx[5], ctx[26].id, "itemType", ctx[26].itemType)))
+              updateRating(ctx[5], ctx[26].id, "itemType", ctx[26].itemType).apply(this, arguments);
+          })
+        ];
+        mounted = true;
+      }
+    },
+    p(new_ctx, dirty) {
+      ctx = new_ctx;
+      if (dirty[0] & 8) {
+        select_option(select, ctx[26].itemType);
+      }
+    },
+    d(detaching) {
+      if (detaching)
+        detach(div);
+      mounted = false;
+      run_all(dispose);
+    }
+  };
+}
+function create_if_block_5(ctx) {
   let div;
   let pass;
   let a0;
@@ -1834,20 +2280,19 @@ function create_if_block_4(ctx) {
   let t9;
   let t10_value = game.i18n.localize("MOUSEGUARD.WisePersona") + "";
   let t10;
-  let div_class_value;
   let mounted;
   let dispose;
-  function click_handler_4(...args) {
-    return ctx[14](ctx[22], ...args);
-  }
   function click_handler_5(...args) {
-    return ctx[15](ctx[22], ...args);
+    return ctx[17](ctx[26], ...args);
   }
   function click_handler_6(...args) {
-    return ctx[16](ctx[22], ...args);
+    return ctx[18](ctx[26], ...args);
   }
   function click_handler_7(...args) {
-    return ctx[17](ctx[22], ...args);
+    return ctx[19](ctx[26], ...args);
+  }
+  function click_handler_8(...args) {
+    return ctx[20](ctx[26], ...args);
   }
   return {
     c() {
@@ -1875,19 +2320,15 @@ function create_if_block_4(ctx) {
       i3 = element("i");
       t9 = space();
       t10 = text(t10_value);
-      attr(i0, "class", i0_class_value = "far " + (ctx[7](ctx[22].system.pass, 1) < 0 ? "fa-circle-check" : "fa-circle"));
-      attr(a0, "class", "svelte-fo1e54");
-      attr(pass, "class", "svelte-fo1e54");
-      attr(i1, "class", i1_class_value = "far " + (ctx[7](ctx[22].system.fail, 1) < 0 ? "fa-circle-check" : "fa-circle"));
-      attr(a1, "class", "svelte-fo1e54");
-      attr(fail, "class", "svelte-fo1e54");
-      attr(i2, "class", i2_class_value = "far " + (ctx[7](ctx[22].system.fate, 1) < 0 ? "fa-circle-check" : "fa-circle"));
-      attr(a2, "class", "svelte-fo1e54");
-      attr(fate, "class", "svelte-fo1e54");
-      attr(i3, "class", i3_class_value = "far " + (ctx[7](ctx[22].system.persona, 1) < 0 ? "fa-circle-check" : "fa-circle"));
-      attr(a3, "class", "svelte-fo1e54");
-      attr(persona, "class", "svelte-fo1e54");
-      attr(div, "class", div_class_value = "" + (ctx[0] + " item-detail item-advancement svelte-fo1e54"));
+      attr(i0, "class", i0_class_value = "far " + (ctx[7](ctx[26].system.pass, 1) < 0 ? "fa-circle-check" : "fa-circle"));
+      attr(pass, "class", "svelte-1vk9y0l");
+      attr(i1, "class", i1_class_value = "far " + (ctx[7](ctx[26].system.fail, 1) < 0 ? "fa-circle-check" : "fa-circle"));
+      attr(fail, "class", "svelte-1vk9y0l");
+      attr(i2, "class", i2_class_value = "far " + (ctx[7](ctx[26].system.fate, 1) < 0 ? "fa-circle-check" : "fa-circle"));
+      attr(fate, "class", "svelte-1vk9y0l");
+      attr(i3, "class", i3_class_value = "far " + (ctx[7](ctx[26].system.persona, 1) < 0 ? "fa-circle-check" : "fa-circle"));
+      attr(persona, "class", "svelte-1vk9y0l");
+      attr(div, "class", "item-detail item-advancement svelte-1vk9y0l");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -1916,30 +2357,27 @@ function create_if_block_4(ctx) {
       append(a3, t10);
       if (!mounted) {
         dispose = [
-          listen(a0, "click", click_handler_4),
-          listen(a1, "click", click_handler_5),
-          listen(a2, "click", click_handler_6),
-          listen(a3, "click", click_handler_7)
+          listen(a0, "click", click_handler_5),
+          listen(a1, "click", click_handler_6),
+          listen(a2, "click", click_handler_7),
+          listen(a3, "click", click_handler_8)
         ];
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 8 && i0_class_value !== (i0_class_value = "far " + (ctx[7](ctx[22].system.pass, 1) < 0 ? "fa-circle-check" : "fa-circle"))) {
+      if (dirty[0] & 8 && i0_class_value !== (i0_class_value = "far " + (ctx[7](ctx[26].system.pass, 1) < 0 ? "fa-circle-check" : "fa-circle"))) {
         attr(i0, "class", i0_class_value);
       }
-      if (dirty & 8 && i1_class_value !== (i1_class_value = "far " + (ctx[7](ctx[22].system.fail, 1) < 0 ? "fa-circle-check" : "fa-circle"))) {
+      if (dirty[0] & 8 && i1_class_value !== (i1_class_value = "far " + (ctx[7](ctx[26].system.fail, 1) < 0 ? "fa-circle-check" : "fa-circle"))) {
         attr(i1, "class", i1_class_value);
       }
-      if (dirty & 8 && i2_class_value !== (i2_class_value = "far " + (ctx[7](ctx[22].system.fate, 1) < 0 ? "fa-circle-check" : "fa-circle"))) {
+      if (dirty[0] & 8 && i2_class_value !== (i2_class_value = "far " + (ctx[7](ctx[26].system.fate, 1) < 0 ? "fa-circle-check" : "fa-circle"))) {
         attr(i2, "class", i2_class_value);
       }
-      if (dirty & 8 && i3_class_value !== (i3_class_value = "far " + (ctx[7](ctx[22].system.persona, 1) < 0 ? "fa-circle-check" : "fa-circle"))) {
+      if (dirty[0] & 8 && i3_class_value !== (i3_class_value = "far " + (ctx[7](ctx[26].system.persona, 1) < 0 ? "fa-circle-check" : "fa-circle"))) {
         attr(i3, "class", i3_class_value);
-      }
-      if (dirty & 1 && div_class_value !== (div_class_value = "" + (ctx[0] + " item-detail item-advancement svelte-fo1e54"))) {
-        attr(div, "class", div_class_value);
       }
     },
     d(detaching) {
@@ -1950,7 +2388,7 @@ function create_if_block_4(ctx) {
     }
   };
 }
-function create_if_block_2(ctx) {
+function create_if_block_3(ctx) {
   let div;
   let for_1;
   let span0;
@@ -1965,12 +2403,12 @@ function create_if_block_2(ctx) {
   let t3;
   let t4;
   let span1_data_tooltip_value;
-  function select_block_type(ctx2, dirty) {
-    if (ctx2[22].system.level < 3)
-      return create_if_block_3;
+  function select_block_type_2(ctx2, dirty) {
+    if (ctx2[26].system.level < 3)
+      return create_if_block_4;
     return create_else_block2;
   }
-  let current_block_type = select_block_type(ctx, -1);
+  let current_block_type = select_block_type_2(ctx, [-1, -1]);
   let if_block = current_block_type(ctx);
   let each_value_1 = { length: 6 };
   let each_blocks = [];
@@ -1983,21 +2421,21 @@ function create_if_block_2(ctx) {
       for_1 = element("for");
       span0 = element("span");
       t0 = text(t0_value);
-      t1 = text(":\n                            ");
+      t1 = text(":\n                                ");
       if_block.c();
       t2 = space();
       against = element("against");
       span1 = element("span");
       t3 = text(t3_value);
-      t4 = text(":\n                            ");
+      t4 = text(":\n                                ");
       for (let i = 0; i < each_blocks.length; i += 1) {
         each_blocks[i].c();
       }
       attr(span0, "data-tooltip", span0_data_tooltip_value = game.i18n.localize("MOUSEGUARD.UsedFor"));
-      attr(for_1, "class", "svelte-fo1e54");
+      attr(for_1, "class", "svelte-1vk9y0l");
       attr(span1, "data-tooltip", span1_data_tooltip_value = game.i18n.localize("MOUSEGUARD.UsedAgainst"));
-      attr(against, "class", "svelte-fo1e54");
-      attr(div, "class", "item-detail item-uses svelte-fo1e54");
+      attr(against, "class", "svelte-1vk9y0l");
+      attr(div, "class", "item-detail item-uses");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -2016,7 +2454,7 @@ function create_if_block_2(ctx) {
       }
     },
     p(ctx2, dirty) {
-      if (current_block_type === (current_block_type = select_block_type(ctx2, dirty)) && if_block) {
+      if (current_block_type === (current_block_type = select_block_type_2(ctx2, dirty)) && if_block) {
         if_block.p(ctx2, dirty);
       } else {
         if_block.d(1);
@@ -2026,7 +2464,7 @@ function create_if_block_2(ctx) {
           if_block.m(span0, null);
         }
       }
-      if (dirty & 168) {
+      if (dirty[0] & 168) {
         each_value_1 = { length: 6 };
         let i;
         for (i = 0; i < each_value_1.length; i += 1) {
@@ -2070,10 +2508,10 @@ function create_else_block2(ctx) {
     }
   };
 }
-function create_if_block_3(ctx) {
+function create_if_block_4(ctx) {
   let each_1_anchor;
   let each_value_2 = {
-    length: parseInt(ctx[22].system.level)
+    length: parseInt(ctx[26].system.level)
   };
   let each_blocks = [];
   for (let i = 0; i < each_value_2.length; i += 1) {
@@ -2093,9 +2531,9 @@ function create_if_block_3(ctx) {
       insert(target, each_1_anchor, anchor);
     },
     p(ctx2, dirty) {
-      if (dirty & 168) {
+      if (dirty[0] & 168) {
         each_value_2 = {
-          length: parseInt(ctx2[22].system.level)
+          length: parseInt(ctx2[26].system.level)
         };
         let i;
         for (i = 0; i < each_value_2.length; i += 1) {
@@ -2127,26 +2565,26 @@ function create_each_block_2(ctx) {
   let i_1_class_value;
   let mounted;
   let dispose;
-  function click_handler_8(...args) {
-    return ctx[18](ctx[22], ctx[27], ...args);
+  function click_handler_9(...args) {
+    return ctx[21](ctx[26], ctx[31], ...args);
   }
   return {
     c() {
       a = element("a");
       i_1 = element("i");
-      attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[22].system.usedfor, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"));
+      attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[26].system.usedfor, ctx[31]) < 0 ? "fa-circle-check" : "fa-circle"));
     },
     m(target, anchor) {
       insert(target, a, anchor);
       append(a, i_1);
       if (!mounted) {
-        dispose = listen(a, "click", click_handler_8);
+        dispose = listen(a, "click", click_handler_9);
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 8 && i_1_class_value !== (i_1_class_value = "far " + (ctx[7](ctx[22].system.usedfor, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"))) {
+      if (dirty[0] & 8 && i_1_class_value !== (i_1_class_value = "far " + (ctx[7](ctx[26].system.usedfor, ctx[31]) < 0 ? "fa-circle-check" : "fa-circle"))) {
         attr(i_1, "class", i_1_class_value);
       }
     },
@@ -2164,26 +2602,26 @@ function create_each_block_1(ctx) {
   let i_1_class_value;
   let mounted;
   let dispose;
-  function click_handler_9(...args) {
-    return ctx[19](ctx[22], ctx[27], ...args);
+  function click_handler_10(...args) {
+    return ctx[22](ctx[26], ctx[31], ...args);
   }
   return {
     c() {
       a = element("a");
       i_1 = element("i");
-      attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[22].system.usedagainst, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"));
+      attr(i_1, "class", i_1_class_value = "far " + (ctx[7](ctx[26].system.usedagainst, ctx[31]) < 0 ? "fa-circle-check" : "fa-circle"));
     },
     m(target, anchor) {
       insert(target, a, anchor);
       append(a, i_1);
       if (!mounted) {
-        dispose = listen(a, "click", click_handler_9);
+        dispose = listen(a, "click", click_handler_10);
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 8 && i_1_class_value !== (i_1_class_value = "far " + (ctx[7](ctx[22].system.usedagainst, ctx[27]) < 0 ? "fa-circle-check" : "fa-circle"))) {
+      if (dirty[0] & 8 && i_1_class_value !== (i_1_class_value = "far " + (ctx[7](ctx[26].system.usedagainst, ctx[31]) < 0 ? "fa-circle-check" : "fa-circle"))) {
         attr(i_1, "class", i_1_class_value);
       }
     },
@@ -2207,7 +2645,7 @@ function create_if_block_1(ctx) {
       a = element("a");
       i = element("i");
       attr(i, "class", "fas fa-sun");
-      attr(a, "class", a_class_value = "item-control item-toggle " + (ctx[22].system.speciality ? "active" : "") + " svelte-fo1e54");
+      attr(a, "class", a_class_value = "item-control item-toggle " + (ctx[26].system.speciality ? "active" : ""));
       attr(a, "data-tooltip", a_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Speciality"));
     },
     m(target, anchor) {
@@ -2215,15 +2653,15 @@ function create_if_block_1(ctx) {
       append(a, i);
       if (!mounted) {
         dispose = listen(a, "click", function() {
-          if (is_function(toggleSpeciality(ctx[5], ctx[22].id, !ctx[22].system.speciality)))
-            toggleSpeciality(ctx[5], ctx[22].id, !ctx[22].system.speciality).apply(this, arguments);
+          if (is_function(toggleSpeciality(ctx[5], ctx[26].id, !ctx[26].system.speciality)))
+            toggleSpeciality(ctx[5], ctx[26].id, !ctx[26].system.speciality).apply(this, arguments);
         });
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 8 && a_class_value !== (a_class_value = "item-control item-toggle " + (ctx[22].system.speciality ? "active" : "") + " svelte-fo1e54")) {
+      if (dirty[0] & 8 && a_class_value !== (a_class_value = "item-control item-toggle " + (ctx[26].system.speciality ? "active" : ""))) {
         attr(a, "class", a_class_value);
       }
     },
@@ -2237,18 +2675,18 @@ function create_if_block_1(ctx) {
 }
 function create_if_block3(ctx) {
   let div;
-  let raw_value = ctx[22].system.description + "";
+  let raw_value = ctx[26].system.description + "";
   return {
     c() {
       div = element("div");
-      attr(div, "class", "item-summary svelte-fo1e54");
+      attr(div, "class", "item-summary");
     },
     m(target, anchor) {
       insert(target, div, anchor);
       div.innerHTML = raw_value;
     },
     p(ctx2, dirty) {
-      if (dirty & 8 && raw_value !== (raw_value = ctx2[22].system.description + ""))
+      if (dirty[0] & 8 && raw_value !== (raw_value = ctx2[26].system.description + ""))
         div.innerHTML = raw_value;
       ;
     },
@@ -2261,128 +2699,94 @@ function create_if_block3(ctx) {
 function create_each_block(ctx) {
   let ol;
   let li;
-  let div1;
-  let div0;
   let t0;
-  let h4;
-  let t1_value = ctx[22].name + "";
   let t1;
   let t2;
+  let div;
   let t3;
+  let a0;
   let t4;
+  let a1;
   let t5;
   let t6;
-  let div2;
-  let t7;
-  let a0;
-  let t8;
-  let a1;
-  let t9;
-  let t10;
+  let ol_class_value;
   let ol_name_value;
   let mounted;
   let dispose;
-  function click_handler(...args) {
-    return ctx[9](ctx[22], ...args);
+  function select_block_type_1(ctx2, dirty) {
+    if (ctx2[6].rollable)
+      return create_if_block_10;
+    return create_else_block_1;
   }
-  function click_handler_1(...args) {
-    return ctx[10](ctx[22], ...args);
-  }
-  let if_block0 = ctx[6].showRating && create_if_block_6(ctx);
-  let if_block1 = ctx[6].showAdvance && !ctx[1] && ctx[0] !== "wise" && create_if_block_5(ctx);
-  let if_block2 = ctx[0] === "wise" && !ctx[1] && create_if_block_4(ctx);
-  let if_block3 = ctx[0] === "trait" && !ctx[1] && create_if_block_2(ctx);
-  let if_block4 = ctx[0] === "skill" && create_if_block_1(ctx);
-  let if_block5 = ctx[2][ctx[22].id] && ctx[22].system.description && create_if_block3(ctx);
+  let current_block_type = select_block_type_1(ctx, [-1, -1]);
+  let if_block0 = current_block_type(ctx);
+  let if_block1 = ctx[6].showRating && create_if_block_9(ctx);
+  let if_block2 = !ctx[1] && create_if_block_2(ctx);
+  let if_block3 = ctx[0] === "skill" && create_if_block_1(ctx);
+  let if_block4 = ctx[2][ctx[26].id] && ctx[26].system.description && create_if_block3(ctx);
   return {
     c() {
       ol = element("ol");
       li = element("li");
-      div1 = element("div");
-      div0 = element("div");
+      if_block0.c();
       t0 = space();
-      h4 = element("h4");
-      t1 = text(t1_value);
-      t2 = space();
-      if (if_block0)
-        if_block0.c();
-      t3 = space();
       if (if_block1)
         if_block1.c();
-      t4 = space();
+      t1 = space();
       if (if_block2)
         if_block2.c();
-      t5 = space();
+      t2 = space();
+      div = element("div");
       if (if_block3)
         if_block3.c();
-      t6 = space();
-      div2 = element("div");
-      if (if_block4)
-        if_block4.c();
-      t7 = space();
+      t3 = space();
       a0 = element("a");
       a0.innerHTML = `<i class="fas fa-edit"></i>`;
-      t8 = space();
+      t4 = space();
       a1 = element("a");
       a1.innerHTML = `<i class="fas fa-trash"></i>`;
-      t9 = space();
-      if (if_block5)
-        if_block5.c();
-      t10 = space();
-      attr(div0, "class", "item-image svelte-fo1e54");
-      set_style(div0, "background-image", "url(" + ctx[22].img + ")");
-      attr(h4, "class", "svelte-fo1e54");
-      attr(div1, "class", "item-name flexrow rollable svelte-fo1e54");
-      attr(a0, "class", "item-control item-edit svelte-fo1e54");
-      attr(a1, "class", "item-control item-delete svelte-fo1e54");
-      attr(div2, "class", "item-controls flexrow svelte-fo1e54");
-      attr(li, "class", "item flexrow svelte-fo1e54");
-      attr(ol, "class", "item-list svelte-fo1e54");
-      attr(ol, "name", ol_name_value = ctx[22].id);
+      t5 = space();
+      if (if_block4)
+        if_block4.c();
+      t6 = space();
+      attr(a0, "class", "item-control item-edit");
+      attr(a1, "class", "item-control item-delete");
+      attr(div, "class", "item-controls flexrow");
+      attr(li, "class", "item flexrow");
+      attr(ol, "class", ol_class_value = "item-list " + ctx[0] + " svelte-1vk9y0l");
+      attr(ol, "name", ol_name_value = ctx[26].id);
     },
     m(target, anchor) {
       insert(target, ol, anchor);
       append(ol, li);
-      append(li, div1);
-      append(div1, div0);
-      append(div1, t0);
-      append(div1, h4);
-      append(h4, t1);
-      append(li, t2);
-      if (if_block0)
-        if_block0.m(li, null);
-      append(li, t3);
+      if_block0.m(li, null);
+      append(li, t0);
       if (if_block1)
         if_block1.m(li, null);
-      append(li, t4);
+      append(li, t1);
       if (if_block2)
         if_block2.m(li, null);
-      append(li, t5);
+      append(li, t2);
+      append(li, div);
       if (if_block3)
-        if_block3.m(li, null);
-      append(li, t6);
-      append(li, div2);
+        if_block3.m(div, null);
+      append(div, t3);
+      append(div, a0);
+      append(div, t4);
+      append(div, a1);
+      append(li, t5);
       if (if_block4)
-        if_block4.m(div2, null);
-      append(div2, t7);
-      append(div2, a0);
-      append(div2, t8);
-      append(div2, a1);
-      append(li, t9);
-      if (if_block5)
-        if_block5.m(li, null);
-      append(ol, t10);
+        if_block4.m(li, null);
+      append(ol, t6);
       if (!mounted) {
         dispose = [
-          listen(div0, "click", click_handler),
-          listen(h4, "click", click_handler_1),
           listen(a0, "click", function() {
-            if (is_function(ctx[5]?._onItemUpdate(ctx[22].id)))
-              ctx[5]?._onItemUpdate(ctx[22].id).apply(this, arguments);
+            if (is_function(ctx[5]?._onItemUpdate(ctx[26].id)))
+              ctx[5]?._onItemUpdate(ctx[26].id).apply(this, arguments);
           }),
           listen(a1, "click", function() {
-            if (is_function(ctx[5]?._onItemDelete(ctx[22].id)))
-              ctx[5]?._onItemDelete(ctx[22].id).apply(this, arguments);
+            if (is_function(ctx[5]?._onItemDelete(ctx[26].id)))
+              ctx[5]?._onItemDelete(ctx[26].id).apply(this, arguments);
           })
         ];
         mounted = true;
@@ -2390,82 +2794,56 @@ function create_each_block(ctx) {
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 8) {
-        set_style(div0, "background-image", "url(" + ctx[22].img + ")");
-      }
-      if (dirty & 8 && t1_value !== (t1_value = ctx[22].name + ""))
-        set_data(t1, t1_value);
+      if_block0.p(ctx, dirty);
       if (ctx[6].showRating)
-        if_block0.p(ctx, dirty);
-      if (ctx[6].showAdvance && !ctx[1] && ctx[0] !== "wise") {
-        if (if_block1) {
-          if_block1.p(ctx, dirty);
-        } else {
-          if_block1 = create_if_block_5(ctx);
-          if_block1.c();
-          if_block1.m(li, t4);
-        }
-      } else if (if_block1) {
-        if_block1.d(1);
-        if_block1 = null;
-      }
-      if (ctx[0] === "wise" && !ctx[1]) {
+        if_block1.p(ctx, dirty);
+      if (!ctx[1]) {
         if (if_block2) {
           if_block2.p(ctx, dirty);
         } else {
-          if_block2 = create_if_block_4(ctx);
+          if_block2 = create_if_block_2(ctx);
           if_block2.c();
-          if_block2.m(li, t5);
+          if_block2.m(li, t2);
         }
       } else if (if_block2) {
         if_block2.d(1);
         if_block2 = null;
       }
-      if (ctx[0] === "trait" && !ctx[1]) {
+      if (ctx[0] === "skill") {
         if (if_block3) {
           if_block3.p(ctx, dirty);
         } else {
-          if_block3 = create_if_block_2(ctx);
+          if_block3 = create_if_block_1(ctx);
           if_block3.c();
-          if_block3.m(li, t6);
+          if_block3.m(div, t3);
         }
       } else if (if_block3) {
         if_block3.d(1);
         if_block3 = null;
       }
-      if (ctx[0] === "skill") {
+      if (ctx[2][ctx[26].id] && ctx[26].system.description) {
         if (if_block4) {
           if_block4.p(ctx, dirty);
         } else {
-          if_block4 = create_if_block_1(ctx);
+          if_block4 = create_if_block3(ctx);
           if_block4.c();
-          if_block4.m(div2, t7);
+          if_block4.m(li, null);
         }
       } else if (if_block4) {
         if_block4.d(1);
         if_block4 = null;
       }
-      if (ctx[2][ctx[22].id] && ctx[22].system.description) {
-        if (if_block5) {
-          if_block5.p(ctx, dirty);
-        } else {
-          if_block5 = create_if_block3(ctx);
-          if_block5.c();
-          if_block5.m(li, null);
-        }
-      } else if (if_block5) {
-        if_block5.d(1);
-        if_block5 = null;
+      if (dirty[0] & 1 && ol_class_value !== (ol_class_value = "item-list " + ctx[0] + " svelte-1vk9y0l")) {
+        attr(ol, "class", ol_class_value);
       }
-      if (dirty & 8 && ol_name_value !== (ol_name_value = ctx[22].id)) {
+      if (dirty[0] & 8 && ol_name_value !== (ol_name_value = ctx[26].id)) {
         attr(ol, "name", ol_name_value);
       }
     },
     d(detaching) {
       if (detaching)
         detach(ol);
-      if (if_block0)
-        if_block0.d();
+      if_block0.d();
       if (if_block1)
         if_block1.d();
       if (if_block2)
@@ -2474,8 +2852,6 @@ function create_each_block(ctx) {
         if_block3.d();
       if (if_block4)
         if_block4.d();
-      if (if_block5)
-        if_block5.d();
       mounted = false;
       run_all(dispose);
     }
@@ -2485,29 +2861,23 @@ function create_fragment4(ctx) {
   let li;
   let h3;
   let t1;
-  let div0;
-  let t2_value = ctx[3].length + "";
   let t2;
   let t3;
-  let t4_value = ctx[6].limit + "";
   let t4;
-  let t5;
-  let t6;
-  let t7;
-  let t8;
-  let div1;
+  let div;
   let a;
   let i;
-  let t9;
-  let t10_value = game.i18n.localize("MOUSEGUARD.Add") + "";
-  let t10;
-  let t11;
+  let t5;
+  let t6_value = game.i18n.localize("MOUSEGUARD.Add") + "";
+  let t6;
+  let li_class_value;
+  let t7;
   let each_1_anchor;
   let mounted;
   let dispose;
-  let if_block0 = ctx[6].showRating && create_if_block_9(ctx);
-  let if_block1 = ctx[6].showAdvance && !ctx[1] && create_if_block_8(ctx);
-  let if_block2 = ctx[0] === "trait" && !ctx[1] && create_if_block_7(ctx);
+  let if_block0 = ctx[6].limit && create_if_block_15(ctx);
+  let if_block1 = ctx[6].showRating && create_if_block_14(ctx);
+  let if_block2 = !ctx[1] && create_if_block_11(ctx);
   let each_value = ctx[3];
   let each_blocks = [];
   for (let i2 = 0; i2 < each_value.length; i2 += 1) {
@@ -2519,61 +2889,50 @@ function create_fragment4(ctx) {
       h3 = element("h3");
       h3.textContent = `${ctx[6].header}`;
       t1 = space();
-      div0 = element("div");
-      t2 = text(t2_value);
-      t3 = text(" / ");
-      t4 = text(t4_value);
-      t5 = space();
       if (if_block0)
         if_block0.c();
-      t6 = space();
+      t2 = space();
       if (if_block1)
         if_block1.c();
-      t7 = space();
+      t3 = space();
       if (if_block2)
         if_block2.c();
-      t8 = space();
-      div1 = element("div");
+      t4 = space();
+      div = element("div");
       a = element("a");
       i = element("i");
-      t9 = space();
-      t10 = text(t10_value);
-      t11 = space();
+      t5 = space();
+      t6 = text(t6_value);
+      t7 = space();
       for (let i2 = 0; i2 < each_blocks.length; i2 += 1) {
         each_blocks[i2].c();
       }
       each_1_anchor = empty();
-      attr(h3, "class", "item-name flexrow svelte-fo1e54");
-      attr(div0, "class", "item-slots svelte-fo1e54");
+      attr(h3, "class", "item-name flexrow");
       attr(i, "class", "fas fa-plus");
-      attr(a, "class", "item-control item-create svelte-fo1e54");
-      attr(div1, "class", "item-controls flexrow svelte-fo1e54");
-      attr(li, "class", "items-header flexrow svelte-fo1e54");
+      attr(a, "class", "item-control item-create");
+      attr(div, "class", "item-controls flexrow");
+      attr(li, "class", li_class_value = "items-header " + ctx[0] + " flexrow svelte-1vk9y0l");
     },
     m(target, anchor) {
       insert(target, li, anchor);
       append(li, h3);
       append(li, t1);
-      append(li, div0);
-      append(div0, t2);
-      append(div0, t3);
-      append(div0, t4);
-      append(li, t5);
       if (if_block0)
         if_block0.m(li, null);
-      append(li, t6);
+      append(li, t2);
       if (if_block1)
         if_block1.m(li, null);
-      append(li, t7);
+      append(li, t3);
       if (if_block2)
         if_block2.m(li, null);
-      append(li, t8);
-      append(li, div1);
-      append(div1, a);
+      append(li, t4);
+      append(li, div);
+      append(div, a);
       append(a, i);
-      append(a, t9);
-      append(a, t10);
-      insert(target, t11, anchor);
+      append(a, t5);
+      append(a, t6);
+      insert(target, t7, anchor);
       for (let i2 = 0; i2 < each_blocks.length; i2 += 1) {
         each_blocks[i2].m(target, anchor);
       }
@@ -2583,36 +2942,27 @@ function create_fragment4(ctx) {
         mounted = true;
       }
     },
-    p(ctx2, [dirty]) {
-      if (dirty & 8 && t2_value !== (t2_value = ctx2[3].length + ""))
-        set_data(t2, t2_value);
-      if (ctx2[6].showRating)
+    p(ctx2, dirty) {
+      if (ctx2[6].limit)
         if_block0.p(ctx2, dirty);
-      if (ctx2[6].showAdvance && !ctx2[1]) {
-        if (if_block1) {
-          if_block1.p(ctx2, dirty);
-        } else {
-          if_block1 = create_if_block_8(ctx2);
-          if_block1.c();
-          if_block1.m(li, t7);
-        }
-      } else if (if_block1) {
-        if_block1.d(1);
-        if_block1 = null;
-      }
-      if (ctx2[0] === "trait" && !ctx2[1]) {
+      if (ctx2[6].showRating)
+        if_block1.p(ctx2, dirty);
+      if (!ctx2[1]) {
         if (if_block2) {
           if_block2.p(ctx2, dirty);
         } else {
-          if_block2 = create_if_block_7(ctx2);
+          if_block2 = create_if_block_11(ctx2);
           if_block2.c();
-          if_block2.m(li, t8);
+          if_block2.m(li, t4);
         }
       } else if (if_block2) {
         if_block2.d(1);
         if_block2 = null;
       }
-      if (dirty & 239) {
+      if (dirty[0] & 1 && li_class_value !== (li_class_value = "items-header " + ctx2[0] + " flexrow svelte-1vk9y0l")) {
+        attr(li, "class", li_class_value);
+      }
+      if (dirty[0] & 239) {
         each_value = ctx2[3];
         let i2;
         for (i2 = 0; i2 < each_value.length; i2 += 1) {
@@ -2643,7 +2993,7 @@ function create_fragment4(ctx) {
       if (if_block2)
         if_block2.d();
       if (detaching)
-        detach(t11);
+        detach(t7);
       destroy_each(each_blocks, detaching);
       if (detaching)
         detach(each_1_anchor);
@@ -2662,18 +3012,17 @@ function instance4($$self, $$props, $$invalidate) {
   component_subscribe($$self, sheetData, (value) => $$invalidate(8, $sheetData = value));
   let { sheet } = $sheetData;
   let data;
+  let addItem = () => () => {
+    let cls = getDocumentClass("Item");
+    return cls.create({
+      name: game.i18n.localize("MOUSEGUARD.ItemNew"),
+      type: itemType
+    }, { parent: sheet.actor });
+  };
   let itemTypeConfigs = {
     wise: {
       header: game.i18n.localize("MOUSEGUARD.Wises"),
-      add: () => () => {
-        let cls = getDocumentClass("Item");
-        return cls.create({
-          name: game.i18n.localize("MOUSEGUARD.ItemNew"),
-          type: "wise"
-        }, { parent: sheet.actor });
-      },
-      showRating: false,
-      showAdvance: true,
+      add: addItem,
       limit: 4
     },
     skill: {
@@ -2681,8 +3030,8 @@ function instance4($$self, $$props, $$invalidate) {
       add: () => () => game.packs.get("mouseguard.skills").render(true),
       showRating: true,
       ratingPropertyName: game.i18n.localize("MOUSEGUARD.Rank"),
-      showAdvance: true,
       ratingProperty: "rank",
+      rollable: true,
       maxRating: 6,
       limit: 24
     },
@@ -2694,21 +3043,38 @@ function instance4($$self, $$props, $$invalidate) {
       ratingProperty: "level",
       maxRating: 3,
       limit: 5
+    },
+    item: {
+      header: game.i18n.localize("MOUSEGUARD.Items"),
+      add: addItem
+    },
+    contact: {
+      header: game.i18n.localize("MOUSEGUARD.Contacts"),
+      add: addItem
     }
   };
   let itemTypeConfig = itemTypeConfigs[itemType];
   const advancementStep = (advancement, position) => advancement > position ? -1 : 1;
   const click_handler = (item2, e) => setMouseDice(sheet, item2.system[itemTypeConfig.ratingProperty], game.i18n.localize(item2.name));
   const click_handler_1 = (item2, e) => $$invalidate(2, displayDescription[item2.id] = !displayDescription[item2.id], displayDescription);
+  const click_handler_2 = (item2, e) => $$invalidate(2, displayDescription[item2.id] = !displayDescription[item2.id], displayDescription);
   const change_handler = (e) => updateRating(sheet, e.target.name, itemTypeConfig.ratingProperty, parseInt(e.target.value));
-  const click_handler_2 = (item2, i, e) => updateRating(sheet, item2.id, "pass", parseInt(item2.system.pass) + advancementStep(item2.system.pass, i));
-  const click_handler_3 = (item2, i, e) => updateRating(sheet, item2.id, "fail", parseInt(item2.system.fail) + advancementStep(item2.system.fail, i));
-  const click_handler_4 = (item2, e) => updateRating(sheet, item2.id, "pass", parseInt(item2.system.pass) + advancementStep(item2.system.pass, 1));
-  const click_handler_5 = (item2, e) => updateRating(sheet, item2.id, "fail", parseInt(item2.system.fail) + advancementStep(item2.system.fail, 1));
-  const click_handler_6 = (item2, e) => updateRating(sheet, item2.id, "fate", parseInt(item2.system.fate) + advancementStep(item2.system.fate, 1));
-  const click_handler_7 = (item2, e) => updateRating(sheet, item2.id, "persona", parseInt(item2.system.persona) + advancementStep(item2.system.persona, 1));
-  const click_handler_8 = (item2, i, e) => updateRating(sheet, item2.id, "usedfor", parseInt(item2.system.usedfor) + advancementStep(item2.system.usedfor, i));
-  const click_handler_9 = (item2, i, e) => updateRating(sheet, item2.id, "usedagainst", parseInt(item2.system.usedagainst) + advancementStep(item2.system.usedagainst, i));
+  const click_handler_3 = (item2, i, e) => updateRating(sheet, item2.id, "pass", parseInt(item2.system.pass) + advancementStep(item2.system.pass, i));
+  const click_handler_4 = (item2, i, e) => updateRating(sheet, item2.id, "fail", parseInt(item2.system.fail) + advancementStep(item2.system.fail, i));
+  function select_change_handler(each_value, item_index) {
+    each_value[item_index].itemType = select_value(this);
+    $$invalidate(3, items), $$invalidate(8, $sheetData), $$invalidate(0, itemType);
+  }
+  function select_change_handler_1(each_value, item_index) {
+    each_value[item_index].itemType = select_value(this);
+    $$invalidate(3, items), $$invalidate(8, $sheetData), $$invalidate(0, itemType);
+  }
+  const click_handler_5 = (item2, e) => updateRating(sheet, item2.id, "pass", parseInt(item2.system.pass) + advancementStep(item2.system.pass, 1));
+  const click_handler_6 = (item2, e) => updateRating(sheet, item2.id, "fail", parseInt(item2.system.fail) + advancementStep(item2.system.fail, 1));
+  const click_handler_7 = (item2, e) => updateRating(sheet, item2.id, "fate", parseInt(item2.system.fate) + advancementStep(item2.system.fate, 1));
+  const click_handler_8 = (item2, e) => updateRating(sheet, item2.id, "persona", parseInt(item2.system.persona) + advancementStep(item2.system.persona, 1));
+  const click_handler_9 = (item2, i, e) => updateRating(sheet, item2.id, "usedfor", parseInt(item2.system.usedfor) + advancementStep(item2.system.usedfor, i));
+  const click_handler_10 = (item2, i, e) => updateRating(sheet, item2.id, "usedagainst", parseInt(item2.system.usedagainst) + advancementStep(item2.system.usedagainst, i));
   $$self.$$set = ($$props2) => {
     if ("itemType" in $$props2)
       $$invalidate(0, itemType = $$props2.itemType);
@@ -2716,11 +3082,11 @@ function instance4($$self, $$props, $$invalidate) {
       $$invalidate(1, isNpc = $$props2.isNpc);
   };
   $$self.$$.update = () => {
-    if ($$self.$$.dirty & 256) {
+    if ($$self.$$.dirty[0] & 256) {
       $:
         data = $sheetData.data;
     }
-    if ($$self.$$.dirty & 257) {
+    if ($$self.$$.dirty[0] & 257) {
       $:
         $$invalidate(3, items = $sheetData.data.system.itemTypes[itemType]);
     }
@@ -2739,21 +3105,24 @@ function instance4($$self, $$props, $$invalidate) {
     $sheetData,
     click_handler,
     click_handler_1,
-    change_handler,
     click_handler_2,
+    change_handler,
     click_handler_3,
     click_handler_4,
+    select_change_handler,
+    select_change_handler_1,
     click_handler_5,
     click_handler_6,
     click_handler_7,
     click_handler_8,
-    click_handler_9
+    click_handler_9,
+    click_handler_10
   ];
 }
 var MouseGuardActorSheetItemList = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance4, create_fragment4, safe_not_equal, { itemType: 0, isNpc: 1 });
+    init(this, options, instance4, create_fragment4, safe_not_equal, { itemType: 0, isNpc: 1 }, null, [-1, -1]);
   }
 };
 var MouseGuardActorSheetItemList_default = MouseGuardActorSheetItemList;
@@ -2776,7 +3145,7 @@ function get_each_context_22(ctx, list, i) {
   child_ctx[17] = i;
   return child_ctx;
 }
-function create_if_block_12(ctx) {
+function create_if_block_16(ctx) {
   let div;
   let t1;
   let input;
@@ -2792,14 +3161,14 @@ function create_if_block_12(ctx) {
       div.textContent = "/";
       t1 = space();
       input = element("input");
-      attr(div, "class", "divider svelte-1lgnveu");
+      attr(div, "class", "divider");
       attr(input, "name", input_name_value = ctx[12].id);
       attr(input, "type", "number");
       attr(input, "min", "0");
       attr(input, "max", input_max_value = ctx[12].system.rating);
+      attr(input, "class", "right svelte-10zqj2h");
       input.value = input_value_value = ctx[12].system.tax;
       attr(input, "data-tooltip", input_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Tax"));
-      attr(input, "class", "svelte-1lgnveu");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -2881,10 +3250,10 @@ function create_if_block4(ctx) {
         each_blocks[i].c();
       }
       attr(span0, "data-tooltip", span0_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Passes"));
-      attr(pass, "class", "svelte-1lgnveu");
+      attr(pass, "class", "svelte-10zqj2h");
       attr(span1, "data-tooltip", span1_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Fails"));
-      attr(fail, "class", "svelte-1lgnveu");
-      attr(div, "class", "item-detail item-advancement svelte-1lgnveu");
+      attr(fail, "class", "svelte-10zqj2h");
+      attr(div, "class", "item-detail item-advancement svelte-10zqj2h");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -3039,6 +3408,7 @@ function create_each_block2(ctx) {
   let div1;
   let input;
   let input_name_value;
+  let input_class_value;
   let input_value_value;
   let input_data_tooltip_value;
   let t2;
@@ -3050,7 +3420,7 @@ function create_each_block2(ctx) {
   function click_handler(...args) {
     return ctx[6](ctx[12], ...args);
   }
-  let if_block0 = ctx[12].name === "MOUSEGUARD.MNature" && create_if_block_12(ctx);
+  let if_block0 = ctx[12].name === "MOUSEGUARD.MNature" && create_if_block_16(ctx);
   let if_block1 = !ctx[0] && create_if_block4(ctx);
   return {
     c() {
@@ -3069,18 +3439,18 @@ function create_each_block2(ctx) {
       if (if_block1)
         if_block1.c();
       t4 = space();
-      attr(h4, "class", "box-title svelte-1lgnveu");
-      attr(div0, "class", "item-name rollable svelte-1lgnveu");
+      attr(h4, "class", "box-title svelte-10zqj2h");
+      attr(div0, "class", "item-name rollable svelte-10zqj2h");
       attr(input, "name", input_name_value = ctx[12].id);
       attr(input, "type", "number");
       attr(input, "min", "1");
       attr(input, "max", "7");
+      attr(input, "class", input_class_value = "rating " + (ctx[12].name === "MOUSEGUARD.MNature" ? "left" : "") + " svelte-10zqj2h");
       input.value = input_value_value = ctx[12].system.rating;
       attr(input, "data-tooltip", input_data_tooltip_value = game.i18n.localize("MOUSEGUARD.Rating"));
-      attr(input, "class", "svelte-1lgnveu");
-      attr(div1, "class", "item-detail item-rank flexrow svelte-1lgnveu");
-      attr(li, "class", "item flexrow svelte-1lgnveu");
-      attr(ol, "class", "item-list svelte-1lgnveu");
+      attr(div1, "class", "item-detail item-rank input-group flexrow svelte-10zqj2h");
+      attr(li, "class", "item flexrow svelte-10zqj2h");
+      attr(ol, "class", "item-list");
       attr(ol, "name", ol_name_value = ctx[12].id);
     },
     m(target, anchor) {
@@ -3114,6 +3484,9 @@ function create_each_block2(ctx) {
       if (dirty & 2 && input_name_value !== (input_name_value = ctx[12].id)) {
         attr(input, "name", input_name_value);
       }
+      if (dirty & 2 && input_class_value !== (input_class_value = "rating " + (ctx[12].name === "MOUSEGUARD.MNature" ? "left" : "") + " svelte-10zqj2h")) {
+        attr(input, "class", input_class_value);
+      }
       if (dirty & 2 && input_value_value !== (input_value_value = ctx[12].system.rating) && input.value !== input_value_value) {
         input.value = input_value_value;
       }
@@ -3121,7 +3494,7 @@ function create_each_block2(ctx) {
         if (if_block0) {
           if_block0.p(ctx, dirty);
         } else {
-          if_block0 = create_if_block_12(ctx);
+          if_block0 = create_if_block_16(ctx);
           if_block0.c();
           if_block0.m(div1, null);
         }
@@ -3177,8 +3550,8 @@ function create_fragment5(ctx) {
         each_blocks[i].c();
       }
       each_1_anchor = empty();
-      attr(h3, "class", "item-name flexrow svelte-1lgnveu");
-      attr(li, "class", "items-header flexrow svelte-1lgnveu");
+      attr(h3, "class", "item-name flexrow svelte-10zqj2h");
+      attr(li, "class", "items-header flexrow");
     },
     m(target, anchor) {
       insert(target, li, anchor);
@@ -3318,10 +3691,10 @@ function create_fragment6(ctx) {
       create_component(mouseguardactorsheetitemlist1.$$.fragment);
       t2 = space();
       create_component(mouseguardactorsheetitemlist2.$$.fragment);
-      attr(ol0, "class", "items-list svelte-1s356y1");
-      attr(div0, "class", "abilities svelte-1s356y1");
-      attr(ol1, "class", "items-list svelte-1s356y1");
-      attr(div1, "class", "items svelte-1s356y1");
+      attr(ol0, "class", "items-list");
+      attr(div0, "class", "abilities svelte-apzgwe");
+      attr(ol1, "class", "items-list");
+      attr(div1, "class", "items");
     },
     m(target, anchor) {
       insert(target, div0, anchor);
@@ -3383,8 +3756,94 @@ var MouseGuardActorSheetMouseSkillAbilityTab = class extends SvelteComponent {
 };
 var MouseGuardActorSheetMouseSkillAbilityTab_default = MouseGuardActorSheetMouseSkillAbilityTab;
 
-// module/svelte/MouseGuardActorSheetDisposition.svelte
+// module/svelte/MouseGuardActorSheetMouseResourcesTab.svelte
 function create_fragment7(ctx) {
+  let div0;
+  let ol0;
+  let mouseguardactorsheetitemlist0;
+  let t;
+  let div1;
+  let ol1;
+  let mouseguardactorsheetitemlist1;
+  let current;
+  mouseguardactorsheetitemlist0 = new MouseGuardActorSheetItemList_default({
+    props: {
+      itemType: "item",
+      isNpc: ctx[1]
+    }
+  });
+  mouseguardactorsheetitemlist1 = new MouseGuardActorSheetItemList_default({
+    props: {
+      itemType: "contact",
+      isNpc: ctx[1]
+    }
+  });
+  return {
+    c() {
+      div0 = element("div");
+      ol0 = element("ol");
+      create_component(mouseguardactorsheetitemlist0.$$.fragment);
+      t = space();
+      div1 = element("div");
+      ol1 = element("ol");
+      create_component(mouseguardactorsheetitemlist1.$$.fragment);
+      attr(ol0, "class", "items-list");
+      attr(div0, "class", "items");
+      attr(ol1, "class", "items-list");
+      attr(div1, "class", "contacts");
+    },
+    m(target, anchor) {
+      insert(target, div0, anchor);
+      append(div0, ol0);
+      mount_component(mouseguardactorsheetitemlist0, ol0, null);
+      insert(target, t, anchor);
+      insert(target, div1, anchor);
+      append(div1, ol1);
+      mount_component(mouseguardactorsheetitemlist1, ol1, null);
+      current = true;
+    },
+    p: noop,
+    i(local) {
+      if (current)
+        return;
+      transition_in(mouseguardactorsheetitemlist0.$$.fragment, local);
+      transition_in(mouseguardactorsheetitemlist1.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(mouseguardactorsheetitemlist0.$$.fragment, local);
+      transition_out(mouseguardactorsheetitemlist1.$$.fragment, local);
+      current = false;
+    },
+    d(detaching) {
+      if (detaching)
+        detach(div0);
+      destroy_component(mouseguardactorsheetitemlist0);
+      if (detaching)
+        detach(t);
+      if (detaching)
+        detach(div1);
+      destroy_component(mouseguardactorsheetitemlist1);
+    }
+  };
+}
+function instance7($$self, $$props, $$invalidate) {
+  let $sheetData;
+  let sheetData = getContext("sheetStore");
+  component_subscribe($$self, sheetData, (value) => $$invalidate(2, $sheetData = value));
+  let isNpc = $sheetData.actor.type !== "character";
+  return [sheetData, isNpc];
+}
+var MouseGuardActorSheetMouseResourcesTab = class extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance7, create_fragment7, safe_not_equal, {});
+  }
+};
+var MouseGuardActorSheetMouseResourcesTab_default = MouseGuardActorSheetMouseResourcesTab;
+
+// module/svelte/MouseGuardActorSheetDisposition.svelte
+function create_fragment8(ctx) {
   let div2;
   let label;
   let t1;
@@ -3411,22 +3870,22 @@ function create_fragment7(ctx) {
       div0.textContent = "/";
       t4 = space();
       input1 = element("input");
-      attr(label, "class", "header svelte-5lwv33");
+      attr(label, "class", "header svelte-14ct40f");
       attr(input0, "name", "system.disposition.starting");
       attr(input0, "type", "number");
       attr(input0, "min", "0");
+      attr(input0, "class", "left svelte-14ct40f");
       input0.value = input0_value_value = ctx[0].system.disposition.starting;
       attr(input0, "data-tooltip", input0_data_tooltip_value = game.i18n.localize("MOUSEGUARD.StartingDisposition"));
-      attr(input0, "class", "svelte-5lwv33");
-      attr(div0, "class", "divider svelte-5lwv33");
+      attr(div0, "class", "divider");
       attr(input1, "name", "system.disposition.current");
       attr(input1, "type", "number");
       attr(input1, "min", "0");
+      attr(input1, "class", "right svelte-14ct40f");
       input1.value = input1_value_value = ctx[0].system.disposition.current;
       attr(input1, "data-tooltip", input1_data_tooltip_value = game.i18n.localize("MOUSEGUARD.CurrentDisposition"));
-      attr(input1, "class", "svelte-5lwv33");
-      attr(div1, "class", "disposition flexrow");
-      attr(div2, "class", "disposition-container form-group flexcol svelte-5lwv33");
+      attr(div1, "class", "disposition input-group flexrow");
+      attr(div2, "class", "disposition-container form-group flexcol svelte-14ct40f");
     },
     m(target, anchor) {
       insert(target, div2, anchor);
@@ -3455,7 +3914,7 @@ function create_fragment7(ctx) {
     }
   };
 }
-function instance7($$self, $$props, $$invalidate) {
+function instance8($$self, $$props, $$invalidate) {
   let $sheetData;
   let sheetData = getContext("sheetStore");
   component_subscribe($$self, sheetData, (value) => $$invalidate(2, $sheetData = value));
@@ -3471,13 +3930,13 @@ function instance7($$self, $$props, $$invalidate) {
 var MouseGuardActorSheetDisposition = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance7, create_fragment7, safe_not_equal, {});
+    init(this, options, instance8, create_fragment8, safe_not_equal, {});
   }
 };
 var MouseGuardActorSheetDisposition_default = MouseGuardActorSheetDisposition;
 
 // module/svelte/MouseGuardActorSheetPortrait.svelte
-function create_fragment8(ctx) {
+function create_fragment9(ctx) {
   let img;
   let img_src_value;
   let img_title_value;
@@ -3486,7 +3945,7 @@ function create_fragment8(ctx) {
   return {
     c() {
       img = element("img");
-      attr(img, "class", "profile-img svelte-140opxm");
+      attr(img, "class", "profile-img svelte-61ive2");
       attr(img, "data-edit", "img");
       if (!src_url_equal(img.src, img_src_value = ctx[0].img))
         attr(img, "src", img_src_value);
@@ -3517,7 +3976,7 @@ function create_fragment8(ctx) {
     }
   };
 }
-function instance8($$self, $$props, $$invalidate) {
+function instance9($$self, $$props, $$invalidate) {
   let $sheetData;
   let { limited } = $$props;
   let sheetData = getContext("sheetStore");
@@ -3556,13 +4015,13 @@ function instance8($$self, $$props, $$invalidate) {
 var MouseGuardActorSheetPortrait = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance8, create_fragment8, safe_not_equal, { limited: 3 });
+    init(this, options, instance9, create_fragment9, safe_not_equal, { limited: 3 });
   }
 };
 var MouseGuardActorSheetPortrait_default = MouseGuardActorSheetPortrait;
 
 // module/svelte/MouseGuardActorSheetName.svelte
-function create_fragment9(ctx) {
+function create_fragment10(ctx) {
   let div;
   let input;
   let input_value_value;
@@ -3599,7 +4058,7 @@ function create_fragment9(ctx) {
     }
   };
 }
-function instance9($$self, $$props, $$invalidate) {
+function instance10($$self, $$props, $$invalidate) {
   let $sheetData;
   let { limited } = $$props;
   let sheetData = getContext("sheetStore");
@@ -3620,7 +4079,7 @@ function instance9($$self, $$props, $$invalidate) {
 var MouseGuardActorSheetName = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance9, create_fragment9, safe_not_equal, { limited: 0 });
+    init(this, options, instance10, create_fragment10, safe_not_equal, { limited: 0 });
   }
 };
 var MouseGuardActorSheetName_default = MouseGuardActorSheetName;
@@ -3733,7 +4192,7 @@ function create_if_block5(ctx) {
     }
   };
 }
-function create_fragment10(ctx) {
+function create_fragment11(ctx) {
   let header;
   let section0;
   let div;
@@ -3894,13 +4353,17 @@ function create_fragment10(ctx) {
     }
   };
 }
-function instance10($$self, $$props, $$invalidate) {
+function instance11($$self, $$props, $$invalidate) {
   let { dataStore } = $$props;
   setContext("sheetStore", dataStore);
   let items = [
     {
       label: game.i18n.localize("MOUSEGUARD.Characteristics"),
       component: MouseGuardActorSheetMouseSkillAbilityTab_default
+    },
+    {
+      label: game.i18n.localize("MOUSEGUARD.Resources"),
+      component: MouseGuardActorSheetMouseResourcesTab_default
     },
     {
       label: game.i18n.localize("MOUSEGUARD.About"),
@@ -3920,7 +4383,7 @@ function instance10($$self, $$props, $$invalidate) {
 var MouseGuardActorSheetBase = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance10, create_fragment10, safe_not_equal, { dataStore: 3, activeTabValue: 0 });
+    init(this, options, instance11, create_fragment11, safe_not_equal, { dataStore: 3, activeTabValue: 0 });
   }
 };
 var MouseGuardActorSheetBase_default = MouseGuardActorSheetBase;
@@ -4064,7 +4527,7 @@ var MouseGuardActorSheet = class extends ActorSheet {
 };
 
 // module/svelte/MouseGuardNPCActorSheetBase.svelte
-function create_fragment11(ctx) {
+function create_fragment12(ctx) {
   let header;
   let section0;
   let div0;
@@ -4198,7 +4661,7 @@ function create_fragment11(ctx) {
     }
   };
 }
-function instance11($$self, $$props, $$invalidate) {
+function instance12($$self, $$props, $$invalidate) {
   let $dataStore, $$unsubscribe_dataStore = noop, $$subscribe_dataStore = () => ($$unsubscribe_dataStore(), $$unsubscribe_dataStore = subscribe(dataStore, ($$value) => $$invalidate(1, $dataStore = $$value)), dataStore);
   $$self.$$.on_destroy.push(() => $$unsubscribe_dataStore());
   let { dataStore } = $$props;
@@ -4213,7 +4676,7 @@ function instance11($$self, $$props, $$invalidate) {
 var MouseGuardNPCActorSheetBase = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance11, create_fragment11, safe_not_equal, { dataStore: 0 });
+    init(this, options, instance12, create_fragment12, safe_not_equal, { dataStore: 0 });
   }
 };
 var MouseGuardNPCActorSheetBase_default = MouseGuardNPCActorSheetBase;

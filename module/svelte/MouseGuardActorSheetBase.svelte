@@ -5,6 +5,7 @@
     import MouseGuardActorSheetMouseDetails from "./MouseGuardActorSheetMouseDetails.svelte";
     import MouseGuardActorSheetMouseRewards from "./MouseGuardActorSheetMouseRewards.svelte";
     import MouseGuardActorSheetMouseSkillAbilityTab from "./MouseGuardActorSheetMouseSkillAbilityTab.svelte";
+    import MouseGuardActorSheetMouseResourcesTab from "./MouseGuardActorSheetMouseResourcesTab.svelte";
     import MouseGuardActorSheetDisposition from "./MouseGuardActorSheetDisposition.svelte";
     import MouseGuardActorSheetPortrait from "./MouseGuardActorSheetPortrait.svelte";
     import MouseGuardActorSheetName from "./MouseGuardActorSheetName.svelte";
@@ -17,6 +18,10 @@
         {
             label: game.i18n.localize("MOUSEGUARD.Characteristics"),
             component: MouseGuardActorSheetMouseSkillAbilityTab
+        },
+        {
+            label: game.i18n.localize("MOUSEGUARD.Resources"),
+            component: MouseGuardActorSheetMouseResourcesTab
         },
         {
             label: game.i18n.localize("MOUSEGUARD.About"),

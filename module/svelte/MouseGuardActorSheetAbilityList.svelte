@@ -25,15 +25,15 @@
                     {game.i18n.localize(item.name)}
                 </h4>
             </div>
-                <div class="item-detail item-rank flexrow">
-                    <input name={item.id} type="number" min="1" max="7"
+                <div class="item-detail item-rank input-group flexrow">
+                    <input name={item.id} type="number" min="1" max="7" class="rating {item.name === 'MOUSEGUARD.MNature' ? 'left' : ''}"
                            value={item.system.rating}
                            data-tooltip="{game.i18n.localize('MOUSEGUARD.Rating')}"
                            on:change={(e) => updateRating(sheet, e.target.name, "rating", parseInt(e.target.value))}>
                     {#if item.name === "MOUSEGUARD.MNature"}
                         <!-- Handling Nature -->
                         <div class="divider">/</div>
-                        <input name={item.id} type="number" min="0" max="{item.system.rating}"
+                        <input name={item.id} type="number" min="0" max="{item.system.rating}" class="right"
                                value={item.system.tax}
                                data-tooltip="{game.i18n.localize('MOUSEGUARD.Tax')}"
                                on:change={(e) => updateRating(sheet, e.target.name, "tax", parseInt(e.target.value))}/>
@@ -66,40 +66,7 @@
     </ol>
 {/each}
 <style>
-    .items-header > * {
-        font-size: 12px;
-        text-align: center;
-    }
-
-    .items-header {
-        font-family: var(--font-sans-condensed);
-        height: 28px;
-        margin: 2px 0;
-        padding: 0;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.05);
-        border: 2px groove #eeede0;
-        font-weight: bold;
-    }
-
-    .items-header h3 {
-        padding-left: 5px;
-        font-weight: 700;
-        text-align: left;
-        font-size: 16px;
-        border: none;
-        margin-bottom: 0;
-    }
-
-    .item-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: auto;
-    }
-
-    .item {
+    item-list .item {
         align-items: center;
         padding: 0 2px;
         border-top: 1px solid #c9c7b8;
@@ -107,15 +74,7 @@
         justify-content: center;
     }
 
-    .rollable:hover {
-        text-shadow: 0 0 10px var(--color-shadow-primary);
-    }
-
     .item-name {
-        flex: 2;
-        margin: 0;
-        overflow: hidden;
-        font-size: 13px;
         text-align: center;
         align-items: center;
     }
@@ -125,68 +84,28 @@
         font-size: 16px;
         line-height: 16px;
         padding: 0.25em 0.5em;
-        border-top: 1px solid #c9c7b8;
     }
 
-    .item-name h4 {
-        margin-bottom: 0;
+    .item .item-detail {
+        border-left: 0;
+    }
+
+    .item-rank input {
+        text-align: center;
+        height: 35px;
+        font-size: large;
     }
 
     .box-title {
         font-family: var(--font-fancy);
         font-size: var(--text-sm);
         font-weight: 700;
-        color: #4b4a44;
-        border-bottom: 1px solid #c9c7b8;
-    }
-
-    .item-detail {
-        font-family: var(--font-sans-condensed);
-        flex: 0 0 70px;
-        font-size: 12px;
-        text-align: center;
-        word-break: break-word;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-
-    .item-rank {
-        flex: 0 0 60px;
-        border-left: 1px solid #c9c7b8;
-        border-right: 1px solid #c9c7b8;
-    }
-
-    .item-rank input {
-        border: none;
-        text-align: center;
-        background-color: white;
-        height: 35px;
-        font-size: large;
-    }
-
-    .item-rank input:hover {
-        box-shadow: none;
-    }
-
-    .item-rank .divider {
-        text-align: center;
-        background-color: white;
-        height: 35px;
-        font-size: large;
-        line-height: 35px;
+        color: var(--color-text-dark-secondary);
+        border-bottom: 1px solid var(--color-border-light-secondary);
     }
 
     .item-advancement {
         flex: 0 0 112px;
-    }
-
-    .item .item-advancement {
-        text-align: left;
-    }
-
-    .item-controls a {
-        font-size: 12px;
-        text-align: center;
     }
 
     fail, pass {
